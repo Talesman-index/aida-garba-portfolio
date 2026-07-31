@@ -27,50 +27,52 @@ function initNavbar() {
   }
 }
 
-/* 2. Framer Motion Scroll Reveal Observer */
+/* 2. Framer Motion Style Scroll Reveal Observer */
 function initScrollAnimations() {
   const revealElements = document.querySelectorAll(`
-    .section-title-wrap,
+    .gitos-hero-stage-card,
     .gitos-services-title,
     .gitos-service-card,
+    .about-gitos-card,
+    .projects-dark-title,
+    .gitos-project-row,
     .process-left-content,
     .process-right-container,
     .process-step-item,
-    .exp-title-bubble-wrap,
-    .exp-table-card,
+    .gitos-exp-header-wrap,
+    .gitos-exp-clean-card,
+    .section-title-wrap,
     .protfolis-card,
     .footer-top-cta,
-    .footer-columns-grid,
-    .hero-main-title,
-    .hero-mission-paragraph,
-    .hero-bottom-bar,
-    .arch-frame-container
+    .footer-columns-grid
   `);
 
   revealElements.forEach((el, index) => {
     el.classList.add('reveal-on-scroll');
 
-    // Add staggered delay for grid items
+    // Add staggered delay for grid & list items
     if (el.classList.contains('gitos-service-card') || el.classList.contains('protfolis-card')) {
       const stagger = (index % 3) * 0.12;
       el.style.transitionDelay = `${stagger}s`;
-    } else if (el.classList.contains('process-step-item')) {
-      const stepNum = index % 4;
-      el.style.transitionDelay = `${stepNum * 0.1}s`;
+    } else if (el.classList.contains('gitos-project-row')) {
+      const rowStagger = (index % 6) * 0.08;
+      el.style.transitionDelay = `${rowStagger}s`;
+    } else if (el.classList.contains('process-step-item') || el.classList.contains('gitos-exp-clean-card')) {
+      const stepNum = (index % 4) * 0.1;
+      el.style.transitionDelay = `${stepNum}s`;
     }
   });
 
   const observerOptions = {
     root: null,
-    rootMargin: '0px 0px -80px 0px',
-    threshold: 0.12
+    rootMargin: '0px 0px -60px 0px',
+    threshold: 0.1
   };
 
   const scrollObserver = new IntersectionObserver((entries) => {
     entries.forEach((entry) => {
       if (entry.isIntersecting) {
         entry.target.classList.add('is-visible');
-        // Unobserve after entrance if desired, or keep for continuous scroll
       }
     });
   }, observerOptions);
@@ -103,15 +105,18 @@ function initScrollSpy() {
   sections.forEach((section) => spyObserver.observe(section));
 }
 
-/* 4. Magnetic Micro-Interaction on Buttons */
+/* 4. Magnetic Micro-Interaction on Buttons & Cards */
 function initMagneticButtons() {
   const magneticButtons = document.querySelectorAll(`
     .btn-hire-me,
     .btn-black-pill,
     .btn-footer-cta,
     .btn-learn-more,
+    .btn-gitos-primary,
+    .btn-gitos-secondary,
     .social-circle-btn,
-    .filter-btn
+    .filter-btn,
+    .gitos-dark-filter-btn
   `);
 
   magneticButtons.forEach((btn) => {
@@ -120,7 +125,7 @@ function initMagneticButtons() {
       const x = e.clientX - (rect.left + rect.width / 2);
       const y = e.clientY - (rect.top + rect.height / 2);
 
-      btn.style.transform = `translate(${x * 0.25}px, ${y * 0.25}px) scale(1.04)`;
+      btn.style.transform = `translate(${x * 0.2}px, ${y * 0.2}px) scale(1.03)`;
     });
 
     btn.addEventListener('mouseleave', () => {
@@ -129,26 +134,26 @@ function initMagneticButtons() {
   });
 }
 
-/* 5. 3D Parallax Hero Portrait Tilt */
+/* 5. 3D Parallax Tilt for Hero Portrait Stage */
 function init3DHeroTilt() {
-  const heroLeft = document.querySelector('.hero-left-half');
-  const archFrame = document.querySelector('.hero-left-half .arch-frame-container');
+  const stage = document.querySelector('.gitos-hero-portrait-stage');
+  const container = document.querySelector('.gitos-hero-portrait-container');
 
-  if (!heroLeft || !archFrame || window.innerWidth < 992) return;
+  if (!stage || !container || window.innerWidth < 992) return;
 
-  heroLeft.addEventListener('mousemove', (e) => {
-    const rect = heroLeft.getBoundingClientRect();
+  stage.addEventListener('mousemove', (e) => {
+    const rect = stage.getBoundingClientRect();
     const x = e.clientX - (rect.left + rect.width / 2);
     const y = e.clientY - (rect.top + rect.height / 2);
 
     const tiltX = (y / rect.height) * -12;
     const tiltY = (x / rect.width) * 12;
 
-    archFrame.style.transform = `perspective(1000px) rotateX(${tiltX}deg) rotateY(${tiltY}deg) scale(1.02)`;
+    container.style.transform = `perspective(1000px) rotateX(${tiltX}deg) rotateY(${tiltY}deg) scale(1.03)`;
   });
 
-  heroLeft.addEventListener('mouseleave', () => {
-    archFrame.style.transform = `perspective(1000px) rotateX(0deg) rotateY(0deg) scale(1)`;
+  stage.addEventListener('mouseleave', () => {
+    container.style.transform = `perspective(1000px) rotateX(0deg) rotateY(0deg) scale(1)`;
   });
 }
 
@@ -225,84 +230,115 @@ function initProjectModals() {
   });
 }
 
-/* 10-Point Blueprint Modal Renderer */
+/* 10-Point Blueprint Modal Renderer (Gitos Luxury Minimalist Design) */
 function renderModalContent(project, container) {
   const cs = project.caseStudy;
 
   container.innerHTML = `
-    <div style="margin-bottom: 1.5rem; border-bottom: 2px solid #000; padding-bottom: 1rem;">
-      <span class="card-category">${project.category}</span>
-      <span class="tag-pill" style="background: var(--arch-yellow);">${project.badge}</span>
-      <h2 style="font-size: 1.85rem; font-weight: 900; color: #000; margin-top: 0.5rem;">${project.title}</h2>
-      <p style="font-size: 0.9rem; color: #374151; margin-top: 0.25rem;">${project.shortDescription}</p>
+    <!-- Header Block -->
+    <div style="margin-bottom: 2rem; border-bottom: 1px solid #EAECF0; padding-bottom: 1.5rem; text-align: left;">
+      <div style="display: flex; align-items: center; gap: 0.75rem; margin-bottom: 0.85rem; flex-wrap: wrap;">
+        <span style="background: #111111; color: #FFFFFF; font-size: 0.75rem; font-weight: 800; padding: 0.35rem 1rem; border-radius: 999px; text-transform: uppercase; letter-spacing: 0.04em;">${project.category}</span>
+        <span style="background: #F3F4F6; color: #111111; border: 1px solid #EAECF0; font-size: 0.75rem; font-weight: 800; padding: 0.35rem 1rem; border-radius: 999px;">${project.badge}</span>
+      </div>
+      <h2 style="font-size: 2.2rem; font-weight: 800; color: #111111; line-height: 1.25; letter-spacing: -0.02em;">${project.title}</h2>
+      <p style="font-size: 1.05rem; color: #4B5563; margin-top: 0.65rem; line-height: 1.6; font-weight: 500;">${project.shortDescription}</p>
     </div>
 
-    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 1rem; margin-bottom: 1.25rem;">
-      <div style="background: #F9FAFB; border: 2px solid #000; padding: 1rem; border-radius: 14px; box-shadow: 3px 3px 0px #000;">
-        <h4 style="color: #000; font-weight: 800; margin-bottom: 0.3rem;">1. Overview</h4>
-        <p style="font-size: 0.8rem; color: #374151; line-height: 1.5;">${cs.overview}</p>
+    <!-- Points 1 & 2: Overview & Problem -->
+    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1.25rem; margin-bottom: 1.25rem; text-align: left;">
+      <div style="background: #FAFAFA; border: 1px solid #EAECF0; padding: 1.5rem; border-radius: 20px; box-shadow: 0 4px 12px rgba(0,0,0,0.02);">
+        <h4 style="color: #111111; font-size: 0.95rem; font-weight: 800; text-transform: uppercase; letter-spacing: 0.04em; margin-bottom: 0.5rem; display: flex; align-items: center; gap: 0.4rem;">
+          <span style="color: #6B7280;">01.</span> Overview
+        </h4>
+        <p style="font-size: 0.9rem; color: #4B5563; line-height: 1.6; font-weight: 500;">${cs.overview}</p>
       </div>
 
-      <div style="background: #FFFBEB; border: 2px solid #000; padding: 1rem; border-radius: 14px; box-shadow: 3px 3px 0px #000;">
-        <h4 style="color: #000; font-weight: 800; margin-bottom: 0.3rem;">2. Problem</h4>
-        <p style="font-size: 0.8rem; color: #374151; line-height: 1.5;">${cs.problem}</p>
-      </div>
-    </div>
-
-    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 1rem; margin-bottom: 1.25rem;">
-      <div style="background: #ECFDF5; border: 2px solid #000; padding: 1rem; border-radius: 14px; box-shadow: 3px 3px 0px #000;">
-        <h4 style="color: #000; font-weight: 800; margin-bottom: 0.3rem;">3. Target Users</h4>
-        <p style="font-size: 0.8rem; color: #374151; line-height: 1.5;">${cs.users}</p>
-      </div>
-
-      <div style="background: #F3E8FF; border: 2px solid #000; padding: 1rem; border-radius: 14px; box-shadow: 3px 3px 0px #000;">
-        <h4 style="color: #000; font-weight: 800; margin-bottom: 0.3rem;">4. My Role</h4>
-        <p style="font-size: 0.8rem; color: #374151; line-height: 1.5;">${cs.myRole}</p>
+      <div style="background: #FAFAFA; border: 1px solid #EAECF0; padding: 1.5rem; border-radius: 20px; box-shadow: 0 4px 12px rgba(0,0,0,0.02);">
+        <h4 style="color: #111111; font-size: 0.95rem; font-weight: 800; text-transform: uppercase; letter-spacing: 0.04em; margin-bottom: 0.5rem; display: flex; align-items: center; gap: 0.4rem;">
+          <span style="color: #6B7280;">02.</span> Problem Statement
+        </h4>
+        <p style="font-size: 0.9rem; color: #4B5563; line-height: 1.6; font-weight: 500;">${cs.problem}</p>
       </div>
     </div>
 
-    <div style="margin-bottom: 1.25rem;">
-      <h4 style="color: #000; font-weight: 900; margin-bottom: 0.5rem;">5. Process & Methodology</h4>
-      <div style="display: flex; flex-direction: column; gap: 0.4rem;">
+    <!-- Points 3 & 4: Users & My Role -->
+    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1.25rem; margin-bottom: 1.25rem; text-align: left;">
+      <div style="background: #FAFAFA; border: 1px solid #EAECF0; padding: 1.5rem; border-radius: 20px; box-shadow: 0 4px 12px rgba(0,0,0,0.02);">
+        <h4 style="color: #111111; font-size: 0.95rem; font-weight: 800; text-transform: uppercase; letter-spacing: 0.04em; margin-bottom: 0.5rem; display: flex; align-items: center; gap: 0.4rem;">
+          <span style="color: #6B7280;">03.</span> Target Users
+        </h4>
+        <p style="font-size: 0.9rem; color: #4B5563; line-height: 1.6; font-weight: 500;">${cs.users}</p>
+      </div>
+
+      <div style="background: #FAFAFA; border: 1px solid #EAECF0; padding: 1.5rem; border-radius: 20px; box-shadow: 0 4px 12px rgba(0,0,0,0.02);">
+        <h4 style="color: #111111; font-size: 0.95rem; font-weight: 800; text-transform: uppercase; letter-spacing: 0.04em; margin-bottom: 0.5rem; display: flex; align-items: center; gap: 0.4rem;">
+          <span style="color: #6B7280;">04.</span> My Role & Responsibility
+        </h4>
+        <p style="font-size: 0.9rem; color: #4B5563; line-height: 1.6; font-weight: 500;">${cs.myRole}</p>
+      </div>
+    </div>
+
+    <!-- Point 5: Process Steps -->
+    <div style="margin-bottom: 1.5rem; text-align: left;">
+      <h4 style="color: #111111; font-size: 1rem; font-weight: 800; text-transform: uppercase; letter-spacing: 0.04em; margin-bottom: 0.75rem;">
+        05. Process & Methodology
+      </h4>
+      <div style="display: flex; flex-direction: column; gap: 0.5rem;">
         ${cs.process.map((step, i) => `
-          <div style="background: #F3F4F6; border: 1.5px solid #000; padding: 0.5rem 0.8rem; border-radius: 8px; font-size: 0.8rem; font-weight: 600;">
-            <strong style="color: var(--brand-pink);">Step ${i + 1}:</strong> ${step}
+          <div style="background: #F9FAFB; border: 1px solid #EAECF0; padding: 0.75rem 1.15rem; border-radius: 14px; font-size: 0.875rem; color: #111111; font-weight: 600; display: flex; align-items: center; gap: 0.75rem;">
+            <span style="background: #111111; color: #FFFFFF; width: 24px; height: 24px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 0.725rem; font-weight: 800; flex-shrink: 0;">${i + 1}</span>
+            <span>${step}</span>
           </div>
         `).join('')}
       </div>
     </div>
 
-    <div style="background: var(--bg-mint); border: 2px solid #000; padding: 1rem; border-radius: 14px; margin-bottom: 1.25rem; box-shadow: 3px 3px 0px #000;">
-      <h4 style="color: #000; font-weight: 900; margin-bottom: 0.3rem;">6. Solution & Core Features</h4>
-      <p style="font-size: 0.85rem; color: #000; font-weight: 600; line-height: 1.5;">${cs.solution}</p>
+    <!-- Point 6: Solution -->
+    <div style="background: #FFFFFF; border: 1.5px solid #111111; padding: 1.5rem; border-radius: 20px; margin-bottom: 1.5rem; text-align: left; box-shadow: 0 10px 25px rgba(0,0,0,0.04);">
+      <h4 style="color: #111111; font-size: 1rem; font-weight: 800; text-transform: uppercase; letter-spacing: 0.04em; margin-bottom: 0.4rem;">
+        06. Solution & Core Features
+      </h4>
+      <p style="font-size: 0.95rem; color: #111111; font-weight: 600; line-height: 1.6;">${cs.solution}</p>
     </div>
 
-    <div style="margin-bottom: 1.25rem;">
-      <h4 style="color: #000; font-weight: 900; margin-bottom: 0.4rem;">7. Tools & Tech Stack</h4>
-      <div style="display: flex; flex-wrap: wrap; gap: 0.4rem;">
-        ${cs.toolsUsed.map(t => `<span class="tag-pill">${t}</span>`).join('')}
+    <!-- Point 7: Tools -->
+    <div style="margin-bottom: 1.5rem; text-align: left;">
+      <h4 style="color: #111111; font-size: 1rem; font-weight: 800; text-transform: uppercase; letter-spacing: 0.04em; margin-bottom: 0.6rem;">
+        07. Tech Stack & Tools Used
+      </h4>
+      <div style="display: flex; flex-wrap: wrap; gap: 0.5rem;">
+        ${cs.toolsUsed.map(t => `<span style="background: #111111; color: #FFFFFF; padding: 0.4rem 1rem; border-radius: 999px; font-size: 0.775rem; font-weight: 700;">${t}</span>`).join('')}
       </div>
     </div>
 
-    <div style="margin-bottom: 1.25rem;">
-      <h4 style="color: #000; font-weight: 900; margin-bottom: 0.4rem;">8. Results & Impact</h4>
-      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 0.5rem;">
+    <!-- Point 8: Results -->
+    <div style="margin-bottom: 1.5rem; text-align: left;">
+      <h4 style="color: #111111; font-size: 1rem; font-weight: 800; text-transform: uppercase; letter-spacing: 0.04em; margin-bottom: 0.6rem;">
+        08. Results & Measurable Impact
+      </h4>
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 0.65rem;">
         ${cs.results.map(r => `
-          <div style="background: var(--arch-yellow); border: 1.5px solid #000; padding: 0.6rem; border-radius: 10px; font-size: 0.775rem; font-weight: 800;">
-            ✓ ${r}
+          <div style="background: #F3F4F6; border: 1px solid #EAECF0; padding: 0.85rem 1rem; border-radius: 14px; font-size: 0.85rem; font-weight: 700; color: #111111; display: flex; align-items: center; gap: 0.5rem;">
+            <span style="color: #059669; font-weight: 900;">✓</span>
+            <span>${r}</span>
           </div>
         `).join('')}
       </div>
     </div>
 
-    <div style="background: var(--bg-pink); border: 2px solid #000; padding: 1rem; border-radius: 14px; margin-bottom: 1.25rem;">
-      <h4 style="color: #000; font-weight: 900; margin-bottom: 0.2rem;">9. Key Takeaways & Lessons</h4>
-      <p style="font-size: 0.825rem; color: #000; font-weight: 600; italic: true;">"${cs.whatILearned}"</p>
+    <!-- Point 9: Takeaways -->
+    <div style="background: #FAFAFA; border: 1px solid #EAECF0; padding: 1.5rem; border-radius: 20px; margin-bottom: 1.5rem; text-align: left;">
+      <h4 style="color: #111111; font-size: 0.95rem; font-weight: 800; text-transform: uppercase; letter-spacing: 0.04em; margin-bottom: 0.3rem;">
+        09. Key Takeaways & Lessons
+      </h4>
+      <p style="font-size: 0.925rem; color: #4B5563; font-style: italic; font-weight: 500; line-height: 1.6;">"${cs.whatILearned}"</p>
     </div>
 
-    <div style="background: #F3F4F6; border: 1.5px solid #000; padding: 0.8rem; border-radius: 12px; text-align: center;">
-      <div style="font-size: 0.75rem; font-weight: 800; text-transform: uppercase; color: var(--text-muted);">10. Visuals Blueprint Note</div>
-      <p style="font-size: 0.8rem; color: #000; margin-top: 0.2rem;">${cs.visualsNote}</p>
+    <!-- Point 10: Visual Blueprint Note -->
+    <div style="background: #F3F4F6; border: 1px solid #EAECF0; padding: 1rem 1.25rem; border-radius: 16px; text-align: center;">
+      <div style="font-size: 0.75rem; font-weight: 800; text-transform: uppercase; color: #6B7280; letter-spacing: 0.05em;">10. Visuals Blueprint Note</div>
+      <p style="font-size: 0.85rem; color: #111111; font-weight: 600; margin-top: 0.25rem;">${cs.visualsNote}</p>
     </div>
   `;
 }
