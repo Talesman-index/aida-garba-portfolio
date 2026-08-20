@@ -88,8 +88,15 @@ a {
 .social-circle-btn,
 .gitos-service-card,
 .gitos-exp-clean-card,
-.process-step-item {
+.process-step-item,
+.contact-item-row {
   transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.contact-item-row:hover {
+  border-color: #93C5FD !important;
+  transform: translateY(-2px);
+  box-shadow: 0 10px 25px rgba(37, 99, 235, 0.08);
 }
 
 /* Floating animation for badge pills */

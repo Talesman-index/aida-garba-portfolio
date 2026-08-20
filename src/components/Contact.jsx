@@ -1,12 +1,19 @@
 import React, { useState } from 'react';
-import { Mail, MapPin, Send, Download, CheckCircle2 } from 'lucide-react';
+import { Mail, MapPin, Send, Download, CheckCircle2, Copy, Check, ExternalLink, Sparkles, Clock } from 'lucide-react';
 import { LinkedinIcon as Linkedin } from './Icons';
 import { PORTFOLIO_DATA } from '../data/portfolioData';
 
 export default function Contact() {
   const { profile } = PORTFOLIO_DATA;
   const [submitted, setSubmitted] = useState(false);
+  const [copiedEmail, setCopiedEmail] = useState(false);
   const [formData, setFormData] = useState({ name: '', email: '', message: '' });
+
+  const copyToClipboard = (text) => {
+    navigator.clipboard.writeText(text);
+    setCopiedEmail(true);
+    setTimeout(() => setCopiedEmail(false), 2000);
+  };
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -33,63 +40,112 @@ export default function Contact() {
         
         {/* Left Contact Cards */}
         <div className="lg:col-span-5 space-y-6 text-left">
-          <div className="glass-panel p-8 space-y-6 border-white/10">
-            <h3 className="text-xl font-bold text-white mb-4">Contact Information</h3>
+          <div className="glass-panel p-8 space-y-6 border-white/10 relative overflow-hidden">
+            {/* Background ambient glow */}
+            <div className="absolute -top-16 -left-16 w-36 h-36 bg-blue-500/10 rounded-full blur-3xl pointer-events-none"></div>
 
-            {/* Email */}
-            <a
-              href={`mailto:${profile.email}`}
-              className="flex items-center gap-4 p-4 rounded-xl bg-white/5 border border-white/5 hover:border-blue-500/40 hover:bg-white/10 transition-all text-decoration-none group"
-            >
-              <div className="w-10 h-10 rounded-lg bg-blue-500/10 border border-blue-500/20 flex items-center justify-center flex-shrink-0">
-                <Mail className="w-5 h-5 text-blue-400 group-hover:scale-110 transition-transform" />
-              </div>
-              <div>
-                <div className="text-xs text-gray-400 font-medium">Direct Email</div>
-                <div className="text-sm font-bold text-white group-hover:text-blue-400 transition-colors">
-                  {profile.email}
-                </div>
-              </div>
-            </a>
+            <div className="flex items-center justify-between pb-4 border-b border-white/10">
+              <h3 className="text-xl font-extrabold text-white flex items-center gap-2.5">
+                <Sparkles className="w-5 h-5 text-blue-400 animate-pulse" />
+                Direct Contact
+              </h3>
+              <span className="text-[11px] font-medium text-emerald-400 bg-emerald-500/10 border border-emerald-500/20 px-2.5 py-1 rounded-full flex items-center gap-1.5">
+                <span className="w-2 h-2 rounded-full bg-emerald-400 animate-ping"></span>
+                Available for roles
+              </span>
+            </div>
 
-            {/* LinkedIn */}
+            {/* Email item */}
+            <div className="relative group p-4 rounded-2xl bg-white/5 border border-white/10 hover:border-blue-500/50 hover:bg-white/[0.08] transition-all duration-300 shadow-lg">
+              <div className="flex items-center justify-between gap-3">
+                <a
+                  href={`mailto:${profile.email}`}
+                  className="flex items-center gap-4 text-decoration-none flex-grow min-w-0"
+                >
+                  <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-blue-500/20 to-indigo-500/20 border border-blue-500/30 flex items-center justify-center flex-shrink-0 shadow-md group-hover:scale-105 group-hover:border-blue-400/60 transition-all duration-300">
+                    <Mail className="w-6 h-6 text-blue-400 group-hover:rotate-6 transition-transform" />
+                  </div>
+                  <div className="min-w-0">
+                    <div className="text-[11px] uppercase tracking-wider text-gray-400 font-bold mb-0.5">Email</div>
+                    <div className="text-sm font-bold text-white group-hover:text-blue-300 transition-colors truncate">
+                      {profile.email}
+                    </div>
+                  </div>
+                </a>
+
+                <button
+                  type="button"
+                  onClick={() => copyToClipboard(profile.email)}
+                  className="p-2.5 rounded-xl bg-white/5 hover:bg-blue-500/20 border border-white/10 hover:border-blue-500/40 text-gray-400 hover:text-blue-300 transition-all flex items-center gap-1.5 text-xs font-semibold flex-shrink-0"
+                  title="Copy email address"
+                >
+                  {copiedEmail ? (
+                    <>
+                      <Check className="w-4 h-4 text-emerald-400" />
+                      <span className="text-emerald-400 text-[11px]">Copied!</span>
+                    </>
+                  ) : (
+                    <>
+                      <Copy className="w-4 h-4" />
+                      <span className="hidden sm:inline text-[11px]">Copy</span>
+                    </>
+                  )}
+                </button>
+              </div>
+            </div>
+
+            {/* LinkedIn item */}
             <a
               href={profile.linkedin}
               target="_blank"
               rel="noopener noreferrer"
-              className="flex items-center gap-4 p-4 rounded-xl bg-white/5 border border-white/5 hover:border-blue-500/40 hover:bg-white/10 transition-all text-decoration-none group"
+              className="flex items-center justify-between p-4 rounded-2xl bg-white/5 border border-white/10 hover:border-sky-500/50 hover:bg-white/[0.08] transition-all duration-300 shadow-lg text-decoration-none group"
             >
-              <div className="w-10 h-10 rounded-lg bg-blue-500/10 border border-blue-500/20 flex items-center justify-center flex-shrink-0">
-                <Linkedin className="w-5 h-5 text-blue-400 group-hover:scale-110 transition-transform" />
-              </div>
-              <div>
-                <div className="text-xs text-gray-400 font-medium">LinkedIn Profile</div>
-                <div className="text-sm font-bold text-white group-hover:text-blue-400 transition-colors">
-                  linkedin.com/in/aidagarba
+              <div className="flex items-center gap-4 min-w-0">
+                <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-sky-500/20 to-blue-600/20 border border-sky-500/30 flex items-center justify-center flex-shrink-0 shadow-md group-hover:scale-105 group-hover:border-sky-400/60 transition-all duration-300">
+                  <Linkedin className="w-6 h-6 text-sky-400 group-hover:-translate-y-0.5 transition-transform" />
                 </div>
+                <div className="min-w-0">
+                  <div className="text-[11px] uppercase tracking-wider text-gray-400 font-bold mb-0.5">LinkedIn</div>
+                  <div className="text-sm font-bold text-white group-hover:text-sky-300 transition-colors truncate">
+                    linkedin.com/in/aidagarba
+                  </div>
+                </div>
+              </div>
+
+              <div className="p-2.5 rounded-xl bg-white/5 group-hover:bg-sky-500/20 border border-white/10 group-hover:border-sky-500/40 text-gray-400 group-hover:text-sky-300 transition-all flex-shrink-0">
+                <ExternalLink className="w-4 h-4 group-hover:scale-110 transition-transform" />
               </div>
             </a>
 
-            {/* Location */}
-            <div className="flex items-center gap-4 p-4 rounded-xl bg-white/5 border border-white/5">
-              <div className="w-10 h-10 rounded-lg bg-emerald-500/10 border border-emerald-500/20 flex items-center justify-center flex-shrink-0">
-                <MapPin className="w-5 h-5 text-emerald-400" />
+            {/* Location item */}
+            <div className="flex items-center gap-4 p-4 rounded-2xl bg-white/5 border border-white/10 hover:border-emerald-500/40 transition-all duration-300 shadow-lg group">
+              <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-emerald-500/20 to-teal-500/20 border border-emerald-500/30 flex items-center justify-center flex-shrink-0 shadow-md group-hover:scale-105 transition-transform">
+                <MapPin className="w-6 h-6 text-emerald-400 group-hover:animate-bounce transition-transform" />
               </div>
               <div>
-                <div className="text-xs text-gray-400 font-medium">Location</div>
+                <div className="text-[11px] uppercase tracking-wider text-gray-400 font-bold mb-0.5">Location</div>
                 <div className="text-sm font-bold text-white">
                   {profile.location}
                 </div>
               </div>
             </div>
 
+            {/* Response Time Indicator */}
+            <div className="flex items-center justify-between pt-1 text-xs text-gray-400">
+              <span className="flex items-center gap-1.5">
+                <Clock className="w-3.5 h-3.5 text-blue-400" />
+                Typically responds within 24 hours
+              </span>
+            </div>
+
             {/* Resume Request CTA */}
-            <div className="pt-4 border-t border-white/10">
+            <div className="pt-2 border-t border-white/10">
               <a
                 href={`mailto:${profile.email}?subject=Resume%20Request%20-%20Aida%20Garba`}
-                className="btn-secondary w-full justify-center text-xs py-3"
+                className="btn-secondary w-full justify-center text-xs py-3.5 rounded-xl shadow-md hover:border-blue-500/40 transition-all flex items-center gap-2 group"
               >
-                <Download className="w-4 h-4" />
+                <Download className="w-4 h-4 group-hover:-translate-y-0.5 transition-transform" />
                 Request Official Resume PDF
               </a>
             </div>

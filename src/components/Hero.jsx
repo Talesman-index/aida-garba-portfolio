@@ -96,10 +96,12 @@ export default function Hero() {
 
               {/* Profile Card Header */}
               <div className="flex items-center gap-4 pb-6 border-b border-white/10">
-                <div className="w-16 h-16 rounded-2xl bg-gradient-to-br from-blue-500 via-indigo-600 to-emerald-500 p-1 flex-shrink-0 shadow-xl">
-                  <div className="w-full h-full bg-slate-900 rounded-[14px] flex items-center justify-center font-extrabold text-2xl text-white">
-                    AG
-                  </div>
+                <div className="w-20 h-20 rounded-2xl bg-gradient-to-br from-blue-500 via-indigo-600 to-emerald-500 p-0.5 flex-shrink-0 shadow-xl overflow-hidden group-hover:scale-105 transition-transform duration-300">
+                  <img
+                    src="/aida-hero.jpg"
+                    alt={profile.name}
+                    className="w-full h-full object-cover rounded-[14px]"
+                  />
                 </div>
                 <div>
                   <h3 className="text-xl font-bold text-white">{profile.name}</h3>
