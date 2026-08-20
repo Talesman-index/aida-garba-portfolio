@@ -93,7 +93,7 @@ Simultaneously competing as an **NCAA Division II tennis student-athlete** and s
 │ • Problem Definition         │ • Excel Advanced & Pivots    │ • Power BI    │
 │ • MVP Scoping & Roadmap      │ • Power BI Dashboards        │ • Figma       │
 │ • Feature Prioritization     │ • KPI Development            │ • Canva       │
-│ • User Flows & Wireframing   │ • Data Cleaning & Prep       │ • Lovable     │
+│ • User Flows & Wireframing   │ • Data Cleaning & Prep       │ • Antigravity │
 │ • Rapid Prototyping          │ • Business Insights Synthesis│ • Supabase    │
 │ • User & Product Testing     │ • Data Visualization         │ • GitHub      │
 │ • Prompt Engineering         │ • Statistical Interpretation │ • Vercel      │
@@ -135,7 +135,7 @@ The paper timesheet workflow suffered from:
 - **Supervisor Dashboard:** Consolidated digital queue for rapid review and payroll sign-off.
 
 #### 🛠️ Tools Used
-`Lovable` `Supabase` `Figma` `GitHub` `Vercel`
+`Antigravity` `Supabase` `Figma` `GitHub` `Vercel`
 
 #### 📊 Results & Impact
 - **0% Calculation Errors** on digital submissions.
@@ -169,7 +169,7 @@ Post-surgery recovery can be overwhelming and anxiety-inducing. Patients often m
 ```
 
 #### 🛠️ Tools Used
-`Prompt Engineering` `Figma` `Supabase` `Lovable` `Python`
+`Prompt Engineering` `Figma` `Supabase` `Antigravity` `Python`
 
 #### 📊 Key Features & Safeguards
 - **Symptom Tracker & AI Triage:** Structured symptom log with guardrails to escalate severe symptoms (e.g., high fever, severe bleeding) directly to emergency services.
@@ -210,7 +210,7 @@ Nice-to-Have (v2.0):
 ```
 
 #### 🛠️ Tools Used
-`Figma` `Canva` `Lovable` `GitHub` `Vercel`
+`Figma` `Canva` `Antigravity` `GitHub` `Vercel`
 
 #### 📊 Results & Impact
 - Scoped an actionable **Mobile MVP** focused on friction-free discovery.

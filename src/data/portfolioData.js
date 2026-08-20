@@ -35,7 +35,7 @@ export const PORTFOLIO_DATA = {
   marqueeSkills: [
     "Product Discovery", "Prompt Engineering", "SQL Querying", "Power BI Dashboards",
     "Python Analytics", "User Flows & Wireframes", "MVP Scoping", "Supervised ML Concepts",
-    "Figma Prototyping", "Supabase & Lovable", "KPI Development", "Data Storytelling"
+    "Figma Prototyping", "Supabase & Antigravity", "KPI Development", "Data Storytelling"
   ],
 
   skillsCategorized: {
@@ -69,7 +69,7 @@ export const PORTFOLIO_DATA = {
       "Power BI",
       "Figma",
       "Canva",
-      "Lovable",
+      "Antigravity",
       "Supabase",
       "GitHub",
       "Vercel"
@@ -87,7 +87,7 @@ export const PORTFOLIO_DATA = {
       featured: true,
       impactMetric: "0% Calculation Errors • 70% Time Saved",
       date: "2024",
-      tags: ["Lovable", "Supabase", "Figma", "Process Automation"],
+      tags: ["Antigravity", "Supabase", "Figma", "Process Automation"],
       
       // 10-Point Blueprint
       caseStudy: {
@@ -99,11 +99,11 @@ export const PORTFOLIO_DATA = {
           "Identified paper friction points through tutor & staff interviews.",
           "Mapped dual user journeys for Tutors (Submit) and Supervisors (Approve).",
           "Defined automated validation rules to stop incomplete entries.",
-          "Prototyped & tested MVP interface using Lovable & Supabase.",
+          "Prototyped & tested MVP interface using Antigravity & Supabase.",
           "Gathered tutor feedback and refined the submission flow."
         ],
         solution: "A mobile-responsive web platform featuring automated hour calculations across shift start/end times, input validation for mandatory fields, and a supervisor dashboard with consolidated approvals.",
-        toolsUsed: ["Lovable", "Supabase", "Figma", "GitHub", "Vercel"],
+        toolsUsed: ["Antigravity", "Supabase", "Figma", "GitHub", "Vercel"],
         results: [
           "0% calculation errors across all digital submissions.",
           "70% reduction in supervisor review & payroll processing time.",
@@ -138,7 +138,7 @@ export const PORTFOLIO_DATA = {
           "Iterated interface wireframes focusing on high readability for elderly patients."
         ],
         solution: "A web platform featuring intelligent symptom logging, automated medication/appointment reminders, and a safety-first triage engine that immediately directs critical symptoms to emergency medical support.",
-        toolsUsed: ["Prompt Engineering", "Figma", "Supabase", "Lovable", "Python"],
+        toolsUsed: ["Prompt Engineering", "Figma", "Supabase", "Antigravity", "Python"],
         results: [
           "Designed a safety-focused conversational triage flow.",
           "Established clear user trust disclosures and emergency fallback paths.",
@@ -173,7 +173,7 @@ export const PORTFOLIO_DATA = {
           "Validated prototype usability with student testers."
         ],
         solution: "A mobile-first event discovery app with real-time category filtering (Sports, Academic, Social), 1-tap RSVP, calendar synchronization, and an org directory.",
-        toolsUsed: ["Figma", "Canva", "Lovable", "GitHub", "Vercel"],
+        toolsUsed: ["Figma", "Canva", "Antigravity", "GitHub", "Vercel"],
         results: [
           "Successfully simplified a broad concept into a crisp, focused Mobile MVP.",
           "Consolidated multi-channel event discovery into a single mobile dashboard."
