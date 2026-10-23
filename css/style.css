@@ -946,6 +946,10 @@ a {
   pointer-events: none;
 }
 
+.card-badges-overlay.badge-overlay-end {
+  justify-content: flex-end;
+}
+
 .floating-badge {
   display: inline-flex;
   align-items: center;
