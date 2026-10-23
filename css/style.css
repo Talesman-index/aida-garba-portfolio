@@ -1139,6 +1139,57 @@ a {
   transform: scale(1.04);
 }
 
+/* Portfolio Portal Full-Bleed Visual Card */
+.project-grid-card.portfolio-portal-card {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  text-decoration: none;
+  background: #050507;
+  border: 1px solid #27272A;
+  border-radius: 22px;
+  overflow: hidden;
+  height: 100%;
+  min-height: 420px;
+  padding: 0;
+  outline: none;
+  cursor: pointer;
+}
+
+.portfolio-portal-card .portfolio-portal-media {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  flex: 1 1 auto;
+  display: flex;
+  background: #050507;
+  overflow: hidden;
+}
+
+.portfolio-portal-card .portfolio-portal-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  display: block;
+  transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1), filter 0.3s ease;
+}
+
+.project-grid-card.portfolio-portal-card:hover {
+  transform: translateY(-6px);
+  border-color: #a855f7;
+  box-shadow: 0 20px 45px rgba(168, 85, 247, 0.22), 0 8px 24px rgba(0, 0, 0, 0.45);
+}
+
+.project-grid-card.portfolio-portal-card:hover .portfolio-portal-img {
+  transform: scale(1.04);
+}
+
+.project-grid-card.portfolio-portal-card:focus-visible {
+  outline: 2px solid #a855f7;
+  outline-offset: 2px;
+}
+
 /* Floating Badge Over Image (Like reference screenshot) */
 .card-badges-overlay {
   position: absolute;
@@ -2938,6 +2989,10 @@ a {
     gap: 1.5rem;
   }
 
+  .portfolio-portal-card {
+    min-height: 380px;
+  }
+
   .projects-grid-header-row {
     flex-direction: column;
     align-items: flex-start;
@@ -2986,6 +3041,10 @@ a {
   .lang-opt-btn {
     padding: 0.26rem 0.52rem;
     font-size: 0.685rem;
+  }
+
+  .portfolio-portal-card {
+    min-height: 260px;
   }
 
   .gitos-hero-section {
