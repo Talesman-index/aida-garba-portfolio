@@ -13,6 +13,7 @@ document.addEventListener('DOMContentLoaded', () => {
   initScrollSpy();
   initMagneticButtons();
   init3DHeroTilt();
+  initPhotoGallery();
 });
 
 /* 1. Header & Mobile Menu Controller */
@@ -189,162 +190,80 @@ function initProjectFilters() {
   });
 }
 
-/* 7. Interactive Case Study Modal */
+/* 7. Dedicated Project Page Navigation Controller */
 function initProjectModals() {
-  const modalOverlay = document.getElementById('project-modal');
-  const modalContainer = document.getElementById('modal-body-container');
-  const closeBtn = document.getElementById('modal-close-btn');
+  const cards = document.querySelectorAll('.project-grid-card[data-project-id]');
 
-  if (!modalOverlay) return;
+  cards.forEach((card) => {
+    // Make entire card clickable for seamless UX
+    card.addEventListener('click', (e) => {
+      // If user clicked directly on the anchor inside, let browser follow link naturally
+      if (e.target.closest('a')) return;
 
-  const triggers = document.querySelectorAll('[data-project-id]');
+      const href = card.getAttribute('data-project-href') || `projects/${card.getAttribute('data-project-id')}.html`;
+      if (href) {
+        window.location.href = href;
+      }
+    });
 
-  triggers.forEach((trigger) => {
-    trigger.addEventListener('click', () => {
-      const projectId = trigger.getAttribute('data-project-id');
-      const project = PROJECTS_DATA[projectId];
+    // Support keyboard navigation (Enter key)
+    card.addEventListener('keydown', (e) => {
+      if (e.key === 'Enter') {
+        const href = card.getAttribute('data-project-href') || `projects/${card.getAttribute('data-project-id')}.html`;
+        if (href) {
+          window.location.href = href;
+        }
+      }
+    });
+  });
+}
 
-      if (project) {
-        renderModalContent(project, modalContainer);
-        modalOverlay.classList.add('active');
-        document.body.style.overflow = 'hidden';
+/* 8. Mixed-Size Photo Gallery Controller (Hover on desktop, Tap on mobile) */
+function initPhotoGallery() {
+  const galleryItems = document.querySelectorAll('.gallery-item');
+  if (!galleryItems.length) return;
+
+  galleryItems.forEach((item) => {
+    // Tap / Click handling for mobile touch interactions
+    item.addEventListener('click', (e) => {
+      const isTouch = window.matchMedia('(hover: none) and (pointer: coarse)').matches || window.innerWidth <= 991;
+      if (isTouch) {
+        const isAlreadyActive = item.classList.contains('touch-active');
+        // Close all other items
+        galleryItems.forEach((other) => {
+          if (other !== item) other.classList.remove('touch-active');
+        });
+        // Toggle active state on tapped item
+        if (isAlreadyActive) {
+          item.classList.remove('touch-active');
+        } else {
+          item.classList.add('touch-active');
+        }
+      }
+    });
+
+    // Keyboard accessibility (Space or Enter toggles overlay)
+    item.addEventListener('keydown', (e) => {
+      if (e.key === 'Enter' || e.key === ' ') {
+        e.preventDefault();
+        const isAlreadyActive = item.classList.contains('touch-active');
+        galleryItems.forEach((other) => other.classList.remove('touch-active'));
+        if (!isAlreadyActive) {
+          item.classList.add('touch-active');
+        }
       }
     });
   });
 
-  const closeModal = () => {
-    modalOverlay.classList.remove('active');
-    document.body.style.overflow = 'auto';
-  };
-
-  if (closeBtn) closeBtn.addEventListener('click', closeModal);
-
-  modalOverlay.addEventListener('click', (e) => {
-    if (e.target === modalOverlay) closeModal();
-  });
-
-  document.addEventListener('keydown', (e) => {
-    if (e.key === 'Escape' && modalOverlay.classList.contains('active')) {
-      closeModal();
+  // Tap outside closes open overlay on mobile
+  document.addEventListener('click', (e) => {
+    if (!e.target.closest('.gallery-item')) {
+      galleryItems.forEach((item) => item.classList.remove('touch-active'));
     }
   });
 }
 
-/* 10-Point Blueprint Modal Renderer (Gitos Luxury Minimalist Design) */
-function renderModalContent(project, container) {
-  const cs = project.caseStudy;
-
-  container.innerHTML = `
-    <!-- Header Block -->
-    <div style="margin-bottom: 2rem; border-bottom: 1px solid #EAECF0; padding-bottom: 1.5rem; text-align: left;">
-      <div style="display: flex; align-items: center; gap: 0.75rem; margin-bottom: 0.85rem; flex-wrap: wrap;">
-        <span style="background: #111111; color: #FFFFFF; font-size: 0.75rem; font-weight: 800; padding: 0.35rem 1rem; border-radius: 999px; text-transform: uppercase; letter-spacing: 0.04em;">${project.category}</span>
-        <span style="background: #F3F4F6; color: #111111; border: 1px solid #EAECF0; font-size: 0.75rem; font-weight: 800; padding: 0.35rem 1rem; border-radius: 999px;">${project.badge}</span>
-        ${project.date ? `<span style="background: #FAFAFA; color: #6B7280; border: 1px solid #EAECF0; font-size: 0.75rem; font-weight: 700; padding: 0.35rem 0.85rem; border-radius: 999px; display: inline-flex; align-items: center; gap: 0.35rem;"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>${project.date}</span>` : ''}
-      </div>
-      <h2 style="font-size: 2.2rem; font-weight: 800; color: #111111; line-height: 1.25; letter-spacing: -0.02em;">${project.title}</h2>
-      <p style="font-size: 1.05rem; color: #4B5563; margin-top: 0.65rem; line-height: 1.6; font-weight: 500;">${project.shortDescription}</p>
-    </div>
-
-    <!-- Points 1 & 2: Overview & Problem -->
-    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.25rem; margin-bottom: 1.25rem; text-align: left;">
-      <div style="background: #FAFAFA; border: 1px solid #EAECF0; padding: 1.5rem; border-radius: 20px; box-shadow: 0 4px 12px rgba(0,0,0,0.02);">
-        <h4 style="color: #111111; font-size: 0.95rem; font-weight: 800; text-transform: uppercase; letter-spacing: 0.04em; margin-bottom: 0.5rem; display: flex; align-items: center; gap: 0.4rem;">
-          <span style="color: #6B7280;">01.</span> Overview
-        </h4>
-        <p style="font-size: 0.9rem; color: #4B5563; line-height: 1.6; font-weight: 500;">${cs.overview}</p>
-      </div>
-
-      <div style="background: #FAFAFA; border: 1px solid #EAECF0; padding: 1.5rem; border-radius: 20px; box-shadow: 0 4px 12px rgba(0,0,0,0.02);">
-        <h4 style="color: #111111; font-size: 0.95rem; font-weight: 800; text-transform: uppercase; letter-spacing: 0.04em; margin-bottom: 0.5rem; display: flex; align-items: center; gap: 0.4rem;">
-          <span style="color: #6B7280;">02.</span> Problem Statement
-        </h4>
-        <p style="font-size: 0.9rem; color: #4B5563; line-height: 1.6; font-weight: 500;">${cs.problem}</p>
-      </div>
-    </div>
-
-    <!-- Points 3 & 4: Users & My Role -->
-    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.25rem; margin-bottom: 1.25rem; text-align: left;">
-      <div style="background: #FAFAFA; border: 1px solid #EAECF0; padding: 1.5rem; border-radius: 20px; box-shadow: 0 4px 12px rgba(0,0,0,0.02);">
-        <h4 style="color: #111111; font-size: 0.95rem; font-weight: 800; text-transform: uppercase; letter-spacing: 0.04em; margin-bottom: 0.5rem; display: flex; align-items: center; gap: 0.4rem;">
-          <span style="color: #6B7280;">03.</span> Target Users
-        </h4>
-        <p style="font-size: 0.9rem; color: #4B5563; line-height: 1.6; font-weight: 500;">${cs.users}</p>
-      </div>
-
-      <div style="background: #FAFAFA; border: 1px solid #EAECF0; padding: 1.5rem; border-radius: 20px; box-shadow: 0 4px 12px rgba(0,0,0,0.02);">
-        <h4 style="color: #111111; font-size: 0.95rem; font-weight: 800; text-transform: uppercase; letter-spacing: 0.04em; margin-bottom: 0.5rem; display: flex; align-items: center; gap: 0.4rem;">
-          <span style="color: #6B7280;">04.</span> My Role & Responsibility
-        </h4>
-        <p style="font-size: 0.9rem; color: #4B5563; line-height: 1.6; font-weight: 500;">${cs.myRole}</p>
-      </div>
-    </div>
-
-    <!-- Point 5: Process Steps -->
-    <div style="margin-bottom: 1.5rem; text-align: left;">
-      <h4 style="color: #111111; font-size: 1rem; font-weight: 800; text-transform: uppercase; letter-spacing: 0.04em; margin-bottom: 0.75rem;">
-        05. Process & Methodology
-      </h4>
-      <div style="display: flex; flex-direction: column; gap: 0.5rem;">
-        ${cs.process.map((step, i) => `
-          <div style="background: #F9FAFB; border: 1px solid #EAECF0; padding: 0.75rem 1.15rem; border-radius: 14px; font-size: 0.875rem; color: #111111; font-weight: 600; display: flex; align-items: center; gap: 0.75rem;">
-            <span style="background: #111111; color: #FFFFFF; width: 24px; height: 24px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 0.725rem; font-weight: 800; flex-shrink: 0;">${i + 1}</span>
-            <span>${step}</span>
-          </div>
-        `).join('')}
-      </div>
-    </div>
-
-    <!-- Point 6: Solution -->
-    <div style="background: #FFFFFF; border: 1.5px solid #111111; padding: 1.5rem; border-radius: 20px; margin-bottom: 1.5rem; text-align: left; box-shadow: 0 10px 25px rgba(0,0,0,0.04);">
-      <h4 style="color: #111111; font-size: 1rem; font-weight: 800; text-transform: uppercase; letter-spacing: 0.04em; margin-bottom: 0.4rem;">
-        06. Solution & Core Features
-      </h4>
-      <p style="font-size: 0.95rem; color: #111111; font-weight: 600; line-height: 1.6;">${cs.solution}</p>
-    </div>
-
-    <!-- Point 7: Tools -->
-    <div style="margin-bottom: 1.5rem; text-align: left;">
-      <h4 style="color: #111111; font-size: 1rem; font-weight: 800; text-transform: uppercase; letter-spacing: 0.04em; margin-bottom: 0.6rem;">
-        07. Tech Stack & Tools Used
-      </h4>
-      <div style="display: flex; flex-wrap: wrap; gap: 0.5rem;">
-        ${cs.toolsUsed.map(t => `<span style="background: #111111; color: #FFFFFF; padding: 0.4rem 1rem; border-radius: 999px; font-size: 0.775rem; font-weight: 700;">${t}</span>`).join('')}
-      </div>
-    </div>
-
-    <!-- Point 8: Results -->
-    <div style="margin-bottom: 1.5rem; text-align: left;">
-      <h4 style="color: #111111; font-size: 1rem; font-weight: 800; text-transform: uppercase; letter-spacing: 0.04em; margin-bottom: 0.6rem;">
-        08. Results & Measurable Impact
-      </h4>
-      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 0.65rem;">
-        ${cs.results.map(r => `
-          <div style="background: #F3F4F6; border: 1px solid #EAECF0; padding: 0.85rem 1rem; border-radius: 14px; font-size: 0.85rem; font-weight: 700; color: #111111; display: flex; align-items: center; gap: 0.5rem;">
-            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#059669" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink: 0;"><polyline points="20 6 9 17 4 12"/></svg>
-            <span>${r}</span>
-          </div>
-        `).join('')}
-      </div>
-    </div>
-
-    <!-- Point 9: Takeaways -->
-    <div style="background: #FAFAFA; border: 1px solid #EAECF0; padding: 1.5rem; border-radius: 20px; margin-bottom: 1.5rem; text-align: left;">
-      <h4 style="color: #111111; font-size: 0.95rem; font-weight: 800; text-transform: uppercase; letter-spacing: 0.04em; margin-bottom: 0.3rem;">
-        09. Key Takeaways & Lessons
-      </h4>
-      <p style="font-size: 0.925rem; color: #4B5563; font-style: italic; font-weight: 500; line-height: 1.6;">"${cs.whatILearned}"</p>
-    </div>
-
-    <!-- Point 10: Visual Blueprint Note -->
-    <div style="background: #F3F4F6; border: 1px solid #EAECF0; padding: 1rem 1.25rem; border-radius: 16px; text-align: center;">
-      <div style="font-size: 0.75rem; font-weight: 800; text-transform: uppercase; color: #6B7280; letter-spacing: 0.05em;">10. Visuals Blueprint Note</div>
-      <p style="font-size: 0.85rem; color: #111111; font-weight: 600; margin-top: 0.25rem;">${cs.visualsNote}</p>
-    </div>
-  `;
-}
-
-/* 8. Contact Form Handler */
+/* 9. Contact Form Handler */
 function initContactForm() {
   const form = document.getElementById('contact-form');
   const successMsg = document.getElementById('contact-success');
