@@ -53,7 +53,7 @@ As a student-athlete, I have developed deep discipline, time management, collabo
 
 ### 🔘 Quick Action Buttons / CTAs
 * 📂 **[View My Projects](#4-ai-product-management-projects)**
-* 📄 **[Download My Resume](mailto:garbaim27@gmail.com?subject=Resume%20Request)**
+* 📄 **[Download My Resume (PDF)](public/Aida_Garba_Resume.pdf)**
 * 🔗 **[Connect on LinkedIn](https://linkedin.com/in/aidagarba)**
 
 ---

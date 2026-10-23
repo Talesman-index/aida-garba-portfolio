@@ -497,179 +497,236 @@ a {
 
 /* ==========================================================================
    4. EXACT GITOS 3D SERVICES SECTION
+/* ==========================================================================
+   4. REDESIGNED CLEAN TWO-CARD SKILLS SECTION
    ========================================================================== */
-.gitos-services-section {
-  padding: 5rem 0 7rem 0;
-  text-align: center;
+.skills-clean-section {
+  padding: 5.5rem 0 6.5rem 0;
   background: var(--bg-page);
   width: 100%;
   overflow: hidden;
 }
 
-.gitos-services-title {
-  font-size: 3.5rem;
-  font-weight: 800;
-  color: var(--text-dark);
-  margin-bottom: 3.75rem;
-  letter-spacing: -0.03em;
+.skills-clean-header {
+  text-align: center;
+  max-width: 680px;
+  margin: 0 auto 3.5rem auto;
 }
 
-.gitos-services-grid {
+.skills-clean-title {
+  font-size: 3.25rem;
+  font-weight: 800;
+  color: var(--text-dark);
+  letter-spacing: -0.03em;
+  margin-top: 0.5rem;
+  margin-bottom: 0.85rem;
+  line-height: 1.15;
+}
+
+.skills-clean-subtitle {
+  font-size: 1.05rem;
+  color: var(--text-muted);
+  line-height: 1.6;
+  font-weight: 500;
+}
+
+.skills-two-cards-grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(2, 1fr);
   gap: 2.25rem;
   max-width: 1240px;
   margin: 0 auto;
   align-items: stretch;
 }
 
-.gitos-service-card {
+.skills-clean-card {
   background: #FFFFFF;
   border-radius: var(--radius-card);
-  padding: 2.25rem 2rem 2rem 2rem;
+  padding: 2.5rem 2.25rem;
   box-shadow: var(--shadow-gitos);
+  border: 1px solid var(--border-light);
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
-  text-align: left;
   position: relative;
-  overflow: visible;
-  border: 1px solid var(--border-light);
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.3s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-.gitos-service-card:hover {
-  transform: translateY(-8px) scale(1.01);
+.skills-clean-card:hover {
+  transform: translateY(-4px);
   box-shadow: var(--shadow-gitos-hover);
 }
 
-.folder-pocket-box {
-  width: 100%;
-  height: 250px;
-  border-radius: 24px;
-  position: relative;
-  overflow: visible !important;
-  display: flex;
-  align-items: flex-end;
-  justify-content: center;
-  margin-bottom: 2rem;
+/* Subtle accent tops */
+.skills-clean-card.card-data-analytics {
+  border-top: 4px solid #2563EB;
 }
 
-.folder-pocket-box.yellow-bg { background: var(--folder-yellow); }
-.folder-pocket-box.dark-bg { background: var(--folder-dark); }
-.folder-pocket-box.blue-bg { background: var(--folder-blue); }
-
-.inner-cards-group {
-  position: absolute;
-  bottom: 25px;
-  width: 92%;
-  height: 180px;
-  display: flex;
-  align-items: flex-start;
-  justify-content: center;
-  z-index: 1;
-  transition: transform 0.45s cubic-bezier(0.34, 1.56, 0.64, 1);
+.skills-clean-card.card-ai {
+  border-top: 4px solid #EAB308;
 }
 
-.gitos-service-card:hover .inner-cards-group {
-  transform: translateY(-110px);
-  z-index: 10;
+.card-accent-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  font-size: 0.725rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  padding: 0.3rem 0.85rem;
+  border-radius: 999px;
+  width: fit-content;
+  margin-bottom: 1.25rem;
 }
 
-.peek-card {
-  position: absolute;
-  width: 155px;
-  height: 135px;
-  border-radius: 18px;
-  background: #FFFFFF;
-  box-shadow: 0 14px 30px rgba(0,0,0,0.18);
-  padding: 0.85rem;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  transition: all 0.45s cubic-bezier(0.34, 1.56, 0.64, 1);
-  text-align: left;
-  border: 1px solid rgba(0,0,0,0.06);
+.pill-blue {
+  background: #EFF6FF;
+  color: #1D4ED8;
+  border: 1px solid #BFDBFE;
 }
 
-.peek-card.card-left {
-  left: 4px;
-  transform: rotate(-8deg);
-  z-index: 1;
+.pill-yellow {
+  background: #FEFCE8;
+  color: #A16207;
+  border: 1px solid #FEF08A;
 }
 
-.peek-card.card-center {
-  left: 50%;
-  transform: translateX(-50%) translateY(5px);
-  z-index: 2;
+.accent-dot-blue {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: #2563EB;
 }
 
-.peek-card.card-right {
-  right: 4px;
-  transform: rotate(8deg);
-  z-index: 3;
+.accent-dot-yellow {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: #EAB308;
 }
 
-.gitos-service-card:hover .peek-card.card-left {
-  transform: rotate(-16deg) translateX(-42px) translateY(-10px);
+.card-header-block {
+  margin-bottom: 1.75rem;
+  padding-bottom: 1.25rem;
+  border-bottom: 1px solid var(--border-light);
 }
 
-.gitos-service-card:hover .peek-card.card-center {
-  transform: translateX(-50%) translateY(-22px) scale(1.08);
-}
-
-.gitos-service-card:hover .peek-card.card-right {
-  transform: rotate(16deg) translateX(42px) translateY(-10px);
-}
-
-.folder-front-svg {
-  position: absolute;
-  bottom: -1px;
-  left: -1px;
-  width: calc(100% + 2px);
-  height: 155px;
-  z-index: 3;
-  pointer-events: none;
-}
-
-.service-card-info {
-  display: flex;
-  flex-direction: column;
-  gap: 0.65rem;
-}
-
-.service-card-heading {
-  font-size: 1.45rem;
+.card-title {
+  font-size: 1.75rem;
   font-weight: 800;
   color: var(--text-dark);
   letter-spacing: -0.02em;
+  margin-bottom: 0.45rem;
 }
 
-.service-card-text {
-  font-size: 0.9rem;
+.card-desc {
+  font-size: 0.925rem;
   color: var(--text-muted);
-  line-height: 1.6;
+  line-height: 1.55;
   font-weight: 500;
 }
 
-.btn-learn-more {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  background: var(--bg-subtle);
-  color: var(--text-dark);
-  font-size: 0.85rem;
-  font-weight: 700;
-  padding: 0.65rem 1.4rem;
-  border-radius: 999px;
-  border: 1px solid var(--border-light);
-  width: fit-content;
-  margin-top: 1.25rem;
-  cursor: pointer;
+.tools-list-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.85rem;
+  flex-grow: 1;
 }
 
-.btn-learn-more:hover {
-  background: var(--text-dark);
-  color: #FFFFFF;
+.tool-row-item {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 0.85rem 1rem;
+  background: #FAFAFA;
+  border: 1px solid var(--border-light);
+  border-radius: 16px;
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.tool-row-item:hover {
+  background: #FFFFFF;
+  border-color: #D1D5DB;
+  transform: translateX(3px);
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.04);
+}
+
+.tool-logo-box {
+  width: 42px;
+  height: 42px;
+  border-radius: 12px;
+  background: #FFFFFF;
+  border: 1px solid var(--border-light);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.03);
+}
+
+.tool-brand-img {
+  width: 24px;
+  height: 24px;
+  object-fit: contain;
+  display: block;
+}
+
+.tool-info-box {
+  display: flex;
+  flex-direction: column;
+  gap: 0.15rem;
+  flex-grow: 1;
+  min-width: 0;
+}
+
+.tool-name-badge-row {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  flex-wrap: wrap;
+}
+
+.tool-name {
+  font-size: 0.975rem;
+  font-weight: 700;
+  color: var(--text-dark);
+  letter-spacing: -0.01em;
+}
+
+.tool-role {
+  font-size: 0.775rem;
+  color: var(--text-muted);
+  font-weight: 500;
+  line-height: 1.35;
+}
+
+.badge-currently-learning {
+  font-size: 0.68rem;
+  font-weight: 700;
+  padding: 0.2rem 0.55rem;
+  border-radius: 999px;
+  background: #FEF3C7;
+  color: #92400E;
+  border: 1px solid #FDE68A;
+  white-space: nowrap;
+  letter-spacing: 0.02em;
+}
+
+.tools-subheading-divider {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin: 0.75rem 0 0.25rem 0;
+  padding-top: 0.75rem;
+  border-top: 1px dashed var(--border-light);
+}
+
+.tools-subheading-divider span {
+  font-size: 0.72rem;
+  font-weight: 800;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
 }
 
 /* ==========================================================================
@@ -726,158 +783,320 @@ a {
 }
 
 /* ==========================================================================
-   6. FEATURED PROJECTS SECTION (EXACT GITOS DARK NOTCH TABLE-LIST)
+   6. FEATURED PROJECTS SECTION (CARD-GRID REFERENCE REDESIGN)
    ========================================================================== */
-.gitos-projects-dark-section {
-  background: var(--bg-dark-section);
-  color: #FFFFFF;
-  padding: 6.5rem 0;
-  border-radius: 40px 40px 0 0;
+.projects-grid-section {
+  background: var(--bg-page);
+  padding: 6.5rem 0 7rem;
   width: 100%;
+  position: relative;
   overflow: hidden;
+  border-top: 1px solid var(--border-light);
 }
 
-.projects-dark-header {
+.projects-grid-header-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  margin-bottom: 3.5rem;
+  flex-wrap: wrap;
+  gap: 1.75rem;
+}
+
+.projects-header-left {
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
-  margin-bottom: 3rem;
+  gap: 0.65rem;
+  text-align: left;
 }
 
-.projects-dark-title {
-  font-size: 3.5rem;
+.projects-live-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: #FFFFFF;
+  border: 1px solid #EAECF0;
+  padding: 0.35rem 0.95rem;
+  border-radius: 999px;
+  font-size: 0.75rem;
   font-weight: 800;
-  color: #FFFFFF;
-  letter-spacing: -0.03em;
-  margin-bottom: 2rem;
+  letter-spacing: 0.06em;
+  color: var(--text-dark);
+  box-shadow: 0 2px 8px rgba(0,0,0,0.03);
+  width: fit-content;
 }
 
-.gitos-dark-filter-bar {
-  display: flex;
-  background: #18181B;
+.live-dot-pulse {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #E11D48;
+  box-shadow: 0 0 0 0 rgba(225, 29, 72, 0.7);
+  animation: pulseLiveDot 2s infinite cubic-bezier(0.66, 0, 0, 1);
+}
+
+@keyframes pulseLiveDot {
+  0% {
+    box-shadow: 0 0 0 0 rgba(225, 29, 72, 0.7);
+  }
+  70% {
+    box-shadow: 0 0 0 8px rgba(225, 29, 72, 0);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(225, 29, 72, 0);
+  }
+}
+
+.projects-section-heading {
+  font-size: 3.25rem;
+  font-weight: 800;
+  color: var(--text-dark);
+  letter-spacing: -0.03em;
+  line-height: 1.1;
+  margin: 0;
+}
+
+/* Filter Bar (Aligned with reference screenshot pills) */
+.projects-filter-bar {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: #FFFFFF;
   padding: 0.35rem;
   border-radius: 999px;
-  gap: 0.35rem;
-  border: 1px solid #27272A;
+  border: 1px solid var(--border-light);
+  box-shadow: 0 4px 16px rgba(0,0,0,0.03);
   flex-wrap: wrap;
 }
 
-.gitos-dark-filter-btn {
+.project-filter-btn {
   background: transparent;
-  color: #A1A1AA;
+  color: var(--text-body);
   border: none;
-  padding: 0.6rem 1.35rem;
+  padding: 0.6rem 1.4rem;
   border-radius: 999px;
-  font-size: 0.875rem;
+  font-size: 0.85rem;
   font-weight: 700;
   cursor: pointer;
-  transition: all 0.2s ease;
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+  white-space: nowrap;
 }
 
-.gitos-dark-filter-btn.active, .gitos-dark-filter-btn:hover {
-  background: #27272A;
+.project-filter-btn:hover {
+  color: var(--text-dark);
+  background: var(--bg-subtle);
+}
+
+.project-filter-btn.active {
+  background: var(--text-dark);
   color: #FFFFFF;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
 }
 
-.gitos-projects-table {
+/* 3-Column Card Grid */
+.projects-card-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+  width: 100%;
+}
+
+/* Individual Card (Clean Card-Grid Reference Styling) */
+.project-grid-card {
+  background: #FFFFFF;
+  border: 1px solid var(--border-light);
+  border-radius: 22px;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.04);
   display: flex;
   flex-direction: column;
-  border-top: 1px solid #27272A;
+  overflow: hidden;
+  transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+  cursor: pointer;
+  position: relative;
+  text-align: left;
 }
 
-.gitos-project-row {
+.project-grid-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 20px 40px rgba(0,0,0,0.08);
+  border-color: #D1D5DB;
+}
+
+/* Highlight border for featured card */
+.project-grid-card.featured-card {
+  border: 1.5px solid #E5E7EB;
+  box-shadow: 0 10px 28px rgba(0,0,0,0.05);
+}
+
+.project-grid-card.featured-card:hover {
+  border-color: #111111;
+}
+
+/* Image Thumbnail Container */
+.project-card-image-box {
+  width: 100%;
+  aspect-ratio: 16 / 9.5;
+  background: #F3F4F6;
+  position: relative;
+  overflow: hidden;
+  border-bottom: 1px solid var(--border-light);
+}
+
+.project-card-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.project-grid-card:hover .project-card-img {
+  transform: scale(1.04);
+}
+
+/* Floating Badge Over Image (Like reference screenshot) */
+.card-badges-overlay {
+  position: absolute;
+  top: 14px;
+  left: 14px;
+  right: 14px;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 1.75rem 0;
-  border-bottom: 1px solid #27272A;
-  transition: background 0.25s ease, padding 0.25s ease;
-  cursor: pointer;
+  gap: 0.5rem;
+  z-index: 5;
+  pointer-events: none;
 }
 
-.gitos-project-row:hover {
-  padding-left: 1rem;
-  padding-right: 1rem;
-  background: rgba(255,255,255,0.03);
-}
-
-.project-row-left {
-  display: flex;
+.floating-badge {
+  display: inline-flex;
   align-items: center;
-  gap: 1.25rem;
-}
-
-.project-row-icon-box {
-  width: 44px;
-  height: 44px;
-  border-radius: 12px;
-  background: #18181B;
-  border: 1px solid #27272A;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: #FFFFFF;
-  transition: transform 0.2s ease;
-}
-
-.gitos-project-row:hover .project-row-icon-box {
-  transform: scale(1.1) rotate(5deg);
-  border-color: #52525B;
-}
-
-.project-row-title {
-  font-size: 1.35rem;
-  font-weight: 800;
-  color: #FFFFFF;
-}
-
-.project-row-middle {
-  display: flex;
-  align-items: center;
-  gap: 0.6rem;
-}
-
-.dark-tag-pill {
-  background: #18181B;
-  border: 1px solid #27272A;
-  color: #A1A1AA;
-  padding: 0.3rem 0.85rem;
+  gap: 0.45rem;
+  padding: 0.35rem 0.85rem;
   border-radius: 999px;
-  font-size: 0.725rem;
-  font-weight: 700;
-  text-transform: uppercase;
-  letter-spacing: 0.04em;
+  font-size: 0.7rem;
+  font-weight: 800;
+  letter-spacing: 0.05em;
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  background: rgba(255, 255, 255, 0.92);
+  border: 1px solid rgba(255, 255, 255, 0.8);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
 }
 
-.project-row-right {
+.floating-badge.badge-ai {
+  color: #854D0E;
+}
+
+.floating-badge.badge-data {
+  color: #1E40AF;
+}
+
+.floating-featured-pill {
+  display: inline-flex;
+  align-items: center;
+  background: #111111;
+  color: #FFFFFF;
+  padding: 0.35rem 0.85rem;
+  border-radius: 999px;
+  font-size: 0.7rem;
+  font-weight: 800;
+  letter-spacing: 0.05em;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+/* Card Body */
+.project-card-body {
+  padding: 1.5rem 1.6rem 1.65rem;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  justify-content: space-between;
+}
+
+.project-card-title {
+  font-size: 1.25rem;
+  font-weight: 800;
+  color: var(--text-dark);
+  letter-spacing: -0.015em;
+  margin-bottom: 0.6rem;
+  line-height: 1.3;
+  transition: color 0.2s ease;
+}
+
+.project-grid-card:hover .project-card-title {
+  color: #000000;
+}
+
+.project-card-desc {
+  font-size: 0.9rem;
+  color: var(--text-body);
+  line-height: 1.55;
+  font-weight: 500;
+  margin-bottom: 1.5rem;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* Footer / Meta Row */
+.project-card-footer {
   display: flex;
   align-items: center;
-  gap: 2rem;
+  justify-content: space-between;
+  gap: 0.75rem;
+  padding-top: 1rem;
+  border-top: 1px solid var(--border-light);
+  margin-top: auto;
 }
 
-.project-row-date {
-  font-size: 0.875rem;
-  color: #71717A;
+.project-card-date {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  color: var(--text-muted);
+  font-size: 0.825rem;
   font-weight: 600;
 }
 
-.btn-read-more-dark {
-  background: #18181B;
-  color: #FFFFFF;
-  border: 1px solid #27272A;
-  padding: 0.55rem 1.35rem;
-  border-radius: 999px;
-  font-size: 0.825rem;
-  font-weight: 700;
-  cursor: pointer;
-  transition: all 0.2s ease;
+.project-card-date svg {
+  color: #9CA3AF;
+  flex-shrink: 0;
 }
 
-.gitos-project-row:hover .btn-read-more-dark {
-  background: #FFFFFF;
-  color: #000000;
-  transform: scale(1.05);
+.btn-view-more {
+  background: var(--bg-subtle);
+  color: var(--text-dark);
+  border: 1px solid var(--border-light);
+  border-radius: 999px;
+  padding: 0.45rem 1.15rem;
+  font-size: 0.8rem;
+  font-weight: 700;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
 }
+
+.btn-view-more .arrow-glyph {
+  transition: transform 0.25s ease;
+  display: inline-block;
+}
+
+.project-grid-card:hover .btn-view-more {
+  background: var(--text-dark);
+  color: #FFFFFF;
+  border-color: var(--text-dark);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.project-grid-card:hover .btn-view-more .arrow-glyph {
+  transform: translateX(3px);
+}
+
 
 /* ==========================================================================
    7. PROCESS SECTION
@@ -1017,89 +1236,350 @@ a {
   margin-bottom: 3.5rem;
 }
 
-.gitos-exp-grid-2col {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
+/* ==========================================================================
+   7. REDESIGNED EXPERIENCE & EDUCATION SECTION
+   ========================================================================== */
+.gitos-exp-header-wrap {
+  text-align: left;
+  max-width: 800px;
+  margin-bottom: 2.75rem;
+}
+
+.exp-redesign-container {
+  display: flex;
+  flex-direction: column;
   gap: 2.5rem;
-  align-items: start;
+  width: 100%;
 }
 
-.gitos-exp-col {
+.exp-section-block {
   display: flex;
   flex-direction: column;
-  gap: 1.5rem;
-}
-
-.gitos-exp-col-title-bar {
-  display: flex;
-  align-items: center;
-  gap: 0.75rem;
-  margin-bottom: 0.5rem;
-}
-
-.col-title-badge {
-  background: var(--text-dark);
-  color: #FFFFFF;
-  font-size: 0.825rem;
-  font-weight: 800;
-  padding: 0.4rem 1.25rem;
-  border-radius: 999px;
-  text-transform: uppercase;
-  letter-spacing: 0.04em;
-}
-
-.gitos-exp-clean-card {
-  background: #FFFFFF;
-  border-radius: var(--radius-card);
-  padding: 2rem 2.25rem;
-  box-shadow: var(--shadow-gitos);
-  border: 1px solid var(--border-light);
-  display: flex;
-  flex-direction: column;
-  gap: 0.75rem;
+  gap: 0.85rem;
   text-align: left;
 }
 
-.gitos-exp-clean-card:hover {
-  transform: translateY(-5px);
-  box-shadow: var(--shadow-gitos-hover);
-}
-
-.exp-clean-header {
+.exp-block-header {
   display: flex;
   align-items: center;
+  gap: 0.5rem;
+}
+
+.exp-block-label {
+  background: var(--text-dark);
+  color: #FFFFFF;
+  font-size: 0.75rem;
+  font-weight: 800;
+  padding: 0.35rem 1rem;
+  border-radius: 999px;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+/* Base Card Styling */
+.exp-card {
+  background: #FFFFFF;
+  border-radius: 20px;
+  border: 1px solid var(--border-light);
+  box-shadow: var(--shadow-gitos);
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  text-align: left;
+}
+
+.exp-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-gitos-hover);
+  border-color: #D1D5DB;
+}
+
+/* Education Featured Card */
+.exp-education-card {
+  padding: 2.25rem 2.5rem;
+  border-left: 4px solid var(--folder-blue);
+}
+
+.exp-card-top {
+  display: flex;
+  align-items: flex-start;
   justify-content: space-between;
   flex-wrap: wrap;
-  gap: 0.75rem;
+  gap: 1.25rem;
+  margin-bottom: 0.75rem;
 }
 
-.exp-clean-title {
-  font-size: 1.25rem;
+.exp-card-main-info {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+}
+
+.exp-institution-wrap {
+  display: flex;
+  align-items: center;
+  gap: 0.85rem;
+}
+
+.exp-institution-icon {
+  width: 44px;
+  height: 44px;
+  border-radius: 12px;
+  background: #EFF6FF;
+  color: #2563EB;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.exp-school-title {
+  font-size: 1.35rem;
   font-weight: 800;
   color: var(--text-dark);
+  margin: 0;
+  letter-spacing: -0.01em;
 }
 
-.exp-clean-date-badge {
+.exp-school-loc {
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  font-weight: 600;
+}
+
+.exp-degree-row {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: #1E293B;
+  margin-top: 0.25rem;
+}
+
+.exp-minor-divider {
+  color: #CBD5E1;
+}
+
+.exp-minor-text {
+  color: #2563EB;
+  font-weight: 700;
+}
+
+.exp-badges-cluster {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+}
+
+.exp-pill-badge {
+  font-size: 0.75rem;
+  font-weight: 800;
+  padding: 0.35rem 0.85rem;
+  border-radius: 999px;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  letter-spacing: 0.02em;
+}
+
+.exp-pill-blue {
+  background: #EFF6FF;
+  color: #1D4ED8;
+  border: 1px solid #BFDBFE;
+}
+
+.exp-pill-dark {
+  background: #111827;
+  color: #FFFFFF;
+}
+
+.exp-pill-yellow {
+  background: #FEF3C7;
+  color: #B45309;
+  border: 1px solid #FDE68A;
+}
+
+.exp-pill-neutral {
   background: var(--bg-subtle);
   color: var(--text-dark);
   border: 1px solid var(--border-light);
-  padding: 0.3rem 0.85rem;
-  border-radius: 999px;
-  font-size: 0.725rem;
-  font-weight: 800;
 }
 
-.exp-clean-org {
+.exp-card-body-text {
+  font-size: 0.95rem;
+  color: var(--text-body);
+  line-height: 1.65;
+  margin-top: 0.5rem;
+}
+
+/* Work Experience 2-Column Grid */
+.exp-work-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.5rem;
+  align-items: stretch;
+}
+
+.exp-work-card {
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+}
+
+.exp-role-title {
+  font-size: 1.25rem;
+  font-weight: 800;
+  color: var(--text-dark);
+  margin: 0;
+}
+
+.exp-org-name {
   font-size: 0.9rem;
   font-weight: 700;
-  color: var(--text-muted);
+  color: #2563EB;
+  margin-top: 0.25rem;
 }
 
-.exp-clean-desc {
+.exp-sub-detail {
+  font-size: 0.825rem;
+  color: var(--text-muted);
+  font-weight: 600;
+  margin-bottom: 1rem;
+}
+
+.exp-bullet-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  flex-grow: 1;
+}
+
+.exp-bullet-list li {
+  position: relative;
+  padding-left: 1.35rem;
   font-size: 0.9rem;
   color: var(--text-body);
-  line-height: 1.6;
-  font-weight: 500;
+  line-height: 1.55;
+}
+
+.exp-bullet-list li::before {
+  content: "•";
+  position: absolute;
+  left: 0;
+  top: -0.05rem;
+  color: #2563EB;
+  font-weight: 900;
+  font-size: 1.15rem;
+}
+
+/* Three Grouped Cards Grid */
+.exp-three-groups-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+  align-items: stretch;
+}
+
+.exp-group-card {
+  padding: 1.85rem 1.75rem;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.group-card-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 1.25rem;
+  padding-bottom: 0.85rem;
+  border-bottom: 1px solid var(--border-light);
+}
+
+.group-header-left {
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
+}
+
+.group-header-icon {
+  width: 36px;
+  height: 36px;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.group-header-icon.tennis-icon {
+  background: #FEF3C7;
+  color: #D97706;
+}
+
+.group-header-icon.honor-icon {
+  background: #EFF6FF;
+  color: #2563EB;
+}
+
+.group-header-icon.comp-icon {
+  background: #ECFDF5;
+  color: #059669;
+}
+
+.group-card-title {
+  font-size: 1.05rem;
+  font-weight: 800;
+  color: var(--text-dark);
+  margin: 0;
+}
+
+.group-items-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  flex-grow: 1;
+}
+
+.group-item-row {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.75rem;
+}
+
+.group-item-bullet-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #111827;
+  margin-top: 0.45rem;
+  flex-shrink: 0;
+}
+
+.group-item-content {
+  flex-grow: 1;
+}
+
+.group-item-title {
+  font-size: 0.95rem;
+  font-weight: 800;
+  color: var(--text-dark);
+  line-height: 1.35;
+}
+
+.group-item-meta {
+  font-size: 0.825rem;
+  color: var(--text-muted);
+  font-weight: 600;
+  margin-top: 0.2rem;
+  line-height: 1.4;
 }
 
 /* ==========================================================================
@@ -1377,32 +1857,60 @@ a {
     display: flex;
   }
 
+  .gitos-hero-section {
+    padding-top: 5.25rem;
+    padding-bottom: 2.5rem;
+  }
+
   .gitos-hero-stage-card {
-    padding: 2.5rem 1.75rem;
+    padding: 2.25rem 1.5rem;
+    border-radius: 28px;
   }
 
   .gitos-hero-grid {
     grid-template-columns: 1fr;
-    gap: 3.5rem;
+    gap: 2rem;
+  }
+
+  .gitos-hero-portrait-stage {
+    padding: 0.5rem 0;
+  }
+
+  .gitos-hero-portrait-container {
+    width: 260px;
+    height: 350px;
   }
 
   .hero-chip-badge-top {
-    top: -15px;
+    top: -10px;
     left: 0px;
   }
 
   .hero-chip-badge-bottom {
-    bottom: -15px;
+    bottom: -10px;
     right: 0px;
   }
 
-  .gitos-hero-title {
-    font-size: 2.85rem;
+  .gitos-hero-content {
+    gap: 1.15rem;
   }
 
-  .gitos-services-grid {
+  .gitos-hero-title {
+    font-size: 2.65rem;
+  }
+
+  .gitos-hero-narrative {
+    font-size: 1.1rem;
+    line-height: 1.6;
+  }
+
+  .skills-two-cards-grid {
     grid-template-columns: 1fr;
-    max-width: 480px;
+    gap: 2rem;
+  }
+
+  .skills-clean-title {
+    font-size: 2.65rem;
   }
 
   .about-gitos-card {
@@ -1413,15 +1921,13 @@ a {
     font-size: 1.45rem;
   }
 
-  .gitos-project-row {
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 1rem;
+  .projects-card-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
   }
 
-  .project-row-right {
-    width: 100%;
-    justify-content: space-between;
+  .projects-section-heading {
+    font-size: 2.5rem;
   }
 
   .process-grid {
@@ -1429,9 +1935,18 @@ a {
     gap: 2.5rem;
   }
 
-  .gitos-exp-grid-2col {
+  .exp-work-grid {
     grid-template-columns: 1fr;
-    gap: 2.5rem;
+    gap: 1.5rem;
+  }
+
+  .exp-three-groups-grid {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+
+  .exp-education-card {
+    padding: 1.75rem 1.5rem;
   }
 
   .footer-columns-grid {
@@ -1440,16 +1955,198 @@ a {
   }
 }
 
+@media (max-width: 768px) {
+  .projects-card-grid {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+
+  .projects-grid-header-row {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1.25rem;
+    margin-bottom: 2.25rem;
+  }
+
+  .projects-filter-bar {
+    width: 100%;
+    overflow-x: auto;
+    padding: 0.3rem;
+  }
+
+  .project-filter-btn {
+    padding: 0.5rem 1.15rem;
+    font-size: 0.8rem;
+  }
+
+  .modal-overlay {
+    padding: 1rem;
+  }
+
+  .modal-box {
+    padding: 1.75rem 1.25rem;
+    border-radius: 20px;
+    max-height: 92vh;
+  }
+
+  .modal-close-btn {
+    top: 1rem;
+    right: 1rem;
+    width: 34px;
+    height: 34px;
+  }
+}
+
 @media (max-width: 576px) {
   .container {
-    padding: 0 1.25rem;
+    padding: 0 1rem;
+  }
+
+  .gitos-hero-section {
+    padding-top: 4.5rem;
+    padding-bottom: 1.5rem;
+  }
+
+  .gitos-hero-stage-card {
+    padding: 1.5rem 1.15rem;
+    border-radius: 20px;
+  }
+
+  .gitos-hero-grid {
+    gap: 1.25rem;
+  }
+
+  .gitos-hero-portrait-stage {
+    padding: 0.25rem 0;
+  }
+
+  .gitos-hero-portrait-container {
+    width: 210px;
+    height: 275px;
+    border-radius: 110px 110px 20px 20px;
+  }
+
+  .hero-chip-badge-top {
+    top: -8px;
+    left: -6px;
+    padding: 0.4rem 0.85rem;
+    font-size: 0.72rem;
+  }
+
+  .hero-chip-badge-bottom {
+    bottom: -8px;
+    right: -6px;
+    padding: 0.4rem 0.85rem;
+    font-size: 0.72rem;
+  }
+
+  .gitos-hero-content {
+    gap: 0.85rem;
+  }
+
+  .gitos-hero-subtitle-tag {
+    font-size: 0.68rem;
+    padding: 0.3rem 0.75rem;
+    letter-spacing: 0.04em;
+  }
+
+  .gitos-hero-subtitle-tag .neutral-dot {
+    width: 6px;
+    height: 6px;
   }
 
   .gitos-hero-title {
-    font-size: 2.25rem;
+    font-size: 1.95rem;
+    line-height: 1.15;
+    letter-spacing: -0.02em;
   }
 
-  .gitos-services-title, .projects-dark-title, .section-heading {
-    font-size: 2.25rem;
+  .gitos-hero-narrative {
+    font-size: 0.95rem;
+    line-height: 1.5;
+  }
+
+  .gitos-hero-actions {
+    gap: 0.75rem;
+    margin-top: 0.25rem;
+    flex-wrap: wrap;
+  }
+
+  .btn-gitos-primary,
+  .btn-gitos-secondary {
+    padding: 0.7rem 1.25rem;
+    font-size: 0.8rem;
+  }
+
+  .social-circle-btn {
+    width: 40px;
+    height: 40px;
+  }
+
+  .skills-clean-section {
+    padding: 3.5rem 0 4rem 0;
+  }
+
+  .skills-clean-card {
+    padding: 1.75rem 1.25rem;
+    border-radius: 20px;
+  }
+
+  .skills-clean-title {
+    font-size: 2rem;
+  }
+
+  .tool-row-item {
+    padding: 0.75rem 0.85rem;
+    gap: 0.85rem;
+  }
+
+  .tool-logo-box {
+    width: 38px;
+    height: 38px;
+  }
+
+  .tool-brand-img {
+    width: 20px;
+    height: 20px;
+  }
+
+  .tool-name {
+    font-size: 0.925rem;
+  }
+
+  .tool-role {
+    font-size: 0.725rem;
+  }
+
+  .projects-grid-section {
+    padding: 4.5rem 0 5rem;
+  }
+
+  .projects-section-heading, .section-heading {
+    font-size: 2rem;
+  }
+
+  .project-card-body {
+    padding: 1.25rem 1.15rem 1.35rem;
+  }
+
+  .project-card-title {
+    font-size: 1.15rem;
+  }
+
+  .exp-education-card,
+  .exp-work-card,
+  .exp-group-card {
+    padding: 1.5rem 1.25rem;
+    border-radius: 18px;
+  }
+
+  .exp-school-title {
+    font-size: 1.2rem;
+  }
+
+  .exp-degree-row {
+    font-size: 0.95rem;
   }
 }

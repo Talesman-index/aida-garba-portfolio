@@ -142,11 +142,13 @@ export default function Contact() {
             {/* Resume Request CTA */}
             <div className="pt-2 border-t border-white/10">
               <a
-                href={`mailto:${profile.email}?subject=Resume%20Request%20-%20Aida%20Garba`}
+                href="/Aida_Garba_Resume.pdf"
+                target="_blank"
+                rel="noopener noreferrer"
                 className="btn-secondary w-full justify-center text-xs py-3.5 rounded-xl shadow-md hover:border-blue-500/40 transition-all flex items-center gap-2 group"
               >
                 <Download className="w-4 h-4 group-hover:-translate-y-0.5 transition-transform" />
-                Request Official Resume PDF
+                View Official Resume (PDF)
               </a>
             </div>
 

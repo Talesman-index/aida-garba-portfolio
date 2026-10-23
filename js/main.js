@@ -31,8 +31,8 @@ function initNavbar() {
 function initScrollAnimations() {
   const revealElements = document.querySelectorAll(`
     .gitos-hero-stage-card,
-    .gitos-services-title,
-    .gitos-service-card,
+    .skills-clean-title,
+    .skills-clean-card,
     .about-gitos-card,
     .projects-dark-title,
     .gitos-project-row,
@@ -51,8 +51,8 @@ function initScrollAnimations() {
     el.classList.add('reveal-on-scroll');
 
     // Add staggered delay for grid & list items
-    if (el.classList.contains('gitos-service-card') || el.classList.contains('protfolis-card')) {
-      const stagger = (index % 3) * 0.12;
+    if (el.classList.contains('skills-clean-card') || el.classList.contains('protfolis-card')) {
+      const stagger = (index % 2) * 0.12;
       el.style.transitionDelay = `${stagger}s`;
     } else if (el.classList.contains('gitos-project-row')) {
       const rowStagger = (index % 6) * 0.08;
@@ -159,8 +159,8 @@ function init3DHeroTilt() {
 
 /* 6. Project Category Filtering */
 function initProjectFilters() {
-  const filterBtns = document.querySelectorAll('.filter-btn');
-  const projectCards = document.querySelectorAll('.project-card-wrap');
+  const filterBtns = document.querySelectorAll('.project-filter-btn, .gitos-dark-filter-btn, .filter-btn');
+  const projectCards = document.querySelectorAll('.project-grid-card, .gitos-project-row, .project-card-wrap');
 
   filterBtns.forEach((btn) => {
     btn.addEventListener('click', () => {
@@ -172,17 +172,17 @@ function initProjectFilters() {
       projectCards.forEach((card) => {
         const category = card.getAttribute('data-category');
         if (filterValue === 'all' || category === filterValue) {
-          card.style.display = 'block';
+          card.style.display = 'flex';
           setTimeout(() => {
             card.style.opacity = '1';
-            card.style.transform = 'translateY(0)';
-          }, 50);
+            card.style.transform = 'translateY(0) scale(1)';
+          }, 20);
         } else {
           card.style.opacity = '0';
-          card.style.transform = 'translateY(20px)';
+          card.style.transform = 'translateY(16px) scale(0.97)';
           setTimeout(() => {
             card.style.display = 'none';
-          }, 300);
+          }, 250);
         }
       });
     });
@@ -240,13 +240,14 @@ function renderModalContent(project, container) {
       <div style="display: flex; align-items: center; gap: 0.75rem; margin-bottom: 0.85rem; flex-wrap: wrap;">
         <span style="background: #111111; color: #FFFFFF; font-size: 0.75rem; font-weight: 800; padding: 0.35rem 1rem; border-radius: 999px; text-transform: uppercase; letter-spacing: 0.04em;">${project.category}</span>
         <span style="background: #F3F4F6; color: #111111; border: 1px solid #EAECF0; font-size: 0.75rem; font-weight: 800; padding: 0.35rem 1rem; border-radius: 999px;">${project.badge}</span>
+        ${project.date ? `<span style="background: #FAFAFA; color: #6B7280; border: 1px solid #EAECF0; font-size: 0.75rem; font-weight: 700; padding: 0.35rem 0.85rem; border-radius: 999px;">📅 ${project.date}</span>` : ''}
       </div>
       <h2 style="font-size: 2.2rem; font-weight: 800; color: #111111; line-height: 1.25; letter-spacing: -0.02em;">${project.title}</h2>
       <p style="font-size: 1.05rem; color: #4B5563; margin-top: 0.65rem; line-height: 1.6; font-weight: 500;">${project.shortDescription}</p>
     </div>
 
     <!-- Points 1 & 2: Overview & Problem -->
-    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1.25rem; margin-bottom: 1.25rem; text-align: left;">
+    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.25rem; margin-bottom: 1.25rem; text-align: left;">
       <div style="background: #FAFAFA; border: 1px solid #EAECF0; padding: 1.5rem; border-radius: 20px; box-shadow: 0 4px 12px rgba(0,0,0,0.02);">
         <h4 style="color: #111111; font-size: 0.95rem; font-weight: 800; text-transform: uppercase; letter-spacing: 0.04em; margin-bottom: 0.5rem; display: flex; align-items: center; gap: 0.4rem;">
           <span style="color: #6B7280;">01.</span> Overview
@@ -263,7 +264,7 @@ function renderModalContent(project, container) {
     </div>
 
     <!-- Points 3 & 4: Users & My Role -->
-    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1.25rem; margin-bottom: 1.25rem; text-align: left;">
+    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.25rem; margin-bottom: 1.25rem; text-align: left;">
       <div style="background: #FAFAFA; border: 1px solid #EAECF0; padding: 1.5rem; border-radius: 20px; box-shadow: 0 4px 12px rgba(0,0,0,0.02);">
         <h4 style="color: #111111; font-size: 0.95rem; font-weight: 800; text-transform: uppercase; letter-spacing: 0.04em; margin-bottom: 0.5rem; display: flex; align-items: center; gap: 0.4rem;">
           <span style="color: #6B7280;">03.</span> Target Users
@@ -362,12 +363,13 @@ function initContactForm() {
   }
 }
 
-/* Complete Project Data Repository */
+/* Complete Project Data Repository (8 Core Projects) */
 const PROJECTS_DATA = {
   "livingstone-timesheet": {
-    title: "Livingstone College Digital Timesheet System",
-    category: "AI Product Management",
-    badge: "Operational PM MVP",
+    title: "Digital Timesheet System",
+    category: "AI Product Builder",
+    badge: "Featured MVP",
+    date: "June 2026",
     shortDescription: "A digital system created to replace paper tutor timesheets, automatically calculating work hours and eliminating submission errors.",
     caseStudy: {
       overview: "A digital management application designed to replace outdated, manual paper-based tutor timesheets at Livingstone College.",
@@ -394,8 +396,9 @@ const PROJECTS_DATA = {
   },
   "shalom-recovery-ai": {
     title: "Shalom Recovery AI",
-    category: "AI Product Management",
+    category: "AI Product Builder",
     badge: "Healthcare AI PM",
+    date: "June 2026",
     shortDescription: "An AI-assisted postoperative recovery platform designed to support patients after surgery with symptom tracking and safety guardrails.",
     caseStudy: {
       overview: "An AI-assisted postoperative recovery platform designed to empower patients during home recovery with clear instructions, symptom checking, and safety escalation.",
@@ -420,10 +423,40 @@ const PROJECTS_DATA = {
       visualsNote: "Conversational UI mockup displaying symptom check-in with safety alert escalation callout."
     }
   },
+  "stem-camp": {
+    title: "STEM Camp",
+    category: "AI Product Builder",
+    badge: "EdTech AI MVP",
+    date: "June 2026",
+    shortDescription: "An interactive digital learning platform designed to engage youth in hands-on robotics, coding challenges, and interactive science simulations.",
+    caseStudy: {
+      overview: "A youth-oriented STEM learning platform designed to bridge the digital skills gap for middle and high school students through gamified robotics simulations and AI coding assistants.",
+      problem: "Traditional STEM camp curricula often struggle to sustain high student engagement due to dry technical manuals, complex software setup barriers, and varying initial coding proficiency levels among participants.",
+      users: "Middle/High School Students (need interactive, gamified learning paths) and Camp Instructors (need real-time student progress tracking and automated rubric grading).",
+      myRole: "Product Lead & Curriculum Tech Coordinator. Mapped student onboarding flows, identified gamification mechanics, structured module progression, and tested prototype lessons.",
+      process: [
+        "Surveyed STEM camp instructors and past attendees to pinpoint drop-off points.",
+        "Designed interactive block-based coding workflows and 3D simulation modules.",
+        "Built instant feedback loops with automated AI hint assistants for stuck students.",
+        "Tested prototype with 30+ students during summer workshop trial runs.",
+        "Refined UI clarity, achievement badges, and instructor dashboard."
+      ],
+      solution: "A web platform featuring visual drag-and-drop coding exercises, simulated robotics testing environments, peer collaboration channels, and an instructor analytics dashboard.",
+      toolsUsed: ["Antigravity", "Python", "Figma", "Supabase", "GitHub", "Vercel"],
+      results: [
+        "94% student completion rate across interactive robotics modules.",
+        "Reduced initial coding setup time from 45 minutes to under 3 minutes.",
+        "Awarded top educational innovation honors at regional STEM showcase."
+      ],
+      whatILearned: "How to design intuitive, age-appropriate educational interfaces that turn complex computing concepts into playful, engaging learning journeys.",
+      visualsNote: "Robotics block coding interface and 3D science simulation dashboard."
+    }
+  },
   "evida": {
-    title: "Evida Campus Events Platform",
-    category: "AI Product Management",
+    title: "Evida Campus Events",
+    category: "AI Product Builder",
     badge: "Campus Mobile MVP",
+    date: "July 2026",
     shortDescription: "A centralized campus events platform that helps college students discover events, RSVP, and connect with student organizations.",
     caseStudy: {
       overview: "A centralized campus events platform that helps students discover events, RSVP, manage schedules, and connect with campus student organizations.",
@@ -447,10 +480,69 @@ const PROJECTS_DATA = {
       visualsNote: "Mobile screen flow showcasing event discovery feed, event details, and 1-tap RSVP button."
     }
   },
+  "lc-stem": {
+    title: "LC STEM",
+    category: "AI Product Builder",
+    badge: "Campus Research Portal",
+    date: "August 2026",
+    shortDescription: "A collaborative campus web portal connecting undergraduate STEM students with faculty research opportunities, lab resources, and peer tutoring.",
+    caseStudy: {
+      overview: "A centralized campus academic portal built for Livingstone College STEM departments to streamline research mentorship, peer tutoring schedules, and lab equipment reservations.",
+      problem: "Undergraduate students faced high barriers finding undergraduate research opportunities, scheduling tutoring with CIS/Math peers, and booking specialized laboratory instruments due to fragmented email threads and bulletin board notices.",
+      users: "Livingstone STEM Undergraduates (need easy tutoring bookings & research postings) and Faculty Lab Directors (need centralized equipment scheduling and applicant reviews).",
+      myRole: "Lead Product Designer & CIS Student Representative. Identified operational bottlenecks from firsthand tutoring experience, mapped scheduling architectures, and engineered MVP user flows.",
+      process: [
+        "Conducted in-depth interviews with STEM faculty heads and student tutors.",
+        "Mapped unified calendar reservation system for shared campus lab equipment.",
+        "Created self-service booking system for peer tutoring with automated reminders.",
+        "Prototyped responsive web portal with Antigravity and tested with student peers.",
+        "Integrated institutional CIS directory authentication and scheduling notifications."
+      ],
+      solution: "A modern responsive web hub featuring synchronized tutor shift availability, instant research application submissions, lab equipment booking calendars, and peer study group coordination.",
+      toolsUsed: ["Antigravity", "Supabase", "Figma", "Tailwind CSS", "GitHub"],
+      results: [
+        "Over 520 peer tutoring sessions scheduled and completed within first semester.",
+        "Centralized 12 research labs onto a single digital reservation calendar.",
+        "Eliminated double-booking conflicts across campus computer science and biology facilities."
+      ],
+      whatILearned: "How institutional collaboration and understanding diverse campus stakeholder needs leads to rapid platform adoption.",
+      visualsNote: "STEM Department tutoring schedule board and lab equipment booking matrix."
+    }
+  },
+  "wonder-draw": {
+    title: "Wonder Draw",
+    category: "AI Product Builder",
+    badge: "Generative AI Canvas",
+    date: "October 2026",
+    shortDescription: "A playful, real-time generative AI drawing canvas that transforms rough sketches and doodles into vibrant stylized digital artwork.",
+    caseStudy: {
+      overview: "A browser-based creative application that leverages generative AI diffusion models to transform user doodles and line sketches into polished, high-fidelity illustrations in real time.",
+      problem: "Many creative individuals, students, and educators have great visual ideas but lack formal digital illustration skills. Traditional digital painting software has a steep learning curve and lacks intuitive AI co-creation.",
+      users: "Casual Creators, Students, and Digital Illustrators seeking rapid concept visualization and playful artistic exploration.",
+      myRole: "AI Product Designer & Prompt Engineer. Conceptualized the sketch-to-art user journey, calibrated latent diffusion style prompts, and refined mobile touch-drawing latency.",
+      process: [
+        "Researched real-time canvas latency constraints and user interaction ergonomics.",
+        "Designed lightweight dual-pane interface: left drawing canvas, right AI rendering view.",
+        "Engineered style preset prompts (3D Pixar-style, Cyberpunk, Watercolor, Anime).",
+        "Tested touch-screen drawing responsiveness on tablet and mobile viewports.",
+        "Incorporated 1-click export, image generation history, and social sharing."
+      ],
+      solution: "An ultra-responsive drawing web app featuring real-time AI generation, multi-style prompt presets, intuitive brush controls, and instant high-resolution asset downloads.",
+      toolsUsed: ["Generative AI / Diffusion APIs", "Figma", "Antigravity", "Canvas API", "Vercel"],
+      results: [
+        "Sub-1.5 second real-time sketch rendering pipeline.",
+        "Featured in university creative tech exhibition with over 300 interactive user sessions.",
+        "High user delight score: 92% positive rating for ease of creative expression."
+      ],
+      whatILearned: "How to balance AI model latency with user interface delight, making generative AI accessible and magical for non-technical users.",
+      visualsNote: "Dual-pane canvas showing doodle input transforming into 3D neon rendered artwork."
+    }
+  },
   "mastercard-challenge": {
     title: "Mastercard Inclusive Growth Challenge",
     category: "Data Analytics",
     badge: "Challenge Finalist",
+    date: "Spring 2026",
     shortDescription: "A team project using community health datasets to address healthcare access challenges in Robeson County, NC.",
     caseStudy: {
       overview: "A team-based analytics and social innovation project investigating healthcare access disparities and testing bottlenecks in Robeson County, North Carolina.",
@@ -474,38 +566,11 @@ const PROJECTS_DATA = {
       visualsNote: "Geographic data heat maps, population access charts, and final pitch presentation deck slide."
     }
   },
-  "consumer-complaints": {
-    title: "Consumer Complaint Risk Analysis",
-    category: "Data Analytics",
-    badge: "Excel & BI Dashboard",
-    shortDescription: "An Excel & Power BI analytics project evaluating thousands of financial consumer complaints, trends, high-risk products, and response SLAs.",
-    caseStudy: {
-      overview: "An end-to-end data analytics project examining financial consumer complaints to identify operational risks, product flaws, and institutional response compliance.",
-      problem: "Financial institutions receive high volumes of unorganized consumer complaints, making it difficult for executives to identify root-cause product failures.",
-      users: "Financial Risk Managers, Customer Experience Directors, and Compliance Officers.",
-      myRole: "Sole Data Analyst. Defined the business problem, cleaned raw data, established KPIs, engineered PivotTables/charts, designed an interactive dashboard, and authored strategic executive recommendations.",
-      process: [
-        "Ingested & cleaned raw dataset (removed duplicates, fixed missing values).",
-        "Calculated key business metrics (Total Complaints, Timely Response Rate %).",
-        "Built dynamic PivotTables & PivotCharts categorized by Product & State.",
-        "Designed an executive dashboard with interactive visual slicers.",
-        "Drafted operational recommendations for high-risk credit reporting issues."
-      ],
-      solution: "An interactive Excel/Power BI Executive Dashboard tracking 7 core KPIs: Total Complaints, Top Product (Credit Reporting), Top Issue (Report Accuracy), Timely Response %, Complaints by Company, Geographic Distribution, and Monthly Trends.",
-      toolsUsed: ["Excel (PivotTables, VLOOKUP, Advanced Charts)", "Power BI"],
-      results: [
-        "Identified Credit Reporting & Debt Collection as top 80% complaint drivers.",
-        "Highlighted geographic complaint spikes across key US states.",
-        "Delivered actionable recommendations to improve SLA response rates."
-      ],
-      whatILearned: "How to complete a full data-analysis project end-to-end—from understanding business goals to producing executive recommendations.",
-      visualsNote: "Interactive Excel Dashboard displaying complaint trendlines, bar charts, and state heat maps."
-    }
-  },
   "chinook-sql": {
-    title: "Chinook SQL Relational Database Analysis",
+    title: "Chinook Data Analysis",
     category: "Data Analytics",
     badge: "Advanced SQL Queries",
+    date: "July 2026",
     shortDescription: "A SQL project querying a digital music store database to evaluate revenue trends, customer spend, best-selling genres, and sales rep performance.",
     caseStudy: {
       overview: "A comprehensive SQL database analysis of the Chinook digital music store, dissecting sales performance, customer spend, geographic revenue, and artist popularity.",
@@ -531,3 +596,4 @@ const PROJECTS_DATA = {
     }
   }
 };
+

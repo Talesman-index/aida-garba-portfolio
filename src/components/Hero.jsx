@@ -50,11 +50,13 @@ export default function Hero() {
             </a>
 
             <a
-              href={`mailto:${profile.email}?subject=Resume%20Request%20-%20Aida%20Garba`}
+              href="/Aida_Garba_Resume.pdf"
+              target="_blank"
+              rel="noopener noreferrer"
               className="btn-secondary"
             >
               <Download className="w-4 h-4" />
-              Request Resume
+              View Resume (PDF)
             </a>
 
             <a
