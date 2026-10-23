@@ -8,9 +8,9 @@
   <meta name="author" content="Aïda Garba">
   
   <!-- Master Gitos Luxury Stylesheet -->
-  <script type="module" crossorigin src="/assets/main-5sUNfzdI.js"></script>
-  <link rel="modulepreload" crossorigin href="/assets/style-B8wkjVQZ.js">
-  <link rel="stylesheet" crossorigin href="/assets/style-CvoHECZm.css">
+  <script type="module" crossorigin src="/assets/main-CuS9-jj3.js"></script>
+  <link rel="modulepreload" crossorigin href="/assets/i18n-Bnu3ubhB.js">
+  <link rel="stylesheet" crossorigin href="/assets/i18n-BxX-BrWC.css">
 </head>
 <body>
 
@@ -33,17 +33,21 @@
         </a>
 
         <div class="nav-menu">
-          <a href="#home" class="nav-link active">Home</a>
-          <a href="#skills" class="nav-link">Skills</a>
-          <a href="#projects" class="nav-link">Projects</a>
-          <a href="#process" class="nav-link">Process</a>
-          <a href="#experience" class="nav-link">Experience</a>
-          <a href="#contact" class="nav-link">Contact</a>
-          <a href="Aida_Garba_Resume.pdf" target="_blank" rel="noopener noreferrer" class="nav-link" style="color: #2563eb; font-weight: 700; display: inline-flex; align-items: center; gap: 0.35rem;">Resume <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17L17 7M17 7H7M17 7V17"/></svg></a>
+          <a href="#home" class="nav-link active" data-i18n="nav.home">Home</a>
+          <a href="#skills" class="nav-link" data-i18n="nav.skills">Skills</a>
+          <a href="#projects" class="nav-link" data-i18n="nav.projects">Projects</a>
+          <a href="#process" class="nav-link" data-i18n="nav.process">Process</a>
+          <a href="#experience" class="nav-link" data-i18n="nav.experience">Experience</a>
+          <a href="#contact" class="nav-link" data-i18n="nav.contact">Contact</a>
+          <a href="Aida_Garba_Resume.pdf" target="_blank" rel="noopener noreferrer" class="nav-link" style="color: #2563eb; font-weight: 700; display: inline-flex; align-items: center; gap: 0.35rem;" data-i18n="nav.resume">Resume <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17L17 7M17 7H7M17 7V17"/></svg></a>
         </div>
 
         <div class="nav-actions">
-          <a href="#contact" class="btn-hire-me">CONNECT</a>
+          <div class="lang-switch" role="group" aria-label="Language Selector">
+            <button type="button" class="lang-opt-btn active" data-lang="en" aria-label="Switch to English" aria-pressed="true">EN</button>
+            <button type="button" class="lang-opt-btn" data-lang="fr" aria-label="Passer en français" aria-pressed="false">FR</button>
+          </div>
+          <a href="#contact" class="btn-hire-me" data-i18n="nav.connect">CONNECT</a>
           <button class="mobile-toggle" aria-label="Toggle Navigation">
             <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
           </button>
@@ -61,13 +65,13 @@
           
           <!-- Left: Clean Portrait Container with Neutral Rounded Floating Badges -->
           <div class="gitos-hero-portrait-stage">
-            <div class="hero-chip-badge-top">
+            <div class="hero-chip-badge-top" data-i18n="hero.badge_top">
               <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor" stroke="none" aria-hidden="true" style="display:inline-block; vertical-align:-1px; margin-right:4px;">
                 <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/>
               </svg>3.9 GPA CIS Scholar
             </div>
 
-            <div class="hero-chip-badge-bottom">
+            <div class="hero-chip-badge-bottom" data-i18n="hero.badge_bottom">
               <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="display:inline-block; vertical-align:-2px; margin-right:5px;">
                 <circle cx="12" cy="12" r="10"/>
                 <path d="M4.93 4.93a10 10 0 0 1 14.14 0"/>
@@ -82,23 +86,23 @@
 
           <!-- Right: Professional High-Impact Minimalist Narrative -->
           <div class="gitos-hero-content">
-            <div class="gitos-hero-subtitle-tag">
+            <div class="gitos-hero-subtitle-tag" data-i18n="hero.subtitle_tag">
               <span class="neutral-dot"></span>
               DATA ANALYTICS · AI · PRODUCT DEVELOPMENT
             </div>
 
-            <h1 class="gitos-hero-title">Hi, I’m Aïda Garba.</h1>
+            <h1 class="gitos-hero-title" data-i18n="hero.title">Hi, I’m Aïda Garba.</h1>
 
-            <p class="gitos-hero-narrative">
+            <p class="gitos-hero-narrative" data-i18n="hero.narrative">
               I’m a Computer Information Systems student minoring in Data Analytics. I use data and technology to understand problems and build practical solutions, from campus tools to healthcare AI. I’m seeking a Summer 2027 internship in Data & AI.
             </p>
 
             <div class="gitos-hero-actions">
-              <button class="btn-gitos-primary" onclick="scrollToSection('projects')">
+              <button class="btn-gitos-primary" onclick="scrollToSection('projects')" data-i18n="hero.cta_projects">
                 EXPLORE PROJECTS <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="display:inline-block; vertical-align:-1px; margin-left:4px;"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
               </button>
 
-              <button class="btn-gitos-secondary" onclick="scrollToSection('contact')">
+              <button class="btn-gitos-secondary" onclick="scrollToSection('contact')" data-i18n="hero.cta_hire_me">
                 HIRE ME
               </button>
 
@@ -182,9 +186,9 @@
   <section id="skills" class="skills-clean-section">
     <div class="container">
       <div class="skills-clean-header">
-        <span class="section-tag">Core Capabilities</span>
-        <h2 class="skills-clean-title">Skills & Tools</h2>
-        <p class="skills-clean-subtitle">
+        <span class="section-tag" data-i18n="skills.tag">Core Capabilities</span>
+        <h2 class="skills-clean-title" data-i18n="skills.title">Skills & Tools</h2>
+        <p class="skills-clean-subtitle" data-i18n="skills.subtitle">
           Core technical toolset across Data Analytics and Artificial Intelligence, focused on solving operational problems and building usable digital products.
         </p>
       </div>
@@ -193,14 +197,14 @@
         
         <!-- CARD 1: DATA ANALYTICS (Blue Accent) -->
         <div class="skills-clean-card card-data-analytics">
-          <div class="card-accent-pill pill-blue">
+          <div class="card-accent-pill pill-blue" data-i18n="skills.pill_data">
             <span class="accent-dot-blue"></span>
             DATA ANALYTICS
           </div>
 
           <div class="card-header-block">
-            <h3 class="card-title">Data Analytics</h3>
-            <p class="card-desc">
+            <h3 class="card-title" data-i18n="skills.data_title">Data Analytics</h3>
+            <p class="card-desc" data-i18n="skills.data_desc">
               Data manipulation, querying, pipeline transformation, and business intelligence dashboards.
             </p>
           </div>
@@ -245,7 +249,7 @@
                 <img src="/logos/powerbi.svg" alt="Power BI" class="compact-tool-img" width="30" height="30" loading="lazy">
               </div>
               <span class="compact-tool-name">Power BI</span>
-              <span class="compact-learning-pill">Learning</span>
+              <span class="compact-learning-pill" data-i18n="skills.learning">Learning</span>
             </div>
 
           </div>
@@ -253,14 +257,14 @@
 
         <!-- CARD 2: AI & PRODUCT TOOLS (Yellow Accent) -->
         <div class="skills-clean-card card-ai">
-          <div class="card-accent-pill pill-yellow">
+          <div class="card-accent-pill pill-yellow" data-i18n="skills.pill_ai">
             <span class="accent-dot-yellow"></span>
             AI & PRODUCT TOOLS
           </div>
 
           <div class="card-header-block">
-            <h3 class="card-title">AI & Product Tools</h3>
-            <p class="card-desc">
+            <h3 class="card-title" data-i18n="skills.ai_title">AI & Product Tools</h3>
+            <p class="card-desc" data-i18n="skills.ai_desc">
               AI-assisted development, prompt design, reasoning workflows, and iterative product prototyping.
             </p>
           </div>
@@ -341,17 +345,17 @@
       <!-- Section Header with Title & Filter Bar -->
       <div class="projects-grid-header-row">
         <div class="projects-header-left">
-          <div class="projects-live-badge">
+          <div class="projects-live-badge" data-i18n="projects.live_badge">
             <span class="live-dot-pulse"></span>
             LIVE PORTFOLIO
           </div>
-          <h2 class="projects-section-heading">Featured Projects</h2>
+          <h2 class="projects-section-heading" data-i18n="projects.title">Featured Projects</h2>
         </div>
         
         <div class="projects-filter-bar">
-          <button class="project-filter-btn active" data-filter="all">All</button>
-          <button class="project-filter-btn" data-filter="ai-product-builder">AI Product Builder</button>
-          <button class="project-filter-btn" data-filter="data-analytics">Data Analytics</button>
+          <button class="project-filter-btn active" data-filter="all" data-i18n="projects.filter_all">All</button>
+          <button class="project-filter-btn" data-filter="ai-product-builder" data-i18n="projects.filter_ai">AI Product Builder</button>
+          <button class="project-filter-btn" data-filter="data-analytics" data-i18n="projects.filter_data">Data Analytics</button>
         </div>
       </div>
 
@@ -363,23 +367,23 @@
           <div class="project-card-image-box">
             <img src="/assets/timesheet-BRy_5l_X.jpg" alt="Livingstone Digital Timesheet System UI" class="project-card-img" loading="lazy">
             <div class="card-badges-overlay">
-              <span class="floating-badge badge-ai">
+              <span class="floating-badge badge-ai" data-i18n="projects.badge_ai">
                 <span class="accent-dot-yellow"></span> AI PRODUCT BUILDER
               </span>
-              <span class="floating-featured-pill"><svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor" stroke="none" aria-hidden="true" style="margin-right: 4px; vertical-align: -1px;"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>FEATURED</span>
+              <span class="floating-featured-pill" data-i18n="projects.badge_featured"><svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor" stroke="none" aria-hidden="true" style="margin-right: 4px; vertical-align: -1px;"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>FEATURED</span>
             </div>
           </div>
           <div class="project-card-body">
-            <h3 class="project-card-title">Digital Timesheet System</h3>
-            <p class="project-card-desc">
+            <h3 class="project-card-title" data-i18n="proj.p1_title">Digital Timesheet System</h3>
+            <p class="project-card-desc" data-i18n="proj.p1_desc">
               A digital alternative to paper tutor timesheets, automatically calculating daily, weekly, and monthly work hours and producing a downloadable PDF.
             </p>
             <div class="project-card-footer">
-              <span class="project-card-date">
+              <span class="project-card-date" data-i18n="proj.p1_date">
                 <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
                 June 2026
               </span>
-              <a href="projects/livingstone-timesheet.html" class="btn-view-more" aria-label="View case study for Digital Timesheet System">
+              <a href="projects/livingstone-timesheet.html" class="btn-view-more" aria-label="View case study for Digital Timesheet System" data-i18n="projects.view_more">
                 View More <span class="arrow-glyph"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="vertical-align: -1px;"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg></span>
               </a>
             </div>
@@ -391,22 +395,22 @@
           <div class="project-card-image-box">
             <img src="/assets/shalom-B4PD1P9E.jpg" alt="Shalom Recovery AI Mobile App" class="project-card-img" loading="lazy">
             <div class="card-badges-overlay">
-              <span class="floating-badge badge-ai">
+              <span class="floating-badge badge-ai" data-i18n="projects.badge_ai">
                 <span class="accent-dot-yellow"></span> AI PRODUCT BUILDER
               </span>
             </div>
           </div>
           <div class="project-card-body">
-            <h3 class="project-card-title">Shalom Recovery AI</h3>
-            <p class="project-card-desc">
+            <h3 class="project-card-title" data-i18n="proj.p2_title">Shalom Recovery AI</h3>
+            <p class="project-card-desc" data-i18n="proj.p2_desc">
               An AI assistant prototype providing support for patients after surgery between discharge and follow-up through daily check-ins and routine guidance.
             </p>
             <div class="project-card-footer">
-              <span class="project-card-date">
+              <span class="project-card-date" data-i18n="proj.p2_date">
                 <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
                 June 2026
               </span>
-              <a href="projects/shalom-recovery-ai.html" class="btn-view-more" aria-label="View case study for Shalom Recovery AI">
+              <a href="projects/shalom-recovery-ai.html" class="btn-view-more" aria-label="View case study for Shalom Recovery AI" data-i18n="projects.view_more">
                 View More <span class="arrow-glyph"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="vertical-align: -1px;"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg></span>
               </a>
             </div>
@@ -418,22 +422,22 @@
           <div class="project-card-image-box">
             <img src="/assets/stem_camp-DaifXq_2.jpg" alt="STEM Camp Website" class="project-card-img" loading="lazy">
             <div class="card-badges-overlay">
-              <span class="floating-badge badge-ai">
+              <span class="floating-badge badge-ai" data-i18n="projects.badge_ai">
                 <span class="accent-dot-yellow"></span> AI PRODUCT BUILDER
               </span>
             </div>
           </div>
           <div class="project-card-body">
-            <h3 class="project-card-title">STEM Camp Website</h3>
-            <p class="project-card-desc">
+            <h3 class="project-card-title" data-i18n="proj.p3_title">STEM Camp Website</h3>
+            <p class="project-card-desc" data-i18n="proj.p3_desc">
               A website proposed and created on my own initiative to support Livingstone College's Summer STEM program and complement hands-on mentoring activities.
             </p>
             <div class="project-card-footer">
-              <span class="project-card-date">
+              <span class="project-card-date" data-i18n="proj.p3_date">
                 <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
                 June 2026
               </span>
-              <a href="projects/stem-camp.html" class="btn-view-more" aria-label="View case study for STEM Camp Website">
+              <a href="projects/stem-camp.html" class="btn-view-more" aria-label="View case study for STEM Camp Website" data-i18n="projects.view_more">
                 View More <span class="arrow-glyph"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="vertical-align: -1px;"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg></span>
               </a>
             </div>
@@ -445,22 +449,22 @@
           <div class="project-card-image-box">
             <img src="/assets/evida-Dwhn7M7C.png" alt="Evida Campus Events Platform" class="project-card-img" loading="lazy">
             <div class="card-badges-overlay">
-              <span class="floating-badge badge-ai">
+              <span class="floating-badge badge-ai" data-i18n="projects.badge_ai">
                 <span class="accent-dot-yellow"></span> AI PRODUCT BUILDER
               </span>
             </div>
           </div>
           <div class="project-card-body">
-            <h3 class="project-card-title">Evida Campus Events</h3>
-            <p class="project-card-desc">
+            <h3 class="project-card-title" data-i18n="proj.p4_title">Evida Campus Events</h3>
+            <p class="project-card-desc" data-i18n="proj.p4_desc">
               User interface design and MVP contributions for a student-focused web app for discovering and engaging with campus events.
             </p>
             <div class="project-card-footer">
-              <span class="project-card-date">
+              <span class="project-card-date" data-i18n="proj.p4_date">
                 <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
                 July 2026
               </span>
-              <a href="projects/evida.html" class="btn-view-more" aria-label="View case study for Evida Campus Events">
+              <a href="projects/evida.html" class="btn-view-more" aria-label="View case study for Evida Campus Events" data-i18n="projects.view_more">
                 View More <span class="arrow-glyph"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="vertical-align: -1px;"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg></span>
               </a>
             </div>
@@ -472,22 +476,22 @@
           <div class="project-card-image-box">
             <img src="/assets/lc_stem-D5CyK2vy.jpg" alt="LC STEM Student Showcase Website" class="project-card-img" loading="lazy">
             <div class="card-badges-overlay">
-              <span class="floating-badge badge-ai">
+              <span class="floating-badge badge-ai" data-i18n="projects.badge_ai">
                 <span class="accent-dot-yellow"></span> AI PRODUCT BUILDER
               </span>
             </div>
           </div>
           <div class="project-card-body">
-            <h3 class="project-card-title">LC STEM Student Showcase Website</h3>
-            <p class="project-card-desc">
+            <h3 class="project-card-title" data-i18n="proj.p5_title">LC STEM Student Showcase Website</h3>
+            <p class="project-card-desc" data-i18n="proj.p5_desc">
               A collaborative website created to showcase Livingstone College's STEM students, their work, and diverse academic pathways.
             </p>
             <div class="project-card-footer">
-              <span class="project-card-date">
+              <span class="project-card-date" data-i18n="proj.p5_date">
                 <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
                 August 2026
               </span>
-              <a href="projects/lc-stem.html" class="btn-view-more" aria-label="View case study for LC STEM Student Showcase Website">
+              <a href="projects/lc-stem.html" class="btn-view-more" aria-label="View case study for LC STEM Student Showcase Website" data-i18n="projects.view_more">
                 View More <span class="arrow-glyph"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="vertical-align: -1px;"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg></span>
               </a>
             </div>
@@ -499,22 +503,22 @@
           <div class="project-card-image-box">
             <img src="/assets/wonder_draw-CWkpeknd.jpg" alt="Wonder Draw Personal Learning App" class="project-card-img" loading="lazy">
             <div class="card-badges-overlay">
-              <span class="floating-badge badge-ai">
+              <span class="floating-badge badge-ai" data-i18n="projects.badge_ai">
                 <span class="accent-dot-yellow"></span> AI PRODUCT BUILDER
               </span>
             </div>
           </div>
           <div class="project-card-body">
-            <h3 class="project-card-title">Wonder Draw</h3>
-            <p class="project-card-desc">
+            <h3 class="project-card-title" data-i18n="proj.p6_title">Wonder Draw</h3>
+            <p class="project-card-desc" data-i18n="proj.p6_desc">
               A personal learning web app adapted from an existing concept, designed to explore topics across categories and practice conversational explanation.
             </p>
             <div class="project-card-footer">
-              <span class="project-card-date">
+              <span class="project-card-date" data-i18n="proj.p6_date">
                 <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
                 October 2026
               </span>
-              <a href="projects/wonder-draw.html" class="btn-view-more" aria-label="View case study for Wonder Draw">
+              <a href="projects/wonder-draw.html" class="btn-view-more" aria-label="View case study for Wonder Draw" data-i18n="projects.view_more">
                 View More <span class="arrow-glyph"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="vertical-align: -1px;"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg></span>
               </a>
             </div>
@@ -526,22 +530,22 @@
           <div class="project-card-image-box">
             <img src="/assets/mastercard-Bg-wl_-e.jpg" alt="Mastercard Inclusive Growth Challenge Robeson County Strategy" class="project-card-img" loading="lazy">
             <div class="card-badges-overlay badge-overlay-end">
-              <span class="floating-badge badge-data">
+              <span class="floating-badge badge-data" data-i18n="projects.badge_data">
                 <span class="accent-dot-blue"></span> DATA ANALYTICS
               </span>
             </div>
           </div>
           <div class="project-card-body">
-            <h3 class="project-card-title">Mastercard Inclusive Growth Challenge</h3>
-            <p class="project-card-desc">
+            <h3 class="project-card-title" data-i18n="proj.p7_title">Mastercard Inclusive Growth Challenge</h3>
+            <p class="project-card-desc" data-i18n="proj.p7_desc">
               A team data analytics project exploring socioeconomic barriers in Robeson County, NC, connecting community indicators to a proposed solution called Strive.
             </p>
             <div class="project-card-footer">
-              <span class="project-card-date">
+              <span class="project-card-date" data-i18n="proj.p7_date">
                 <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
                 Spring 2026
               </span>
-              <a href="projects/mastercard-challenge.html" class="btn-view-more" aria-label="View case study for Mastercard Inclusive Growth Challenge">
+              <a href="projects/mastercard-challenge.html" class="btn-view-more" aria-label="View case study for Mastercard Inclusive Growth Challenge" data-i18n="projects.view_more">
                 View More <span class="arrow-glyph"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="vertical-align: -1px;"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg></span>
               </a>
             </div>
@@ -553,22 +557,22 @@
           <div class="project-card-image-box">
             <img src="/assets/chinook-CTraF0mT.jpg" alt="Chinook SQL Database Analysis" class="project-card-img" loading="lazy">
             <div class="card-badges-overlay">
-              <span class="floating-badge badge-data">
+              <span class="floating-badge badge-data" data-i18n="projects.badge_data">
                 <span class="accent-dot-blue"></span> DATA ANALYTICS
               </span>
             </div>
           </div>
           <div class="project-card-body">
-            <h3 class="project-card-title">Chinook Data Analysis</h3>
-            <p class="project-card-desc">
+            <h3 class="project-card-title" data-i18n="proj.p8_title">Chinook Data Analysis</h3>
+            <p class="project-card-desc" data-i18n="proj.p8_desc">
               An independent relational SQL analysis querying the Chinook music-store database to investigate sales patterns across customers, invoices, and catalog data.
             </p>
             <div class="project-card-footer">
-              <span class="project-card-date">
+              <span class="project-card-date" data-i18n="proj.p8_date">
                 <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
                 July 2026
               </span>
-              <a href="projects/chinook-sql.html" class="btn-view-more" aria-label="View case study for Chinook Data Analysis">
+              <a href="projects/chinook-sql.html" class="btn-view-more" aria-label="View case study for Chinook Data Analysis" data-i18n="projects.view_more">
                 View More <span class="arrow-glyph"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="vertical-align: -1px;"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg></span>
               </a>
             </div>
@@ -587,11 +591,11 @@
         
         <!-- Left Headline & CTA Button -->
         <div class="process-left-content">
-          <span class="section-tag">Process</span>
-          <h2 class="process-main-heading" style="margin-top:0.75rem;">
+          <span class="section-tag" data-i18n="process.tag">Process</span>
+          <h2 class="process-main-heading" style="margin-top:0.75rem;" data-i18n="process.heading">
             Process that helps<br>you to break the<br>competition
           </h2>
-          <button class="btn-black-pill" onclick="scrollToSection('contact')">
+          <button class="btn-black-pill" onclick="scrollToSection('contact')" data-i18n="process.cta">
             Book A Free Call
           </button>
         </div>
@@ -603,8 +607,8 @@
           <div class="process-step-item">
             <div class="step-number-box">01</div>
             <div class="step-info-box">
-              <h3 class="step-title">Discover the problem</h3>
-              <p class="step-desc">
+              <h3 class="step-title" data-i18n="process.step1_title">Discover the problem</h3>
+              <p class="step-desc" data-i18n="process.step1_desc">
                 Notice a challenge or learn about it from the people experiencing it.
               </p>
             </div>
@@ -614,8 +618,8 @@
           <div class="process-step-item">
             <div class="step-number-box">02</div>
             <div class="step-info-box">
-              <h3 class="step-title">Explore the evidence</h3>
-              <p class="step-desc">
+              <h3 class="step-title" data-i18n="process.step2_title">Explore the evidence</h3>
+              <p class="step-desc" data-i18n="process.step2_desc">
                 Ask questions, study the process, and analyze relevant data to find patterns.
               </p>
             </div>
@@ -625,8 +629,8 @@
           <div class="process-step-item">
             <div class="step-number-box">03</div>
             <div class="step-info-box">
-              <h3 class="step-title">Create a solution</h3>
-              <p class="step-desc">
+              <h3 class="step-title" data-i18n="process.step3_title">Create a solution</h3>
+              <p class="step-desc" data-i18n="process.step3_desc">
                 Turn those findings into an analysis, recommendation, dashboard, or product.
               </p>
             </div>
@@ -636,8 +640,8 @@
           <div class="process-step-item">
             <div class="step-number-box">04</div>
             <div class="step-info-box">
-              <h3 class="step-title">Test &amp; improve</h3>
-              <p class="step-desc">
+              <h3 class="step-title" data-i18n="process.step4_title">Test &amp; improve</h3>
+              <p class="step-desc" data-i18n="process.step4_desc">
                 Check whether it meets the need, gather feedback, and refine it.
               </p>
             </div>
@@ -655,9 +659,9 @@
       
       <!-- Section Header -->
       <div class="gitos-exp-header-wrap">
-        <span class="section-tag">Track Record</span>
-        <h2 class="section-heading" style="margin-top:0.5rem; margin-bottom:0.75rem;">Experience & Education</h2>
-        <p class="section-desc" style="text-align:left; max-width:680px;">
+        <span class="section-tag" data-i18n="exp.tag">Track Record</span>
+        <h2 class="section-heading" style="margin-top:0.5rem; margin-bottom:0.75rem;" data-i18n="exp.title">Experience & Education</h2>
+        <p class="section-desc" style="text-align:left; max-width:680px;" data-i18n="exp.subtitle">
           Combining 3.9 academic excellence in Computer Information Systems with leadership in tutoring, student mentorship, and NCAA Division II athletics.
         </p>
       </div>
@@ -668,7 +672,7 @@
         <!-- 1. EDUCATION (FIRST - FEATURED CARD) -->
         <div class="exp-section-block">
           <div class="exp-block-header">
-            <span class="exp-block-label">EDUCATION</span>
+            <span class="exp-block-label" data-i18n="exp.block_edu">EDUCATION</span>
           </div>
 
           <div class="exp-card exp-education-card">
@@ -683,24 +687,24 @@
                   </span>
                   <div>
                     <h3 class="exp-school-title">Livingstone College</h3>
-                    <div class="exp-school-loc">Salisbury, North Carolina</div>
+                    <div class="exp-school-loc" data-i18n="exp.school_loc">Salisbury, North Carolina</div>
                   </div>
                 </div>
                 <div class="exp-degree-row">
-                  <span class="exp-degree-text">B.S. in Computer Information Systems</span>
+                  <span class="exp-degree-text" data-i18n="exp.degree">B.S. in Computer Information Systems</span>
                   <span class="exp-minor-divider">•</span>
-                  <span class="exp-minor-text">Minor in Data Analytics</span>
+                  <span class="exp-minor-text" data-i18n="exp.minor">Minor in Data Analytics</span>
                 </div>
               </div>
 
               <div class="exp-badges-cluster">
-                <span class="exp-pill-badge exp-pill-blue">Junior</span>
+                <span class="exp-pill-badge exp-pill-blue" data-i18n="exp.pill_junior">Junior</span>
                 <span class="exp-pill-badge exp-pill-dark">3.9 GPA</span>
-                <span class="exp-pill-badge exp-pill-yellow">Highest Honors</span>
+                <span class="exp-pill-badge exp-pill-yellow" data-i18n="exp.pill_honors">Highest Honors</span>
               </div>
             </div>
 
-            <p class="exp-card-body-text">
+            <p class="exp-card-body-text" data-i18n="exp.edu_desc">
               Maintaining high academic distinction while mastering relational database systems, exploratory data analytics, machine learning fundamentals, and rapid AI product prototyping. Active member of the Honors Program.
             </p>
           </div>
@@ -709,7 +713,7 @@
         <!-- 2. WORK EXPERIENCE (TWO CARDS BELOW EDUCATION) -->
         <div class="exp-section-block">
           <div class="exp-block-header">
-            <span class="exp-block-label">WORK EXPERIENCE</span>
+            <span class="exp-block-label" data-i18n="exp.block_work">WORK EXPERIENCE</span>
           </div>
 
           <div class="exp-work-grid">
@@ -718,15 +722,15 @@
             <div class="exp-card exp-work-card">
               <div class="exp-card-top">
                 <div class="exp-card-main-info">
-                  <h3 class="exp-role-title">Academic Tutor</h3>
-                  <div class="exp-org-name">Livingstone College Tutoring Center</div>
+                  <h3 class="exp-role-title" data-i18n="exp.role1_title">Academic Tutor</h3>
+                  <div class="exp-org-name" data-i18n="exp.role1_org">Livingstone College Tutoring Center</div>
                 </div>
-                <span class="exp-pill-badge exp-pill-neutral">Academic Year</span>
+                <span class="exp-pill-badge exp-pill-neutral" data-i18n="exp.role1_pill">Academic Year</span>
               </div>
-              <div class="exp-sub-detail">Computer Information Systems & Mathematics • Salisbury, NC</div>
+              <div class="exp-sub-detail" data-i18n="exp.role1_sub">Computer Information Systems & Mathematics • Salisbury, NC</div>
               <ul class="exp-bullet-list">
-                <li>Conduct 1-on-1 and interactive group tutoring sessions in Computer Information Systems, relational databases, data structures, and college mathematics.</li>
-                <li>Deconstruct complex technical and algorithmic concepts into intuitive, step-by-step frameworks that strengthen academic confidence and problem-solving skills.</li>
+                <li data-i18n="exp.role1_b1">Conduct 1-on-1 and interactive group tutoring sessions in Computer Information Systems, relational databases, data structures, and college mathematics.</li>
+                <li data-i18n="exp.role1_b2">Deconstruct complex technical and algorithmic concepts into intuitive, step-by-step frameworks that strengthen academic confidence and problem-solving skills.</li>
               </ul>
             </div>
 
@@ -734,15 +738,15 @@
             <div class="exp-card exp-work-card">
               <div class="exp-card-top">
                 <div class="exp-card-main-info">
-                  <h3 class="exp-role-title">Student Assistant Mentor</h3>
-                  <div class="exp-org-name">Summer STEM Bridge Program</div>
+                  <h3 class="exp-role-title" data-i18n="exp.role2_title">Student Assistant Mentor</h3>
+                  <div class="exp-org-name" data-i18n="exp.role2_org">Summer STEM Bridge Program</div>
                 </div>
-                <span class="exp-pill-badge exp-pill-neutral">Summer 2025</span>
+                <span class="exp-pill-badge exp-pill-neutral" data-i18n="exp.role2_pill">Summer 2025</span>
               </div>
-              <div class="exp-sub-detail">Livingstone College • Salisbury, NC</div>
+              <div class="exp-sub-detail" data-i18n="exp.role2_sub">Livingstone College • Salisbury, NC</div>
               <ul class="exp-bullet-list">
-                <li>Mentored incoming collegiate STEM students through university transition, academic orientation, and daily campus technical routines.</li>
-                <li>Facilitated interactive orientation workshops, guided team project collaboration, and assisted faculty with daily program logistics.</li>
+                <li data-i18n="exp.role2_b1">Mentored incoming collegiate STEM students through university transition, academic orientation, and daily campus technical routines.</li>
+                <li data-i18n="exp.role2_b2">Facilitated interactive orientation workshops, guided team project collaboration, and assisted faculty with daily program logistics.</li>
               </ul>
             </div>
 
@@ -752,12 +756,12 @@
         <!-- 3. MOMENTS & MILESTONES (PHOTO GALLERY: "THE OTHER HALF") -->
         <div class="exp-section-block">
           <div class="exp-block-header">
-            <span class="exp-block-label">MOMENTS & MILESTONES</span>
+            <span class="exp-block-label" data-i18n="gallery.block_label">MOMENTS & MILESTONES</span>
           </div>
 
           <div class="gallery-header-wrap">
-            <h3 class="gallery-heading">The other half</h3>
-            <p class="gallery-subheading">Student-athlete grit, STEM mentorship, and academic honors beyond the screen.</p>
+            <h3 class="gallery-heading" data-i18n="gallery.heading">The other half</h3>
+            <p class="gallery-subheading" data-i18n="gallery.subheading">Student-athlete grit, STEM mentorship, and academic honors beyond the screen.</p>
           </div>
 
           <div class="gallery-bento-grid" role="region" aria-label="Moments and Milestones Photo Gallery">
@@ -970,8 +974,8 @@
         <!-- Left Column: Contact Information -->
         <div class="contact-info-col reveal-on-scroll">
           <div class="contact-headings-wrap">
-            <h2 class="contact-main-heading">You scrolled this far.</h2>
-            <h3 class="contact-sub-heading">Might as well say hi.</h3>
+            <h2 class="contact-main-heading" data-i18n="contact.main_heading">You scrolled this far.</h2>
+            <h3 class="contact-sub-heading" data-i18n="contact.sub_heading">Might as well say hi.</h3>
           </div>
 
           <!-- Email Row -->
@@ -983,9 +987,9 @@
               </svg>
             </div>
             <div class="contact-row-text">
-              <span class="contact-row-title">Email me</span>
+              <span class="contact-row-title" data-i18n="contact.email_title">Email me</span>
               <a href="mailto:garbaim27@gmail.com" class="contact-row-value">garbaim27@gmail.com</a>
-              <span class="contact-row-caption">A real inbox. Revolutionary.</span>
+              <span class="contact-row-caption" data-i18n="contact.email_caption">A real inbox. Revolutionary.</span>
             </div>
             <div class="contact-row-actions">
               <button type="button" class="contact-copy-btn" id="copy-email-btn" aria-label="Copy email address to clipboard" data-tooltip="Copy email">
@@ -1012,8 +1016,8 @@
               </svg>
             </div>
             <div class="contact-row-text">
-              <span class="contact-row-title">Let's connect on LinkedIn</span>
-              <span class="contact-row-caption">Professional me lives here.</span>
+              <span class="contact-row-title" data-i18n="contact.linkedin_title">Let's connect on LinkedIn</span>
+              <span class="contact-row-caption" data-i18n="contact.linkedin_caption">Professional me lives here.</span>
             </div>
             <div class="contact-row-actions">
               <a href="https://linkedin.com/in/aidagarba" target="_blank" rel="noopener noreferrer" class="contact-arrow-link" aria-label="Open LinkedIn profile" title="View LinkedIn profile">
@@ -1033,12 +1037,12 @@
                 <circle cx="12" cy="10" r="3"/>
               </svg>
             </div>
-            <span class="contact-location-text">Salisbury, NC · Usually near a laptop.</span>
+            <span class="contact-location-text" data-i18n="contact.location">Salisbury, NC · Usually near a laptop.</span>
           </div>
 
           <!-- View Resume Button -->
           <div class="contact-resume-wrap">
-            <a href="Aida_Garba_Resume.pdf" target="_blank" rel="noopener noreferrer" class="btn-contact-resume">
+            <a href="Aida_Garba_Resume.pdf" target="_blank" rel="noopener noreferrer" class="btn-contact-resume" data-i18n="contact.resume_btn">
               View Resume
               <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
                 <line x1="7" y1="17" x2="17" y2="7"/>
@@ -1051,38 +1055,38 @@
         <!-- Right Column: Form Panel -->
         <div class="contact-form-col reveal-on-scroll">
           <div class="contact-form-panel">
-            <h3 class="contact-form-heading">Skip the networking small talk.</h3>
-            <p class="contact-form-subtitle">Tell me what you have in mind.</p>
+            <h3 class="contact-form-heading" data-i18n="contact.form_heading">Skip the networking small talk.</h3>
+            <p class="contact-form-subtitle" data-i18n="contact.form_subtitle">Tell me what you have in mind.</p>
 
             <div id="contact-success" class="contact-alert-success" style="display: none;" role="status">
               <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#047857" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
-              <span>Message sent! Aïda will respond shortly.</span>
+              <span data-i18n="contact.success">Message sent! Aïda will respond shortly.</span>
             </div>
 
             <form id="contact-form" class="contact-redesign-form" novalidate>
               <div class="contact-field-group">
-                <label class="contact-field-label" for="contact-name">Name</label>
-                <input type="text" id="contact-name" name="name" required placeholder="Your name. Not your LinkedIn headline." class="contact-field-input" autocomplete="name">
+                <label class="contact-field-label" for="contact-name" data-i18n="contact.name_label">Name</label>
+                <input type="text" id="contact-name" name="name" required placeholder="Your name. Not your LinkedIn headline." data-i18n-placeholder="contact.name_placeholder" class="contact-field-input" autocomplete="name">
                 <span class="contact-field-error" id="error-name" aria-live="polite"></span>
               </div>
 
               <div class="contact-field-group">
-                <label class="contact-field-label" for="contact-email">Email</label>
-                <input type="email" id="contact-email" name="email" required placeholder="Somewhere I can actually reply." class="contact-field-input" autocomplete="email">
+                <label class="contact-field-label" for="contact-email" data-i18n="contact.email_label">Email</label>
+                <input type="email" id="contact-email" name="email" required placeholder="Somewhere I can actually reply." data-i18n-placeholder="contact.email_placeholder" class="contact-field-input" autocomplete="email">
                 <span class="contact-field-error" id="error-email" aria-live="polite"></span>
               </div>
 
               <div class="contact-field-group">
-                <label class="contact-field-label" for="contact-message">Message</label>
-                <textarea id="contact-message" name="message" rows="4" required placeholder="The idea, the opportunity, the wildly specific question..." class="contact-field-textarea"></textarea>
+                <label class="contact-field-label" for="contact-message" data-i18n="contact.message_label">Message</label>
+                <textarea id="contact-message" name="message" rows="4" required placeholder="The idea, the opportunity, the wildly specific question..." data-i18n-placeholder="contact.message_placeholder" class="contact-field-textarea"></textarea>
                 <span class="contact-field-error" id="error-message" aria-live="polite"></span>
               </div>
 
-              <button type="submit" class="contact-submit-btn" id="contact-submit-button">
+              <button type="submit" class="contact-submit-btn" id="contact-submit-button" data-i18n="contact.submit_btn">
                 LET'S MAKE THIS AN EMAIL
               </button>
 
-              <p class="contact-form-footnote">No carrier pigeons required.</p>
+              <p class="contact-form-footnote" data-i18n="contact.footnote">No carrier pigeons required.</p>
             </form>
           </div>
         </div>
@@ -1098,12 +1102,12 @@
       
       <div class="footer-top-cta">
         <div>
-          <h2 class="footer-cta-heading">Let’s Build Something Good.</h2>
-          <p class="footer-cta-sub">
+          <h2 class="footer-cta-heading" data-i18n="footer.cta_heading">Let’s Build Something Good.</h2>
+          <p class="footer-cta-sub" data-i18n="footer.cta_sub">
             Have an opportunity, an idea, or just want to connect? I’d love to hear from you.
           </p>
         </div>
-        <a href="#contact" class="btn-footer-cta">DON’T BE A STRANGER →</a>
+        <a href="#contact" class="btn-footer-cta" data-i18n="footer.cta_btn">DON’T BE A STRANGER →</a>
       </div>
 
       <div class="footer-columns-grid">
@@ -1121,26 +1125,26 @@
             </svg>
             <span class="sr-only">Aïda</span>
           </a>
-          <p class="footer-brand-desc">
+          <p class="footer-brand-desc" data-i18n="footer.brand_desc">
             Student-athlete exploring Data, AI & Product — learning, building, and probably overthinking something interesting.
           </p>
         </div>
 
         <div>
-          <h4 class="footer-col-heading">Navigation</h4>
+          <h4 class="footer-col-heading" data-i18n="footer.col_nav">Navigation</h4>
           <ul class="footer-links-list">
-            <li><a href="#home" class="footer-link-item">Home</a></li>
-            <li><a href="#skills" class="footer-link-item">Skills</a></li>
-            <li><a href="#projects" class="footer-link-item">Projects</a></li>
-            <li><a href="#process" class="footer-link-item">Process</a></li>
-            <li><a href="#experience" class="footer-link-item">Experience</a></li>
-            <li><a href="#contact" class="footer-link-item">Contact</a></li>
-            <li><a href="Aida_Garba_Resume.pdf" target="_blank" rel="noopener noreferrer" class="footer-link-item" style="color: #60a5fa; font-weight: 700; display: inline-flex; align-items: center; gap: 4px;">Resume (PDF) <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="7" y1="17" x2="17" y2="7"></line><polyline points="7 7 17 7 17 17"></polyline></svg></a></li>
+            <li><a href="#home" class="footer-link-item" data-i18n="nav.home">Home</a></li>
+            <li><a href="#skills" class="footer-link-item" data-i18n="nav.skills">Skills</a></li>
+            <li><a href="#projects" class="footer-link-item" data-i18n="nav.projects">Projects</a></li>
+            <li><a href="#process" class="footer-link-item" data-i18n="nav.process">Process</a></li>
+            <li><a href="#experience" class="footer-link-item" data-i18n="nav.experience">Experience</a></li>
+            <li><a href="#contact" class="footer-link-item" data-i18n="nav.contact">Contact</a></li>
+            <li><a href="Aida_Garba_Resume.pdf" target="_blank" rel="noopener noreferrer" class="footer-link-item" style="color: #60a5fa; font-weight: 700; display: inline-flex; align-items: center; gap: 4px;" data-i18n="nav.resume">Resume (PDF) <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="7" y1="17" x2="17" y2="7"></line><polyline points="7 7 17 7 17 17"></polyline></svg></a></li>
           </ul>
         </div>
 
         <div>
-          <h4 class="footer-col-heading">Direct Contact</h4>
+          <h4 class="footer-col-heading" data-i18n="footer.col_contact">Direct Contact</h4>
           <div class="footer-contact-row" role="list" aria-label="Direct contact options">
             <a href="mailto:garbaim27@gmail.com" class="footer-contact-icon-btn" aria-label="Email: garbaim27@gmail.com" data-tooltip="garbaim27@gmail.com" title="garbaim27@gmail.com">
               <svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
@@ -1170,7 +1174,7 @@
 
       <div class="footer-bottom-bar">
         <div>© 2026 Aïda Garba. Fused Gitos Minimalist Design.</div>
-        <button class="btn-back-top" onclick="window.scrollTo({top:0, behavior:'smooth'})">
+        <button class="btn-back-top" onclick="window.scrollTo({top:0, behavior:'smooth'})" data-i18n="footer.back_top">
           Back to Top <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="12" y1="19" x2="12" y2="5"></line><polyline points="5 12 12 5 19 12"></polyline></svg>
         </button>
       </div>

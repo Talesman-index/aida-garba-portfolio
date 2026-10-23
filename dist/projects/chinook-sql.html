@@ -13,10 +13,10 @@
   <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800;900&family=Outfit:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
 
   <!-- Stylesheets -->
-  <script type="module" crossorigin src="/assets/style-B8wkjVQZ.js"></script>
-  <script type="module" crossorigin src="/assets/case-study-Cd22A0Us.js"></script>
-  <link rel="stylesheet" crossorigin href="/assets/style-CvoHECZm.css">
-  <link rel="stylesheet" crossorigin href="/assets/case-study-wk8DqVCO.css">
+  <script type="module" crossorigin src="/assets/i18n-Bnu3ubhB.js"></script>
+  <script type="module" crossorigin src="/assets/case-study-uNnBJC94.js"></script>
+  <link rel="stylesheet" crossorigin href="/assets/i18n-BxX-BrWC.css">
+  <link rel="stylesheet" crossorigin href="/assets/case-study-B3Nqh7Sp.css">
 </head>
 <body class="cs-page">
 
@@ -38,16 +38,22 @@
       </a>
 
       <div class="cs-nav-links">
-        <a href="../index.html#projects" class="cs-nav-link">Projects</a>
-        <a href="../index.html#experience" class="cs-nav-link">Experience</a>
-        <a href="../index.html#contact" class="cs-nav-link">Contact</a>
-        <a href="../Aida_Garba_Resume.pdf" target="_blank" rel="noopener noreferrer" class="cs-nav-link" style="color: #60A5FA; display: inline-flex; align-items: center; gap: 4px;">Resume <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17L17 7M17 7H7M17 7V17"/></svg></a>
+        <a href="../index.html#projects" class="cs-nav-link" data-i18n="cs.nav_projects">Projects</a>
+        <a href="../index.html#experience" class="cs-nav-link" data-i18n="cs.nav_experience">Experience</a>
+        <a href="../index.html#contact" class="cs-nav-link" data-i18n="cs.nav_contact">Contact</a>
+        <a href="../Aida_Garba_Resume.pdf" target="_blank" rel="noopener noreferrer" class="cs-nav-link" style="color: #60A5FA; display: inline-flex; align-items: center; gap: 4px;" data-i18n="cs.nav_resume">Resume <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17L17 7M17 7H7M17 7V17"/></svg></a>
       </div>
 
-      <a href="../index.html#projects" class="cs-back-btn" aria-label="Back to Projects section">
-        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="19" y1="12" x2="5" y2="12"></line><polyline points="12 19 5 12 12 5"></polyline></svg>
-        Back to Projects
-      </a>
+      <div class="cs-nav-actions">
+        <div class="lang-switch lang-switch-dark" role="group" aria-label="Language Selector">
+          <button type="button" class="lang-opt-btn active" data-lang="en" aria-label="Switch to English" aria-pressed="true">EN</button>
+          <button type="button" class="lang-opt-btn" data-lang="fr" aria-label="Passer en français" aria-pressed="false">FR</button>
+        </div>
+        <a href="../index.html#projects" class="cs-back-btn" aria-label="Back to Projects section" data-i18n="cs.back_projects">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="19" y1="12" x2="5" y2="12"></line><polyline points="12 19 5 12 12 5"></polyline></svg>
+          Back to Projects
+        </a>
+      </div>
     </div>
   </header>
 
@@ -84,12 +90,12 @@
   <nav class="cs-sticky-nav-bar" aria-label="Case study sections">
     <div class="container">
       <div class="cs-sticky-nav-inner">
-        <a href="#overview" class="cs-nav-tab active">Overview</a>
-        <a href="#problem" class="cs-nav-tab">Problem</a>
-        <a href="#role" class="cs-nav-tab">My Role</a>
-        <a href="#process" class="cs-nav-tab">Process</a>
-        <a href="#solution" class="cs-nav-tab">Solution</a>
-        <a href="#results" class="cs-nav-tab">Results & Learnings</a>
+        <a href="#overview" class="cs-nav-tab active" data-i18n="cs.tab_overview">Overview</a>
+        <a href="#problem" class="cs-nav-tab" data-i18n="cs.tab_problem">Problem</a>
+        <a href="#role" class="cs-nav-tab" data-i18n="cs.tab_role">My Role</a>
+        <a href="#process" class="cs-nav-tab" data-i18n="cs.tab_process">Process</a>
+        <a href="#solution" class="cs-nav-tab" data-i18n="cs.tab_solution">Solution</a>
+        <a href="#results" class="cs-nav-tab" data-i18n="cs.tab_results">Results & Learnings</a>
       </div>
     </div>
   </nav>
@@ -298,7 +304,7 @@
           <h3 class="cs-pagination-title">Digital Timesheet System</h3>
         </div>
         <div style="display: flex; align-items: center; gap: 1rem; flex-wrap: wrap;">
-          <a href="../index.html#projects" class="cs-back-btn">
+          <a href="../index.html#projects" class="cs-back-btn" data-i18n="cs.back_all">
             ← Back to All Projects
           </a>
           <a href="livingstone-timesheet.html" class="cs-pagination-btn">

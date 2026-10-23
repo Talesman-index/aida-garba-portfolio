@@ -359,6 +359,54 @@ a {
   gap: 0.75rem;
 }
 
+/* Language Switcher Segmented Pill */
+.lang-switch {
+  display: inline-flex;
+  align-items: center;
+  background: #F1F5F9;
+  border: 1px solid #E2E8F0;
+  border-radius: 999px;
+  padding: 3px;
+  box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.05);
+  position: relative;
+  user-select: none;
+}
+
+.lang-opt-btn {
+  background: transparent;
+  border: none;
+  outline: none;
+  color: #64748B;
+  font-family: inherit;
+  font-size: 0.725rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  padding: 0.32rem 0.65rem;
+  border-radius: 999px;
+  cursor: pointer;
+  transition: all 0.22s cubic-bezier(0.16, 1, 0.3, 1);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  line-height: 1;
+}
+
+.lang-opt-btn:hover {
+  color: #0F172A;
+}
+
+.lang-opt-btn.active {
+  background: #FFFFFF;
+  color: #0F172A;
+  font-weight: 800;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.09), 0 1px 2px rgba(0, 0, 0, 0.04);
+}
+
+.lang-opt-btn:focus-visible {
+  outline: 2px solid #2563EB;
+  outline-offset: 1px;
+}
+
 .btn-hire-me {
   background: var(--text-dark);
   color: #FFFFFF;
@@ -2929,6 +2977,15 @@ a {
 @media (max-width: 576px) {
   .container {
     padding: 0 1rem;
+  }
+
+  .nav-actions {
+    gap: 0.45rem;
+  }
+
+  .lang-opt-btn {
+    padding: 0.26rem 0.52rem;
+    font-size: 0.685rem;
   }
 
   .gitos-hero-section {
