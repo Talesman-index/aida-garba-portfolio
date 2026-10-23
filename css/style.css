@@ -295,6 +295,31 @@ a {
   transform: rotate(8deg) scale(1.05);
 }
 
+.brand-wordmark-svg {
+  height: 28px;
+  width: auto;
+  display: block;
+  color: var(--text-dark);
+  transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.2s ease;
+}
+
+.brand-logo:hover .brand-wordmark-svg {
+  transform: scale(1.04);
+  opacity: 0.85;
+}
+
+.footer-wordmark-svg {
+  height: 32px;
+  width: auto;
+  color: #FFFFFF;
+  transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.2s ease;
+}
+
+.footer-brand-title:hover .footer-wordmark-svg {
+  transform: scale(1.04);
+  opacity: 0.9;
+}
+
 .nav-menu {
   display: flex;
   align-items: center;
