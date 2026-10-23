@@ -368,174 +368,175 @@ const PROJECTS_DATA = {
   "livingstone-timesheet": {
     title: "Digital Timesheet System",
     category: "AI Product Builder",
-    badge: "Featured MVP",
+    badge: "Operational MVP",
     date: "June 2026",
-    shortDescription: "A digital system created to replace paper tutor timesheets, automatically calculating work hours and eliminating submission errors.",
+    shortDescription: "A digital alternative to paper tutor timesheets, automatically calculating daily, weekly, and monthly work hours and producing a downloadable PDF.",
     caseStudy: {
-      overview: "A digital management application designed to replace outdated, manual paper-based tutor timesheets at Livingstone College.",
-      problem: "Paper timesheet workflows suffered from frequent calculation errors, illegible handwriting, missing required fields, and an excessive administrative burden for supervisors.",
-      users: "Academic Tutors (need fast, error-proof hour logging) and Tutoring Center Supervisors (need automated aggregation, missing data flags, and 1-click approvals).",
-      myRole: "Product Manager & UX Designer. Identified the problem through personal tutoring experience, mapped end-to-end user flows, selected main MVP features, and tested interface iterations.",
+      overview: "While working as a tutor at Livingstone College’s Student Success Center, I experienced the paper process for recording work hours. I built a digital alternative designed directly around that real workflow.",
+      problem: "The manual paper process for logging hours required calculating daily and monthly totals by hand and handling physical sheets, creating an everyday administrative burden.",
+      users: "Academic tutors recording shift hours and supervisors reviewing timesheet records at the Student Success Center.",
+      myRole: "I identified the need, worked out the exact information tutors needed to record, and designed, built, and refined the MVP as a usable operational tool.",
       process: [
-        "Identified paper friction points through tutor & staff interviews.",
-        "Mapped dual user journeys for Tutors (Submit) and Supervisors (Approve).",
-        "Defined automated validation rules to stop incomplete entries.",
-        "Prototyped MVP interface using Antigravity & Supabase.",
-        "Gathered tutor feedback and refined submission flow."
+        "Observed firsthand friction points in the Student Success Center paper timesheet workflow.",
+        "Identified essential recording fields: date, day, time in, time out, and total hours.",
+        "Designed and built an MVP with automated hour calculations across shifts.",
+        "Added calculations for weekly and monthly hour totals.",
+        "Implemented a downloadable PDF export feature for required record-keeping."
       ],
-      solution: "A mobile-responsive web platform featuring automated hour calculations across shift start/end times, input validation for mandatory fields, and a supervisor dashboard with consolidated approvals.",
-      toolsUsed: ["Antigravity", "Supabase", "Figma", "GitHub", "Vercel"],
+      solution: "A functional web timesheet MVP that captures date, day, time in, time out, and total hours, supports automated hour calculations with weekly and monthly totals, and generates a downloadable PDF. (Sending the PDF directly to a supervisor is an ongoing improvement).",
+      toolsUsed: ["Web Development", "UI Design", "Automated Calculations", "PDF Generation"],
       results: [
-        "0% calculation errors across all digital submissions.",
-        "70% reduction in supervisor review & payroll processing time.",
-        "Instant digital receipt and log confirmation for tutors."
+        "Successfully transformed a manual paper workflow into a working digital MVP.",
+        "Automated calculations for daily hours as well as weekly and monthly totals.",
+        "Created downloadable PDF timesheet records reflecting the required institutional format."
       ],
-      whatILearned: "How to transform a real operational problem from daily life into a practical, high-efficiency digital product.",
-      visualsNote: "Interactive flow diagram & mobile interface mockup showing automated time calculations and validation warnings."
+      whatILearned: "How to take ownership of an everyday operational problem, identify essential user requirements, and build a practical, functioning digital tool.",
+      visualsNote: "Desktop and mobile screens of the working timesheet interface and downloadable PDF output."
     }
   },
   "shalom-recovery-ai": {
     title: "Shalom Recovery AI",
     category: "AI Product Builder",
-    badge: "Healthcare AI PM",
+    badge: "Sprint 2nd Place",
     date: "June 2026",
-    shortDescription: "An AI-assisted postoperative recovery platform designed to support patients after surgery with symptom tracking and safety guardrails.",
+    shortDescription: "An AI assistant prototype providing support for patients after surgery between discharge and follow-up through daily check-ins and routine guidance.",
     caseStudy: {
-      overview: "An AI-assisted postoperative recovery platform designed to empower patients during home recovery with clear instructions, symptom checking, and safety escalation.",
-      problem: "Post-surgery recovery can be confusing and anxious. Patients misplace discharge papers, miss medication windows, or struggle to differentiate normal healing symptoms from warning signs.",
-      users: "Post-operative Patients & Caregivers seeking clear guidance, and Healthcare Providers wanting better adherence and fewer non-emergency readmissions.",
-      myRole: "AI Product Lead. Researched patient recovery challenges, defined target user personas, created conversational AI prompts, structured safety guardrails, and mapped escalation protocols.",
+      overview: "A team project exploring support for surgical patients during home recovery between hospital discharge and follow-up, centered on an AI assistant for recovery questions and routine support.",
+      problem: "After surgery, patients often have questions about routine recovery, daily healing patterns, and keeping track of medication and follow-up appointment schedules.",
+      users: "Post-operative surgical patients during home recovery seeking answers to common recovery questions and routine schedule support.",
+      myRole: "I contributed to the product idea, user flow, AI knowledge and prompt design, and the MVP prototype.",
       process: [
-        "Researched post-op patient pain points and discharge compliance.",
-        "Defined medical safety criteria & red-flag symptom triggers.",
-        "Engineered AI prompt rules for empathetic, non-diagnostic guidance.",
-        "Designed user flows with explicit emergency call escalations.",
-        "Iterated interface wireframes focusing on high readability for elderly patients."
+        "Explored patient communication needs during the critical transition between hospital discharge and follow-up.",
+        "Mapped user flows centered on routine support and daily post-operative check-ins.",
+        "Designed AI knowledge and prompt structures to provide clear answers to common recovery questions.",
+        "Built out the interactive MVP prototype featuring daily check-ins and reminder schedules.",
+        "Delivered the prototype for the Healthcare Innovation Sprint."
       ],
-      solution: "A web platform featuring intelligent symptom logging, automated medication/appointment reminders, and a safety-first triage engine that immediately directs critical symptoms to emergency medical support.",
-      toolsUsed: ["Prompt Engineering", "Figma", "Supabase", "Antigravity", "Python"],
+      solution: "A post-operative AI assistant MVP prototype featuring daily check-ins, answers to common recovery questions, and medication or appointment reminders. (Future phase concepts such as provider dashboards, authentication, risk scoring, follow-up workflows, and alerts were kept separate).",
+      toolsUsed: ["AI Knowledge & Prompt Design", "User Flow Mapping", "UI Prototyping", "MVP Development"],
       results: [
-        "Designed a safety-focused conversational triage flow.",
-        "Established clear user trust disclosures and emergency fallback paths.",
-        "Reduced patient anxiety through 24/7 symptom guidance."
+        "Earned Second Place in the Healthcare Innovation Sprint.",
+        "Delivered a focused, working MVP prototype for post-discharge patient support.",
+        "Established a clear product scope separating core prototype features from future provider integrations."
       ],
-      whatILearned: "How to design an AI product for a sensitive environment while prioritizing safety, clarity, user trust, and medical guardrails.",
-      visualsNote: "Conversational UI mockup displaying symptom check-in with safety alert escalation callout."
+      whatILearned: "How to design AI prompts and user flows for supportive health environments while maintaining clear boundaries around completed prototype scope.",
+      visualsNote: "Mobile prototype screens showing conversational daily check-ins and recovery question interactions."
     }
   },
   "stem-camp": {
-    title: "STEM Camp",
+    title: "STEM Camp Website",
     category: "AI Product Builder",
-    badge: "EdTech AI MVP",
+    badge: "Program Initiative",
     date: "June 2026",
-    shortDescription: "An interactive digital learning platform designed to engage youth in hands-on robotics, coding challenges, and interactive science simulations.",
+    shortDescription: "A website proposed and created on my own initiative to support Livingstone College's Summer STEM program and complement hands-on mentoring activities.",
     caseStudy: {
-      overview: "A youth-oriented STEM learning platform designed to bridge the digital skills gap for middle and high school students through gamified robotics simulations and AI coding assistants.",
-      problem: "Traditional STEM camp curricula often struggle to sustain high student engagement due to dry technical manuals, complex software setup barriers, and varying initial coding proficiency levels among participants.",
-      users: "Middle/High School Students (need interactive, gamified learning paths) and Camp Instructors (need real-time student progress tracking and automated rubric grading).",
-      myRole: "Product Lead & Curriculum Tech Coordinator. Mapped student onboarding flows, identified gamification mechanics, structured module progression, and tested prototype lessons.",
+      overview: "While working as a student assistant mentor in Livingstone College’s Summer STEM program supporting youth in robotics and virtual reality, I proposed and created a website to support the camp and my mentoring work.",
+      problem: "The hands-on summer camp lacked a dedicated web resource to represent the program and support daily mentoring activities for participating students.",
+      users: "Youth STEM camp participants, mentors, and program coordinators seeking a dedicated digital home for camp activities.",
+      myRole: "I brought the website idea forward and created it as an additional contribution to the program. Building the website was outside my assigned job responsibilities; I voluntarily took on the extra work.",
       process: [
-        "Surveyed STEM camp instructors and past attendees to pinpoint drop-off points.",
-        "Designed interactive block-based coding workflows and 3D simulation modules.",
-        "Built instant feedback loops with automated AI hint assistants for stuck students.",
-        "Tested prototype with 30+ students during summer workshop trial runs.",
-        "Refined UI clarity, achievement badges, and instructor dashboard."
+        "Recognized an opportunity in my work environment to provide a digital resource beyond assigned mentor duties.",
+        "Proposed the concept of creating a dedicated camp website to program leadership.",
+        "Leveraged day-to-day mentoring context supporting youth in robotics and virtual reality.",
+        "Designed and built the website structure to showcase camp activities and technology themes.",
+        "Delivered the site as an extra voluntary contribution to enhance the program."
       ],
-      solution: "A web platform featuring visual drag-and-drop coding exercises, simulated robotics testing environments, peer collaboration channels, and an instructor analytics dashboard.",
-      toolsUsed: ["Antigravity", "Python", "Figma", "Supabase", "GitHub", "Vercel"],
+      solution: "A dedicated website designed to support the Livingstone College Summer STEM camp, providing a digital presence for camp activities and supporting hands-on technology mentorship.",
+      toolsUsed: ["Web Design", "Voluntary Initiative", "Mentoring Context", "HTML/CSS"],
       results: [
-        "94% student completion rate across interactive robotics modules.",
-        "Reduced initial coding setup time from 45 minutes to under 3 minutes.",
-        "Awarded top educational innovation honors at regional STEM showcase."
+        "Recognized a workplace need and proactively built a digital resource outside assigned responsibilities.",
+        "Created a dedicated web platform supporting youth robotics and VR technology activities.",
+        "Contributed a valuable digital asset to the Summer STEM program."
       ],
-      whatILearned: "How to design intuitive, age-appropriate educational interfaces that turn complex computing concepts into playful, engaging learning journeys.",
-      visualsNote: "Robotics block coding interface and 3D science simulation dashboard."
+      whatILearned: "How to demonstrate initiative by identifying opportunities in my immediate environment and building digital solutions that add value beyond standard expectations.",
+      visualsNote: "Camp website overview displaying hands-on technology activity sections and camp highlights."
     }
   },
   "evida": {
     title: "Evida Campus Events",
     category: "AI Product Builder",
-    badge: "Campus Mobile MVP",
+    badge: "Web App Design",
     date: "July 2026",
-    shortDescription: "A centralized campus events platform that helps college students discover events, RSVP, and connect with student organizations.",
+    shortDescription: "User interface design and MVP contributions for a student-focused web app for discovering and engaging with campus events.",
     caseStudy: {
-      overview: "A centralized campus events platform that helps students discover events, RSVP, manage schedules, and connect with campus student organizations.",
-      problem: "Campus event announcements were fragmented across emails, physical flyers, and random social media posts, causing low student attendance.",
-      users: "College Students looking for local campus events & clubs, and Student Organizations needing an easy way to promote events.",
-      myRole: "Product Lead & Designer. Defined product vision, identified target user groups, designed platform navigation, prioritized core features, and prototyped the mobile app experience.",
+      overview: "A student-focused web app for discovering and engaging with campus events. My friend had already established the concept and begun the project before I joined, and I came on board as the web app designer.",
+      problem: "Campus events and student organization activities were often hard for students to find, creating a need for an engaging, well-structured event discovery interface.",
+      users: "College students looking to discover campus events and student organizations seeking to present their activities.",
+      myRole: "I was the web app designer. I designed the interface, helped improve the experience, and contributed to the first MVP, developing and improving an existing idea through design.",
       process: [
-        "Conducted campus survey on student event discovery habits.",
-        "Created feature prioritization matrix (Must-Have vs. Nice-to-Have).",
-        "Structured mobile navigation architecture & event filtering tags.",
-        "Designed high-fidelity mobile wireframes in Figma.",
-        "Validated prototype usability with student testers."
+        "Collaborated with the project founder to understand the existing vision and target student audience.",
+        "Structured interface layouts for a Livingstone / For You view and an Explore section.",
+        "Designed UI components for event cards, calendar views, and the RSVP flow.",
+        "Mapped interface wireframes for event creation, student profiles, and activity streams.",
+        "Contributed to building the first working MVP through collaborative design iterations."
       ],
-      solution: "A mobile-first event discovery app with real-time category filtering, 1-tap RSVP, calendar synchronization, and an org directory.",
-      toolsUsed: ["Figma", "Canva", "Antigravity", "GitHub", "Vercel"],
+      solution: "A clean user interface for the Evida web app MVP, featuring structured layouts for event discovery, calendar RSVP interactions, student profiles, and event creation.",
+      toolsUsed: ["Interface Design", "Figma", "UI/UX Prototyping", "Design Systems"],
       results: [
-        "Successfully simplified a broad concept into a crisp, focused Mobile MVP.",
-        "Consolidated multi-channel event discovery into a single mobile dashboard."
+        "Designed the complete user interface for the first Evida web app MVP.",
+        "Improved the user experience for exploring campus events, viewing calendars, and RSVPing.",
+        "Successfully contributed design expertise to advance a collaborative student project."
       ],
-      whatILearned: "How to simplify a large product idea, organize multiple user needs, and focus strictly on the most impactful MVP features.",
-      visualsNote: "Mobile screen flow showcasing event discovery feed, event details, and 1-tap RSVP button."
+      whatILearned: "How to collaborate on an existing project concept, crediting original foundations while driving meaningful improvements through user-centered interface design.",
+      visualsNote: "Interface screens displaying the Livingstone event feed, Explore view, and RSVP interaction flow."
     }
   },
   "lc-stem": {
-    title: "LC STEM",
+    title: "LC STEM Student Showcase Website",
     category: "AI Product Builder",
-    badge: "Campus Research Portal",
+    badge: "Student Showcase",
     date: "August 2026",
-    shortDescription: "A collaborative campus web portal connecting undergraduate STEM students with faculty research opportunities, lab resources, and peer tutoring.",
+    shortDescription: "A collaborative website created to showcase Livingstone College's STEM students, their work, and diverse academic pathways.",
     caseStudy: {
-      overview: "A centralized campus academic portal built for Livingstone College STEM departments to streamline research mentorship, peer tutoring schedules, and lab equipment reservations.",
-      problem: "Undergraduate students faced high barriers finding undergraduate research opportunities, scheduling tutoring with CIS/Math peers, and booking specialized laboratory instruments due to fragmented email threads and bulletin board notices.",
-      users: "Livingstone STEM Undergraduates (need easy tutoring bookings & research postings) and Faculty Lab Directors (need centralized equipment scheduling and applicant reviews).",
-      myRole: "Lead Product Designer & CIS Student Representative. Identified operational bottlenecks from firsthand tutoring experience, mapped scheduling architectures, and engineered MVP user flows.",
+      overview: "A website created to showcase Livingstone College’s STEM students and their work. It helps people exploring a field connect that subject with real students and their experiences.",
+      problem: "Students exploring STEM fields often lack visibility into real student journeys, coursework, and projects within the academic community.",
+      users: "Current and prospective students exploring STEM pathways, peers, faculty, and visitors interested in collegiate student work.",
+      myRole: "I collaborated on creating the website as a shared project, focusing on student representation and visibility across STEM pathways such as Data Analytics.",
       process: [
-        "Conducted in-depth interviews with STEM faculty heads and student tutors.",
-        "Mapped unified calendar reservation system for shared campus lab equipment.",
-        "Created self-service booking system for peer tutoring with automated reminders.",
-        "Prototyped responsive web portal with Antigravity and tested with student peers.",
-        "Integrated institutional CIS directory authentication and scheduling notifications."
+        "Collaborated with project partners to establish student visibility as the central mission.",
+        "Structured pathways allowing visitors to explore STEM fields through real student work.",
+        "Contributed personal profile and project content representing Data Analytics and Computer Information Systems.",
+        "Designed website layouts that highlight student experiences, academic journeys, and work.",
+        "Maintained a focus on student representation rather than just an institutional information page."
       ],
-      solution: "A modern responsive web hub featuring synchronized tutor shift availability, instant research application submissions, lab equipment booking calendars, and peer study group coordination.",
-      toolsUsed: ["Antigravity", "Supabase", "Figma", "Tailwind CSS", "GitHub"],
+      solution: "A shared showcase website highlighting Livingstone College STEM students, providing authentic student profiles and project work to help visitors explore STEM disciplines.",
+      toolsUsed: ["Web Design", "Student Representation", "Content Strategy", "HTML/CSS"],
       results: [
-        "Over 520 peer tutoring sessions scheduled and completed within first semester.",
-        "Centralized 12 research labs onto a single digital reservation calendar.",
-        "Eliminated double-booking conflicts across campus computer science and biology facilities."
+        "Collaboratively built a web platform centered on student visibility and academic storytelling.",
+        "Represented real student pathways in Data Analytics and Computer Information Systems.",
+        "Provided an inspiring, relatable showcase for individuals exploring STEM fields."
       ],
-      whatILearned: "How institutional collaboration and understanding diverse campus stakeholder needs leads to rapid platform adoption.",
-      visualsNote: "STEM Department tutoring schedule board and lab equipment booking matrix."
+      whatILearned: "How digital representation and genuine student visibility help connect prospective learners with academic pathways in a relatable, authentic way.",
+      visualsNote: "Showcase page layout featuring student profiles, project highlights, and STEM pathway overviews."
     }
   },
   "wonder-draw": {
     title: "Wonder Draw",
     category: "AI Product Builder",
-    badge: "Generative AI Canvas",
+    badge: "Personal Learning Tool",
     date: "October 2026",
-    shortDescription: "A playful, real-time generative AI drawing canvas that transforms rough sketches and doodles into vibrant stylized digital artwork.",
+    shortDescription: "A personal learning web app adapted from an existing concept, designed to explore topics across categories and practice conversational explanation.",
     caseStudy: {
-      overview: "A browser-based creative application that leverages generative AI diffusion models to transform user doodles and line sketches into polished, high-fidelity illustrations in real time.",
-      problem: "Many creative individuals, students, and educators have great visual ideas but lack formal digital illustration skills. Traditional digital painting software has a steep learning curve and lacks intuitive AI co-creation.",
-      users: "Casual Creators, Students, and Digital Illustrators seeking rapid concept visualization and playful artistic exploration.",
-      myRole: "AI Product Designer & Prompt Engineer. Conceptualized the sketch-to-art user journey, calibrated latent diffusion style prompts, and refined mobile touch-drawing latency.",
+      overview: "A personal learning web app designed to help me broaden my knowledge in a fun way and become more comfortable talking about what I learn with other people.",
+      problem: "Gaining new knowledge can easily stay passive unless paired with an engaging way to select subjects, explore ideas, and practice explaining them clearly in conversation.",
+      users: "Personal learning use case—developed for my own learning routine and for anyone looking to turn curiosity into active conversational practice.",
+      myRole: "I adapted an existing concept into my own version, organized around categories and subjects I am learning, supporting choosing topics within these areas to explore.",
       process: [
-        "Researched real-time canvas latency constraints and user interaction ergonomics.",
-        "Designed lightweight dual-pane interface: left drawing canvas, right AI rendering view.",
-        "Engineered style preset prompts (3D Pixar-style, Cyberpunk, Watercolor, Anime).",
-        "Tested touch-screen drawing responsiveness on tablet and mobile viewports.",
-        "Incorporated 1-click export, image generation history, and social sharing."
+        "Defined core personal learning objectives: expand general knowledge and build conversational confidence.",
+        "Studied an existing digital concept and adapted it into my own personalized version.",
+        "Organized topic categories around subjects and areas I am actively learning.",
+        "Implemented an interface flow for selecting and exploring topics within those categories.",
+        "Used the tool regularly to practice articulating and explaining learned concepts."
       ],
-      solution: "An ultra-responsive drawing web app featuring real-time AI generation, multi-style prompt presets, intuitive brush controls, and instant high-resolution asset downloads.",
-      toolsUsed: ["Generative AI / Diffusion APIs", "Figma", "Antigravity", "Canvas API", "Vercel"],
+      solution: "A personal learning web application organized around learning categories and subjects, enabling users to choose topics and practice conversational explanation.",
+      toolsUsed: ["Web Development", "UI Prototyping", "Learning Design", "Concept Adaptation"],
       results: [
-        "Sub-1.5 second real-time sketch rendering pipeline.",
-        "Featured in university creative tech exhibition with over 300 interactive user sessions.",
-        "High user delight score: 92% positive rating for ease of creative expression."
+        "Successfully adapted an existing concept into a personal learning tool.",
+        "Established an organized topic selection framework across areas of active study.",
+        "Achieved the confirmed outcome of creating my own functional learning and practice tool."
       ],
-      whatILearned: "How to balance AI model latency with user interface delight, making generative AI accessible and magical for non-technical users.",
-      visualsNote: "Dual-pane canvas showing doodle input transforming into 3D neon rendered artwork."
+      whatILearned: "How to adapt existing concepts into personalized digital tools that connect curiosity, continuous learning, and effective verbal communication.",
+      visualsNote: "Web app interface screens showing category selection and topic prompt cards."
     }
   },
   "mastercard-challenge": {
@@ -543,56 +544,57 @@ const PROJECTS_DATA = {
     category: "Data Analytics",
     badge: "Challenge Finalist",
     date: "Spring 2026",
-    shortDescription: "A team project using community health datasets to address healthcare access challenges in Robeson County, NC.",
+    shortDescription: "A team data analytics project exploring socioeconomic barriers in Robeson County, NC, connecting community indicators to a proposed solution called Strive.",
     caseStudy: {
-      overview: "A team-based analytics and social innovation project investigating healthcare access disparities and testing bottlenecks in Robeson County, North Carolina.",
-      problem: "Rural communities in Robeson County face severe healthcare access barriers, transportation limitations, and delayed medical testing response times.",
-      users: "Rural North Carolina residents, local health clinics, and community healthcare organizers.",
-      myRole: "Team Lead & Lead Data Analyst. Directed team research, analyzed demographic and community health datasets, connected data insights to our solution, and delivered the final presentation pitch.",
+      overview: "As part of a four-person team called Tech Mongers, we explored barriers to inclusive growth in Robeson County, North Carolina, and connected community indicators to a practical response called Strive.",
+      problem: "Robeson County communities face complex, multi-dimensional barriers to inclusive growth that require synthesizing multiple community indicators into an actionable strategy.",
+      users: "Community stakeholders, economic development leaders, and competition evaluators seeking evidence-backed inclusive growth solutions.",
+      myRole: "I served as team lead and business analyst. I helped organize the analysis, connect the evidence to a community problem, and shape the proposed solution.",
       process: [
-        "Ingested and cleaned county-level health & socioeconomic datasets.",
-        "Executed Exploratory Data Analysis (EDA) in Python to highlight access gaps.",
-        "Formulated the 'Smart Petri Dish & Digital Platform' intervention.",
-        "Synthesized analytical findings into compelling visual slides.",
-        "Pitched team proposal to Mastercard innovation judges."
+        "Examined community indicators including internet access, labor market engagement, female poverty, early education, and health insurance.",
+        "Analyzed reported index scores across these areas (18, 29, 20, 22, and 24 respectively; index scores, not percentages).",
+        "Led the four-person Tech Mongers team in synthesizing findings and connecting evidence to community problems.",
+        "Shaped the proposed solution, Strive, as a practical response to identified barriers.",
+        "Prepared and delivered the team's presentation to the competition evaluation panel."
       ],
-      solution: "A combined Smart Petri Dish diagnostic device and digital tracking platform designed to bring low-cost, rapid diagnostic testing directly to community health hubs.",
-      toolsUsed: ["Python", "Excel", "Power BI", "Canva"],
+      solution: "A structured data analysis and recommendation framework called Strive, connecting five key community indicator index scores to a practical community response in Robeson County.",
+      toolsUsed: ["Data Analysis", "Community Indicators", "Team Leadership", "Business Analysis"],
       results: [
-        "Selected as a Challenge Finalist.",
-        "Recognized for strong data storytelling and practical community application."
+        "Our team became a Challenge Finalist.",
+        "Successfully synthesized five key community indicators into an evidence-based recommendation.",
+        "Led a four-person team in delivering a comprehensive social innovation proposal."
       ],
-      whatILearned: "How to lead a multi-disciplinary team, communicate complex data findings clearly, and link demographic insights to practical innovation.",
-      visualsNote: "Geographic data heat maps, population access charts, and final pitch presentation deck slide."
+      whatILearned: "How to lead an analytical team, translate multi-dimensional community indicators into a proposed solution, and build actionable recommendations from evidence.",
+      visualsNote: "Community indicator data charts and final challenge presentation slides."
     }
   },
   "chinook-sql": {
     title: "Chinook Data Analysis",
     category: "Data Analytics",
-    badge: "Advanced SQL Queries",
+    badge: "SQL Analysis",
     date: "July 2026",
-    shortDescription: "A SQL project querying a digital music store database to evaluate revenue trends, customer spend, best-selling genres, and sales rep performance.",
+    shortDescription: "An independent relational SQL analysis querying the Chinook music-store database to investigate sales patterns across customers, invoices, and catalog data.",
     caseStudy: {
-      overview: "A comprehensive SQL database analysis of the Chinook digital music store, dissecting sales performance, customer spend, geographic revenue, and artist popularity.",
-      problem: "Store executives lacked visibility into customer purchasing frequency, regional revenue distribution, top sales representatives, and genre profitability.",
-      users: "E-commerce Business Managers, Inventory Planners, and Sales Leadership.",
-      myRole: "SQL Analyst. Explored relational schema, wrote complex multi-table JOIN queries, aggregated metrics, validated results, and converted SQL outputs into strategic business recommendations.",
+      overview: "An independent SQL analysis of the Chinook sample music-store database, exploring business questions about sales and purchasing patterns across customers, invoices, tracks, artists, genres, and employees.",
+      problem: "Understanding business dynamics across an e-commerce music store requires querying relational schemas to evaluate purchasing trends, invoice distributions, and employee sales patterns.",
+      users: "Business analysts, store managers, and decision-makers seeking quantitative evidence from relational database transactions.",
+      myRole: "I used MySQL Workbench to query related tables, with filtering, grouping, joins, aggregations, and subqueries, focusing on converting business questions into queries and interpreting returned data.",
       process: [
-        "Analyzed 11-table relational schema (Invoices, Customers, Tracks, Albums, Artists, Employees).",
-        "Wrote SQL queries utilizing INNER/LEFT JOINs, GROUP BY, HAVING, and Subqueries.",
-        "Analyzed top revenue-generating countries & average invoice values.",
-        "Evaluated employee sales performance against customer assignments.",
-        "Summarized query outputs into executive presentation charts."
+        "Explored the Chinook relational database schema and table relationships in MySQL Workbench.",
+        "Formulated SQL queries to investigate sales and purchasing patterns.",
+        "Utilized filtering, grouping, joins, aggregations, and subqueries to query related tables.",
+        "Executed queries and inspected returned data rows for consistency and relational integrity.",
+        "Interpreted the query results to extract clear, data-backed business insights."
       ],
-      solution: "A suite of optimized SQL business intelligence queries answering key strategic questions regarding global revenue hubs, top music genres (Rock/Alternative), and customer churn patterns.",
-      toolsUsed: ["SQL (SQLite / PostgreSQL)", "Excel", "Data Visualization"],
+      solution: "A comprehensive SQL analysis querying related tables in MySQL Workbench to answer key business questions regarding invoice patterns, customer purchases, and catalog metrics.",
+      toolsUsed: ["SQL", "MySQL Workbench", "Relational Database Querying"],
       results: [
-        "Identified USA, Canada, and France as top revenue countries.",
-        "Pinpointed top-performing sales support agents.",
-        "Provided data-driven playlist & promotional recommendations."
+        "Successfully converted key business questions into multi-table SQL queries.",
+        "Queried relational tables using joins, groupings, aggregations, and subqueries in MySQL Workbench.",
+        "Interpreted query results to provide clear evidence on purchasing and sales patterns."
       ],
-      whatILearned: "How to leverage SQL to answer real business questions and communicate technical database findings clearly to stakeholders.",
-      visualsNote: "SQL query code snippets and resulting bar charts illustrating revenue by country and genre."
+      whatILearned: "How to query multi-table relational databases in MySQL Workbench, translate business inquiries into SQL, and interpret returned data accurately.",
+      visualsNote: "SQL query code snippets and resulting query output tables in MySQL Workbench."
     }
   }
 };
