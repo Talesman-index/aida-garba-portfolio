@@ -143,15 +143,6 @@ function initScrollAnimations() {
     }
   });
 
-  // Staggered reveals for photo gallery items (Moments & Milestones)
-  const galleryItems = document.querySelectorAll('.gallery-item');
-  galleryItems.forEach((item, index) => {
-    item.classList.add('reveal-on-scroll');
-    if (!prefersReduced) {
-      const staggerDelay = index * (isMobile ? 0.035 : 0.05);
-      item.style.transitionDelay = `${staggerDelay}s`;
-    }
-  });
 
   // Skills cards stagger
   const skillCards = document.querySelectorAll('.skills-clean-card');
@@ -399,47 +390,182 @@ function initProjectModals() {
   });
 }
 
-/* 8. Mixed-Size Photo Gallery Controller (Hover on desktop, Tap on mobile) */
+/* 8. Responsive Masonry Photo Gallery (Gapless flow, Staggered Reveal, Hover/Tap/Keyboard/Reduced-Motion) */
 function initPhotoGallery() {
-  const galleryItems = document.querySelectorAll('.gallery-item');
-  if (!galleryItems.length) return;
+  const gridContainer = document.querySelector('.gallery-bento-grid');
+  if (!gridContainer) return;
 
-  galleryItems.forEach((item) => {
-    // Tap / Click handling for mobile touch interactions
-    item.addEventListener('click', (e) => {
-      const isTouch = window.matchMedia('(hover: none) and (pointer: coarse)').matches || window.innerWidth <= 991;
-      if (isTouch) {
-        const isAlreadyActive = item.classList.contains('touch-active');
-        // Close all other items
-        galleryItems.forEach((other) => {
-          if (other !== item) other.classList.remove('touch-active');
+  const rawItems = Array.from(gridContainer.querySelectorAll('.gallery-item'));
+  if (!rawItems.length) return;
+
+  // Cache sorted items by data-index (1..12)
+  const items = rawItems.sort((a, b) => {
+    const idxA = parseInt(a.getAttribute('data-index') || '0', 10);
+    const idxB = parseInt(b.getAttribute('data-index') || '0', 10);
+    return idxA - idxB;
+  });
+
+  const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  let currentCols = 0;
+
+  // Determine optimal column count based on viewport width
+  function getDesiredColumns() {
+    const width = window.innerWidth;
+    if (width > 1024) return 4;
+    if (width > 768) return 3;
+    if (width > 420) return 2;
+    return 2;
+  }
+
+  // Distribute items into columns round-robin to maintain reading order and eliminate gaps
+  function layoutMasonry() {
+    const desiredCols = getDesiredColumns();
+    if (desiredCols === currentCols) return;
+    currentCols = desiredCols;
+
+    // Create column containers
+    const cols = [];
+    for (let c = 0; c < desiredCols; c++) {
+      const colDiv = document.createElement('div');
+      colDiv.className = 'masonry-col';
+      colDiv.setAttribute('data-col', c);
+      cols.push(colDiv);
+    }
+
+    // Distribute items round-robin
+    items.forEach((item, idx) => {
+      const targetCol = idx % desiredCols;
+      cols[targetCol].appendChild(item);
+    });
+
+    // Clear and re-populate container
+    gridContainer.innerHTML = '';
+    cols.forEach((col) => gridContainer.appendChild(col));
+  }
+
+  // Initial layout check
+  layoutMasonry();
+
+  // Debounced resize handler for responsive column reorganization
+  let resizeTimer = null;
+  window.addEventListener('resize', () => {
+    clearTimeout(resizeTimer);
+    resizeTimer = setTimeout(() => {
+      layoutMasonry();
+    }, 150);
+  });
+
+  // Staggered Fade-Up on Scroll
+  if (prefersReduced) {
+    // Respect user's reduced motion: reveal all immediately with no animation
+    items.forEach((item) => {
+      item.classList.add('is-visible');
+      item.style.transitionDelay = '0s';
+    });
+  } else {
+    // Staggered entrance via IntersectionObserver
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            const item = entry.target;
+            const idx = items.indexOf(item);
+            const cols = currentCols || 4;
+            const colIdx = idx >= 0 ? idx % cols : 0;
+            const rowIdx = idx >= 0 ? Math.floor(idx / cols) : 0;
+            // Fluid diagonal wave delay
+            const delay = Math.min((colIdx * 0.08) + (rowIdx * 0.06), 0.65);
+
+            item.style.transitionDelay = `${delay}s`;
+            item.classList.add('is-visible');
+            observer.unobserve(item);
+
+            // Clean up transitionDelay after entrance so hover/tap has zero latency
+            const cleanupMs = Math.round((delay + 0.65) * 1000);
+            setTimeout(() => {
+              item.style.transitionDelay = '';
+            }, cleanupMs);
+          }
         });
-        // Toggle active state on tapped item
-        if (isAlreadyActive) {
-          item.classList.remove('touch-active');
-        } else {
-          item.classList.add('touch-active');
-        }
+      },
+      {
+        root: null,
+        rootMargin: '0px 0px -40px 0px',
+        threshold: 0.12,
+      }
+    );
+
+    items.forEach((item) => observer.observe(item));
+  }
+
+  // Helper to toggle active state
+  function toggleItemActive(item, forceState) {
+    const isCurrentlyActive = item.classList.contains('touch-active');
+    const newState = forceState !== undefined ? forceState : !isCurrentlyActive;
+
+    // Close all other items first
+    items.forEach((other) => {
+      if (other !== item && other.classList.contains('touch-active')) {
+        other.classList.remove('touch-active');
+        other.setAttribute('aria-expanded', 'false');
       }
     });
 
-    // Keyboard accessibility (Space or Enter toggles overlay)
+    if (newState) {
+      item.classList.add('touch-active');
+      item.setAttribute('aria-expanded', 'true');
+    } else {
+      item.classList.remove('touch-active');
+      item.setAttribute('aria-expanded', 'false');
+    }
+  }
+
+  // Interactive controls: Tap/Click, Focus, Keyboard & Outside Click
+  items.forEach((item, index) => {
+    // Click / Tap handling
+    item.addEventListener('click', () => {
+      toggleItemActive(item);
+    });
+
+    // Keyboard support: Enter, Space, Escape, and Arrow Navigation
     item.addEventListener('keydown', (e) => {
       if (e.key === 'Enter' || e.key === ' ') {
         e.preventDefault();
-        const isAlreadyActive = item.classList.contains('touch-active');
-        galleryItems.forEach((other) => other.classList.remove('touch-active'));
-        if (!isAlreadyActive) {
-          item.classList.add('touch-active');
-        }
+        toggleItemActive(item);
+      } else if (e.key === 'Escape') {
+        e.preventDefault();
+        toggleItemActive(item, false);
+      } else if (e.key === 'ArrowRight') {
+        e.preventDefault();
+        const nextIdx = (index + 1) % items.length;
+        items[nextIdx].focus();
+      } else if (e.key === 'ArrowLeft') {
+        e.preventDefault();
+        const prevIdx = (index - 1 + items.length) % items.length;
+        items[prevIdx].focus();
+      } else if (e.key === 'ArrowDown') {
+        e.preventDefault();
+        const cols = currentCols || 4;
+        const downIdx = (index + cols) % items.length;
+        items[downIdx].focus();
+      } else if (e.key === 'ArrowUp') {
+        e.preventDefault();
+        const cols = currentCols || 4;
+        const upIdx = (index - cols + items.length) % items.length;
+        items[upIdx].focus();
       }
     });
   });
 
-  // Tap outside closes open overlay on mobile
+  // Tap/Click outside closes any active photo card
   document.addEventListener('click', (e) => {
     if (!e.target.closest('.gallery-item')) {
-      galleryItems.forEach((item) => item.classList.remove('touch-active'));
+      items.forEach((item) => {
+        if (item.classList.contains('touch-active')) {
+          item.classList.remove('touch-active');
+          item.setAttribute('aria-expanded', 'false');
+        }
+      });
     }
   });
 }
