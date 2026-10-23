@@ -626,107 +626,85 @@ a {
   font-weight: 500;
 }
 
-.tools-list-group {
+/* Compact tools grid */
+.compact-tools-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.5rem 1.25rem;
+  align-items: flex-start;
+  justify-content: flex-start;
+  padding-top: 0.25rem;
+}
+
+.compact-tool-item {
   display: flex;
   flex-direction: column;
-  gap: 0.85rem;
-  flex-grow: 1;
-}
-
-.tool-row-item {
-  display: flex;
   align-items: center;
-  gap: 1rem;
-  padding: 0.85rem 1rem;
-  background: #FAFAFA;
-  border: 1px solid var(--border-light);
+  text-align: center;
+  width: 78px;
+  cursor: default;
+  transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.compact-tool-item:hover {
+  transform: translateY(-4px);
+}
+
+.compact-tool-logo-box {
+  width: 58px;
+  height: 58px;
   border-radius: 16px;
-  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
-}
-
-.tool-row-item:hover {
-  background: #FFFFFF;
-  border-color: #D1D5DB;
-  transform: translateX(3px);
-  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.04);
-}
-
-.tool-logo-box {
-  width: 42px;
-  height: 42px;
-  border-radius: 12px;
-  background: #FFFFFF;
+  background: #FAFAFA;
   border: 1px solid var(--border-light);
   display: flex;
   align-items: center;
   justify-content: center;
-  flex-shrink: 0;
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.03);
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.02);
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+  margin-bottom: 0.55rem;
 }
 
-.tool-brand-img {
-  width: 24px;
-  height: 24px;
+.card-data-analytics .compact-tool-item:hover .compact-tool-logo-box {
+  background: #FFFFFF;
+  border-color: #93C5FD;
+  box-shadow: 0 8px 20px rgba(37, 99, 235, 0.12);
+}
+
+.card-ai .compact-tool-item:hover .compact-tool-logo-box {
+  background: #FFFFFF;
+  border-color: #FDE047;
+  box-shadow: 0 8px 20px rgba(234, 179, 8, 0.15);
+}
+
+.compact-tool-img {
+  width: 30px;
+  height: 30px;
   object-fit: contain;
   display: block;
 }
 
-.tool-info-box {
-  display: flex;
-  flex-direction: column;
-  gap: 0.15rem;
-  flex-grow: 1;
-  min-width: 0;
-}
-
-.tool-name-badge-row {
-  display: flex;
-  align-items: center;
-  gap: 0.6rem;
-  flex-wrap: wrap;
-}
-
-.tool-name {
-  font-size: 0.975rem;
+.compact-tool-name {
+  font-size: 0.85rem;
   font-weight: 700;
   color: var(--text-dark);
   letter-spacing: -0.01em;
+  line-height: 1.2;
+  text-align: center;
 }
 
-.tool-role {
-  font-size: 0.775rem;
-  color: var(--text-muted);
-  font-weight: 500;
-  line-height: 1.35;
-}
-
-.badge-currently-learning {
-  font-size: 0.68rem;
+.compact-learning-pill {
+  font-size: 0.65rem;
   font-weight: 700;
-  padding: 0.2rem 0.55rem;
-  border-radius: 999px;
-  background: #FEF3C7;
   color: #92400E;
+  background: #FEF3C7;
   border: 1px solid #FDE68A;
-  white-space: nowrap;
+  padding: 0.12rem 0.45rem;
+  border-radius: 999px;
   letter-spacing: 0.02em;
-}
-
-.tools-subheading-divider {
-  display: flex;
-  align-items: center;
-  gap: 0.75rem;
-  margin: 0.75rem 0 0.25rem 0;
-  padding-top: 0.75rem;
-  border-top: 1px dashed var(--border-light);
-}
-
-.tools-subheading-divider span {
-  font-size: 0.72rem;
-  font-weight: 800;
-  color: var(--text-muted);
-  text-transform: uppercase;
-  letter-spacing: 0.06em;
+  margin-top: 0.25rem;
+  display: inline-block;
+  line-height: 1.2;
+  white-space: nowrap;
 }
 
 /* ==========================================================================
@@ -2108,27 +2086,37 @@ a {
     font-size: 2rem;
   }
 
-  .tool-row-item {
-    padding: 0.75rem 0.85rem;
-    gap: 0.85rem;
+  .compact-tools-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.25rem 0.5rem;
+    justify-items: center;
   }
 
-  .tool-logo-box {
-    width: 38px;
-    height: 38px;
+  .compact-tool-item {
+    width: 100%;
+    max-width: 85px;
   }
 
-  .tool-brand-img {
-    width: 20px;
-    height: 20px;
+  .compact-tool-logo-box {
+    width: 52px;
+    height: 52px;
+    border-radius: 14px;
+    margin-bottom: 0.45rem;
   }
 
-  .tool-name {
-    font-size: 0.925rem;
+  .compact-tool-img {
+    width: 26px;
+    height: 26px;
   }
 
-  .tool-role {
-    font-size: 0.725rem;
+  .compact-tool-name {
+    font-size: 0.8rem;
+  }
+
+  .compact-learning-pill {
+    font-size: 0.62rem;
+    padding: 0.1rem 0.4rem;
   }
 
   .projects-grid-section {
