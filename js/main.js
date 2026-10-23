@@ -1,20 +1,50 @@
 /* ==========================================================================
-   AÏDA GARBA PORTFOLIO - VANILLA JAVASCRIPT CONTROLLER (WITH FRAMER MOTION ANIMATIONS)
+   AÏDA GARBA PORTFOLIO - VANILLA JAVASCRIPT CONTROLLER
+   Smooth Scrolling, Staggered Reveals, Sticky Nav, Scrollspy & Motion Engineering
    ========================================================================== */
 
 document.addEventListener('DOMContentLoaded', () => {
   initNavbar();
+  initStickyHeader();
+  initSmoothNavScrolling();
+  initScrollAnimations();
+  initScrollSpy();
   initProjectFilters();
   initProjectModals();
   initContactForm();
-  
-  /* Framer Motion Style Scroll Interactions & Animations */
-  initScrollAnimations();
-  initScrollSpy();
   initMagneticButtons();
   init3DHeroTilt();
   initPhotoGallery();
 });
+
+/* Helper: Smooth scroll to target ID with clearance for sticky header */
+function scrollToSection(targetId) {
+  if (!targetId) return;
+  const id = targetId.startsWith('#') ? targetId : `#${targetId}`;
+  const targetEl = document.querySelector(id);
+  if (!targetEl) return;
+
+  const header = document.querySelector('.site-header');
+  const headerOffset = header ? header.offsetHeight : 70;
+  const targetTop = targetEl.getBoundingClientRect().top + window.pageYOffset - headerOffset + 2;
+
+  const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  window.scrollTo({
+    top: targetTop,
+    behavior: prefersReduced ? 'auto' : 'smooth'
+  });
+
+  const navMenu = document.querySelector('.nav-menu');
+  if (navMenu && navMenu.classList.contains('mobile-open')) {
+    navMenu.classList.remove('mobile-open');
+  }
+
+  if (history.pushState) {
+    history.pushState(null, '', id);
+  }
+}
+window.scrollToSection = scrollToSection;
 
 /* 1. Header & Mobile Menu Controller */
 function initNavbar() {
@@ -28,86 +58,232 @@ function initNavbar() {
   }
 }
 
-/* 2. Framer Motion Style Scroll Reveal Observer */
+/* 2. Sticky Header Elevation on Scroll */
+function initStickyHeader() {
+  const header = document.querySelector('.site-header');
+  if (!header) return;
+
+  let ticking = false;
+  function updateHeader() {
+    if (window.scrollY > 20) {
+      header.classList.add('header-scrolled');
+    } else {
+      header.classList.remove('header-scrolled');
+    }
+  }
+
+  window.addEventListener('scroll', () => {
+    if (!ticking) {
+      requestAnimationFrame(() => {
+        updateHeader();
+        ticking = false;
+      });
+      ticking = true;
+    }
+  }, { passive: true });
+
+  updateHeader();
+}
+
+/* 3. Smooth Scrolling between Navigation Links */
+function initSmoothNavScrolling() {
+  const scrollLinks = document.querySelectorAll('a[href^="#"], [data-scroll-to]');
+
+  scrollLinks.forEach((link) => {
+    link.addEventListener('click', (e) => {
+      const targetId = link.getAttribute('data-scroll-to') || link.getAttribute('href');
+      if (!targetId || targetId === '#' || targetId === '#!') return;
+
+      const targetEl = document.querySelector(targetId);
+      if (!targetEl) return;
+
+      e.preventDefault();
+      scrollToSection(targetId);
+    });
+  });
+}
+
+/* 4. Scroll Reveal Observer with Staggered Cascades & Distinctive Projects Entrance */
 function initScrollAnimations() {
-  const revealElements = document.querySelectorAll(`
+  const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const isMobile = window.innerWidth <= 768;
+
+  // Distinctive entrance trigger for Projects section
+  const projectsSection = document.getElementById('projects');
+  if (projectsSection) {
+    if (prefersReduced) {
+      projectsSection.classList.add('is-visible');
+    } else {
+      const projectObserver = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            projectsSection.classList.add('is-visible');
+            projectObserver.unobserve(entry.target);
+          }
+        });
+      }, {
+        root: null,
+        rootMargin: '0px 0px -50px 0px',
+        threshold: 0.08
+      });
+      projectObserver.observe(projectsSection);
+    }
+  }
+
+  // Staggered reveals for project cards
+  const projectCards = document.querySelectorAll('.project-grid-card');
+  projectCards.forEach((card, index) => {
+    card.classList.add('reveal-on-scroll');
+    if (!prefersReduced) {
+      const staggerDelay = index * (isMobile ? 0.04 : 0.075);
+      card.style.transitionDelay = `${staggerDelay}s`;
+    }
+  });
+
+  // Staggered reveals for photo gallery items (Moments & Milestones)
+  const galleryItems = document.querySelectorAll('.gallery-item');
+  galleryItems.forEach((item, index) => {
+    item.classList.add('reveal-on-scroll');
+    if (!prefersReduced) {
+      const staggerDelay = index * (isMobile ? 0.035 : 0.05);
+      item.style.transitionDelay = `${staggerDelay}s`;
+    }
+  });
+
+  // Skills cards stagger
+  const skillCards = document.querySelectorAll('.skills-clean-card');
+  skillCards.forEach((card, index) => {
+    card.classList.add('reveal-on-scroll');
+    if (!prefersReduced) {
+      card.style.transitionDelay = `${index * 0.1}s`;
+    }
+  });
+
+  // Process steps stagger
+  const processSteps = document.querySelectorAll('.process-step-item');
+  processSteps.forEach((step, index) => {
+    step.classList.add('reveal-on-scroll');
+    if (!prefersReduced) {
+      step.style.transitionDelay = `${index * 0.08}s`;
+    }
+  });
+
+  // Experience and Education cards
+  const expCards = document.querySelectorAll('.exp-card');
+  expCards.forEach((card, index) => {
+    card.classList.add('reveal-on-scroll');
+    if (!prefersReduced) {
+      card.style.transitionDelay = `${index * 0.09}s`;
+    }
+  });
+
+  // Other major section elements that fade and rise
+  const otherReveals = document.querySelectorAll(`
     .gitos-hero-stage-card,
-    .skills-clean-title,
-    .skills-clean-card,
-    .about-gitos-card,
-    .projects-dark-title,
-    .gitos-project-row,
+    .skills-clean-header,
     .process-left-content,
     .process-right-container,
-    .process-step-item,
     .gitos-exp-header-wrap,
-    .gitos-exp-clean-card,
+    .gallery-header-wrap,
     .section-title-wrap,
     .protfolis-card,
+    .contact-item-row,
     .footer-top-cta,
     .footer-columns-grid
   `);
 
-  revealElements.forEach((el, index) => {
+  otherReveals.forEach((el) => {
     el.classList.add('reveal-on-scroll');
-
-    // Add staggered delay for grid & list items
-    if (el.classList.contains('skills-clean-card') || el.classList.contains('protfolis-card')) {
-      const stagger = (index % 2) * 0.12;
-      el.style.transitionDelay = `${stagger}s`;
-    } else if (el.classList.contains('gitos-project-row')) {
-      const rowStagger = (index % 6) * 0.08;
-      el.style.transitionDelay = `${rowStagger}s`;
-    } else if (el.classList.contains('process-step-item') || el.classList.contains('gitos-exp-clean-card')) {
-      const stepNum = (index % 4) * 0.1;
-      el.style.transitionDelay = `${stepNum}s`;
-    }
   });
 
-  const observerOptions = {
-    root: null,
-    rootMargin: '0px 0px -60px 0px',
-    threshold: 0.1
-  };
+  // If user prefers reduced motion, make everything visible immediately
+  if (prefersReduced) {
+    document.querySelectorAll('.reveal-on-scroll').forEach((el) => {
+      el.classList.add('is-visible');
+    });
+    return;
+  }
 
+  // Observer for reveal elements
+  const allRevealElements = document.querySelectorAll('.reveal-on-scroll');
   const scrollObserver = new IntersectionObserver((entries) => {
     entries.forEach((entry) => {
       if (entry.isIntersecting) {
         entry.target.classList.add('is-visible');
+        scrollObserver.unobserve(entry.target);
       }
     });
-  }, observerOptions);
+  }, {
+    root: null,
+    rootMargin: isMobile ? '0px 0px -30px 0px' : '0px 0px -50px 0px',
+    threshold: 0.08
+  });
 
-  revealElements.forEach((el) => scrollObserver.observe(el));
+  allRevealElements.forEach((el) => scrollObserver.observe(el));
 }
 
-/* 3. Active Navigation Scrollspy */
+/* 5. Active Navigation Scrollspy (Accurate Offset Calculation & Bottom-of-Page Detection) */
 function initScrollSpy() {
-  const sections = document.querySelectorAll('section[id]');
-  const navLinks = document.querySelectorAll('.nav-menu .nav-link');
+  const sectionIds = ['home', 'skills', 'projects', 'process', 'experience', 'contact'];
+  const navLinks = document.querySelectorAll('.nav-menu .nav-link[href^="#"]');
 
-  if (!sections.length || !navLinks.length) return;
+  if (!navLinks.length) return;
 
-  const spyObserver = new IntersectionObserver((entries) => {
-    entries.forEach((entry) => {
-      if (entry.isIntersecting) {
-        const id = entry.target.getAttribute('id');
-        navLinks.forEach((link) => {
-          if (link.getAttribute('href') === `#${id}`) {
-            link.classList.add('active');
-          } else {
-            link.classList.remove('active');
-          }
-        });
+  function updateActiveNav() {
+    const scrollY = window.pageYOffset || document.documentElement.scrollTop;
+    const viewportHeight = window.innerHeight;
+    const documentHeight = document.documentElement.scrollHeight;
+    const header = document.querySelector('.site-header');
+    const headerHeight = header ? header.offsetHeight : 70;
+
+    // Detect if reached or near bottom of document -> highlight contact
+    if (scrollY + viewportHeight >= documentHeight - 50) {
+      setActiveLink('contact');
+      return;
+    }
+
+    // Determine currently viewed section
+    let activeId = sectionIds[0];
+    for (let i = 0; i < sectionIds.length; i++) {
+      const section = document.getElementById(sectionIds[i]);
+      if (!section) continue;
+      const rect = section.getBoundingClientRect();
+      if (rect.top <= headerHeight + 110) {
+        activeId = sectionIds[i];
+      }
+    }
+
+    setActiveLink(activeId);
+  }
+
+  function setActiveLink(id) {
+    navLinks.forEach((link) => {
+      if (link.getAttribute('href') === `#${id}`) {
+        link.classList.add('active');
+      } else {
+        link.classList.remove('active');
       }
     });
-  }, { threshold: 0.3 });
+  }
 
-  sections.forEach((section) => spyObserver.observe(section));
+  let ticking = false;
+  window.addEventListener('scroll', () => {
+    if (!ticking) {
+      requestAnimationFrame(() => {
+        updateActiveNav();
+        ticking = false;
+      });
+      ticking = true;
+    }
+  }, { passive: true });
+
+  updateActiveNav();
 }
 
-/* 4. Magnetic Micro-Interaction on Buttons & Cards */
+/* 6. Magnetic Micro-Interaction on Buttons & Cards */
 function initMagneticButtons() {
+  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches || window.matchMedia('(hover: none)').matches) return;
+
   const magneticButtons = document.querySelectorAll(`
     .btn-hire-me,
     .btn-black-pill,
@@ -135,12 +311,14 @@ function initMagneticButtons() {
   });
 }
 
-/* 5. 3D Parallax Tilt for Hero Portrait Stage */
+/* 7. 3D Parallax Tilt for Hero Portrait Stage */
 function init3DHeroTilt() {
+  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches || window.innerWidth < 992) return;
+
   const stage = document.querySelector('.gitos-hero-portrait-stage');
   const container = document.querySelector('.gitos-hero-portrait-container');
 
-  if (!stage || !container || window.innerWidth < 992) return;
+  if (!stage || !container) return;
 
   stage.addEventListener('mousemove', (e) => {
     const rect = stage.getBoundingClientRect();
