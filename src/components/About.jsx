@@ -1,10 +1,7 @@
 import React from 'react';
 import { Target, Users, ShieldAlert, Cpu, Sparkles, CheckCircle } from 'lucide-react';
-import { PORTFOLIO_DATA } from '../data/portfolioData';
 
 export default function About() {
-  const { profile } = PORTFOLIO_DATA;
-
   const drivers = [
     {
       icon: Target,

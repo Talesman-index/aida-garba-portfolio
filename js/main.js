@@ -680,7 +680,7 @@ function initContactForm() {
 }
 
 /* Complete Project Data Repository (8 Core Projects) */
-const PROJECTS_DATA = {
+const _PROJECTS_DATA = {
   "livingstone-timesheet": {
     title: "Digital Timesheet System",
     category: "AI Product Builder",

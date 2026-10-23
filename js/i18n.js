@@ -349,7 +349,7 @@ export function setLanguage(lang) {
 
   try {
     localStorage.setItem('portfolio_lang', lang);
-  } catch (e) {
+  } catch {
     /* ignore storage errors */
   }
 
@@ -413,7 +413,7 @@ export function initI18n() {
     if (stored === 'en' || stored === 'fr') {
       savedLang = stored;
     }
-  } catch (e) {
+  } catch {
     /* ignore */
   }
 

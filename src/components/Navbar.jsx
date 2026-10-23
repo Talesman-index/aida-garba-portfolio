@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Mail, Menu, X, Sparkles, FileText } from 'lucide-react';
+import { Mail, Menu, X } from 'lucide-react';
 import { LinkedinIcon as Linkedin } from './Icons';
 import { PORTFOLIO_DATA } from '../data/portfolioData';
 

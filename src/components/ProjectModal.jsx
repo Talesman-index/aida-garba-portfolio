@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import { X, CheckCircle2, Wrench, Trophy, Sparkles, ArrowRight, Code, ShieldAlert, Users, Target } from 'lucide-react';
+import { X, CheckCircle2, Wrench, Trophy, Sparkles, Code, ShieldAlert, Users, Target } from 'lucide-react';
 
 export default function ProjectModal({ project, onClose }) {
   useEffect(() => {

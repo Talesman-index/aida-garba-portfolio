@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Sparkles, BarChart3, ArrowUpRight, FolderGit2, CheckCircle2 } from 'lucide-react';
+import { Sparkles, BarChart3, ArrowUpRight, CheckCircle2 } from 'lucide-react';
 import { PORTFOLIO_DATA } from '../data/portfolioData';
 import ProjectModal from './ProjectModal';
 

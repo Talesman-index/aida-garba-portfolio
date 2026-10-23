@@ -1,5 +1,5 @@
 import React from 'react';
-import { ArrowUp, Mail } from 'lucide-react';
+import { ArrowUp } from 'lucide-react';
 import { LinkedinIcon as Linkedin } from './Icons';
 import { PORTFOLIO_DATA } from '../data/portfolioData';
 
