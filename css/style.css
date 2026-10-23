@@ -1360,11 +1360,41 @@ a {
   box-shadow: 0 8px 20px rgba(0,0,0,0.03);
   text-align: left;
   border: 1px solid var(--border-light);
+  position: relative;
+  overflow: hidden;
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1),
+              box-shadow 0.4s cubic-bezier(0.16, 1, 0.3, 1),
+              border-color 0.4s ease,
+              background-color 0.4s ease;
 }
 
+/* Subtle light-up indicator bar on left edge */
+.process-step-item::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 4px;
+  height: 100%;
+  background: #2563EB;
+  opacity: 0;
+  transform: scaleY(0.3);
+  transition: opacity 0.35s cubic-bezier(0.16, 1, 0.3, 1),
+              transform 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* Subtle Light-up state on scroll */
+.process-step-item.is-lit,
 .process-step-item:hover {
   transform: translateY(-4px);
-  box-shadow: 0 14px 32px rgba(0,0,0,0.08);
+  border-color: #2563EB;
+  box-shadow: 0 16px 36px rgba(37, 99, 235, 0.12), 0 0 0 1px rgba(37, 99, 235, 0.18);
+}
+
+.process-step-item.is-lit::before,
+.process-step-item:hover::before {
+  opacity: 1;
+  transform: scaleY(1);
 }
 
 .step-number-box {
@@ -1380,13 +1410,25 @@ a {
   color: var(--text-dark);
   flex-shrink: 0;
   border: 1px solid var(--border-light);
-  transition: transform 0.2s ease;
+  transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1),
+              background-color 0.35s ease,
+              color 0.35s ease,
+              border-color 0.35s ease,
+              box-shadow 0.35s ease;
 }
 
+.process-step-item.is-lit .step-number-box,
 .process-step-item:hover .step-number-box {
   transform: scale(1.08);
-  background: var(--text-dark);
+  background: #111827;
   color: #FFFFFF;
+  border-color: #111827;
+  box-shadow: 0 6px 16px rgba(17, 24, 39, 0.22);
+}
+
+.process-step-item.is-lit .step-title,
+.process-step-item:hover .step-title {
+  color: #0F172A;
 }
 
 .step-info-box {
@@ -1830,18 +1872,9 @@ a {
   -webkit-user-select: none;
   outline: none;
   display: block;
-  opacity: 0;
-  transform: translateY(20px);
-  transition: opacity 0.6s cubic-bezier(0.16, 1, 0.3, 1),
-              transform 0.6s cubic-bezier(0.16, 1, 0.3, 1),
+  transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1),
               box-shadow 0.35s cubic-bezier(0.16, 1, 0.3, 1),
               border-color 0.35s ease;
-  will-change: opacity, transform;
-}
-
-.gallery-item.is-visible {
-  opacity: 1;
-  transform: translateY(0);
 }
 
 .gallery-item:hover,
@@ -3312,7 +3345,11 @@ a {
   .gallery-item:hover,
   .gallery-item.touch-active,
   .gallery-item:focus-visible,
-  .gallery-item:active {
+  .gallery-item:active,
+  .process-step-item.is-lit,
+  .process-step-item:hover,
+  .process-step-item.is-lit .step-number-box,
+  .process-step-item:hover .step-number-box {
     transform: none !important;
   }
 

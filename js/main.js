@@ -18,6 +18,7 @@ document.addEventListener('DOMContentLoaded', () => {
   initMagneticButtons();
   init3DHeroTilt();
   initPhotoGallery();
+  initProcessScrollLightUp();
 });
 
 /* Helper: Smooth scroll to target ID with clearance for sticky header */
@@ -143,6 +144,21 @@ function initScrollAnimations() {
     }
   });
 
+  // Staggered reveals for photo gallery items (Moments & Milestones)
+  const galleryItems = document.querySelectorAll('.gallery-item');
+  galleryItems.forEach((item, index) => {
+    item.classList.add('reveal-on-scroll');
+    if (!prefersReduced) {
+      const staggerDelay = index * (isMobile ? 0.035 : 0.05);
+      item.style.transitionDelay = `${staggerDelay}s`;
+    }
+    // Clean up delay after entrance so hover/tap is instant
+    item.addEventListener('transitionend', (e) => {
+      if (e.propertyName === 'opacity' || e.propertyName === 'transform') {
+        item.style.transitionDelay = '';
+      }
+    }, { once: true });
+  });
 
   // Skills cards stagger
   const skillCards = document.querySelectorAll('.skills-clean-card');
@@ -405,8 +421,7 @@ function initPhotoGallery() {
     return idxA - idxB;
   });
 
-  const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-  let currentCols = 0;
+  let currentCols = gridContainer.querySelectorAll('.masonry-col').length || getDesiredColumns();
 
   // Determine optimal column count based on viewport width
   function getDesiredColumns() {
@@ -454,49 +469,6 @@ function initPhotoGallery() {
       layoutMasonry();
     }, 150);
   });
-
-  // Staggered Fade-Up on Scroll
-  if (prefersReduced) {
-    // Respect user's reduced motion: reveal all immediately with no animation
-    items.forEach((item) => {
-      item.classList.add('is-visible');
-      item.style.transitionDelay = '0s';
-    });
-  } else {
-    // Staggered entrance via IntersectionObserver
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            const item = entry.target;
-            const idx = items.indexOf(item);
-            const cols = currentCols || 4;
-            const colIdx = idx >= 0 ? idx % cols : 0;
-            const rowIdx = idx >= 0 ? Math.floor(idx / cols) : 0;
-            // Fluid diagonal wave delay
-            const delay = Math.min((colIdx * 0.08) + (rowIdx * 0.06), 0.65);
-
-            item.style.transitionDelay = `${delay}s`;
-            item.classList.add('is-visible');
-            observer.unobserve(item);
-
-            // Clean up transitionDelay after entrance so hover/tap has zero latency
-            const cleanupMs = Math.round((delay + 0.65) * 1000);
-            setTimeout(() => {
-              item.style.transitionDelay = '';
-            }, cleanupMs);
-          }
-        });
-      },
-      {
-        root: null,
-        rootMargin: '0px 0px -40px 0px',
-        threshold: 0.12,
-      }
-    );
-
-    items.forEach((item) => observer.observe(item));
-  }
 
   // Helper to toggle active state
   function toggleItemActive(item, forceState) {
@@ -568,6 +540,58 @@ function initPhotoGallery() {
       });
     }
   });
+}
+
+/* 8b. Subtle Light-Up Animation for Process Steps on Scroll */
+function initProcessScrollLightUp() {
+  const steps = document.querySelectorAll('.process-step-item');
+  const processSection = document.getElementById('process');
+  if (!steps.length || !processSection) return;
+
+  let ticking = false;
+
+  function updateProcessSteps() {
+    const windowHeight = window.innerHeight;
+    // Focal line: ~45% down the viewport (where users' eyes naturally focus while scrolling)
+    const focalY = windowHeight * 0.45;
+
+    let closestStep = null;
+    let closestDistance = Infinity;
+
+    steps.forEach((step) => {
+      const rect = step.getBoundingClientRect();
+      const stepCenter = rect.top + rect.height / 2;
+      const dist = Math.abs(stepCenter - focalY);
+
+      // Only activate when step is within the active reading viewport zone
+      if (rect.bottom > 80 && rect.top < windowHeight - 80) {
+        if (dist < closestDistance) {
+          closestDistance = dist;
+          closestStep = step;
+        }
+      }
+    });
+
+    steps.forEach((step) => {
+      if (step === closestStep) {
+        step.classList.add('is-lit');
+      } else {
+        step.classList.remove('is-lit');
+      }
+    });
+
+    ticking = false;
+  }
+
+  window.addEventListener('scroll', () => {
+    if (!ticking) {
+      window.requestAnimationFrame(updateProcessSteps);
+      ticking = true;
+    }
+  }, { passive: true });
+
+  window.addEventListener('resize', updateProcessSteps);
+  updateProcessSteps();
 }
 
 /* 9. Contact Form Handler & Copy Button */
