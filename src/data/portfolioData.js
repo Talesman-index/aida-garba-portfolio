@@ -188,7 +188,7 @@ export const PORTFOLIO_DATA = {
       category: "Data Analytics",
       categoryId: "data-analytics",
       shortDescription: "A team project using community health datasets to address healthcare access challenges in Robeson County, NC.",
-      badge: "Challenge Finalist 🏆",
+      badge: "Challenge Finalist",
       featured: true,
       impactMetric: "Selected as Finalist • Team Lead",
       date: "2024",
@@ -209,7 +209,7 @@ export const PORTFOLIO_DATA = {
         solution: "A combined Smart Petri Dish diagnostic device and digital tracking platform designed to bring low-cost, rapid diagnostic testing directly to community health hubs.",
         toolsUsed: ["Python", "Excel", "Power BI", "Canva"],
         results: [
-          "Selected as a Challenge Finalist 🏆.",
+          "Selected as a Challenge Finalist.",
           "Recognized for strong data storytelling and practical community application."
         ],
         whatILearned: "How to lead a multi-disciplinary team, communicate complex data findings clearly, and link demographic insights to practical innovation.",

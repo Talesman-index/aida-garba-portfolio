@@ -1683,6 +1683,15 @@ a {
   border-radius: 50%;
   font-weight: 800;
   cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s ease;
+}
+
+.modal-close-btn:hover {
+  background: var(--border-light);
+  transform: scale(1.05);
 }
 
 .site-footer {
@@ -1816,6 +1825,9 @@ a {
   font-weight: 600;
   cursor: pointer;
   transition: all 0.2s ease;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
 }
 
 .btn-back-top:hover {
