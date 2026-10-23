@@ -441,20 +441,110 @@ function initPhotoGallery() {
   });
 }
 
-/* 9. Contact Form Handler */
+/* 9. Contact Form Handler & Copy Button */
 function initContactForm() {
   const form = document.getElementById('contact-form');
   const successMsg = document.getElementById('contact-success');
+  const copyBtn = document.getElementById('copy-email-btn');
+  const copyBadge = document.getElementById('copy-email-badge');
 
+  // Copy Email to Clipboard
+  if (copyBtn) {
+    copyBtn.addEventListener('click', async () => {
+      const email = 'garbaim27@gmail.com';
+      try {
+        if (navigator.clipboard && navigator.clipboard.writeText) {
+          await navigator.clipboard.writeText(email);
+        } else {
+          const ta = document.createElement('textarea');
+          ta.value = email;
+          ta.style.position = 'fixed';
+          ta.style.opacity = '0';
+          document.body.appendChild(ta);
+          ta.select();
+          document.execCommand('copy');
+          document.body.removeChild(ta);
+        }
+        if (copyBadge) {
+          copyBadge.classList.add('show');
+          setTimeout(() => {
+            copyBadge.classList.remove('show');
+          }, 2000);
+        }
+      } catch (err) {
+        console.error('Failed to copy email:', err);
+      }
+    });
+  }
+
+  // Contact Form Validation & Submission
   if (form) {
+    const nameInput = document.getElementById('contact-name');
+    const emailInput = document.getElementById('contact-email');
+    const messageInput = document.getElementById('contact-message');
+
+    // Clear error on input
+    [nameInput, emailInput, messageInput].forEach((input) => {
+      if (input) {
+        input.addEventListener('input', () => {
+          input.classList.remove('has-error');
+          const errorSpan = document.getElementById(`error-${input.name}`);
+          if (errorSpan) {
+            errorSpan.classList.remove('show');
+            errorSpan.textContent = '';
+          }
+        });
+      }
+    });
+
     form.addEventListener('submit', (e) => {
       e.preventDefault();
+
+      let isValid = true;
+
+      // Validate Name
+      if (!nameInput || !nameInput.value.trim()) {
+        isValid = false;
+        if (nameInput) nameInput.classList.add('has-error');
+        const errName = document.getElementById('error-name');
+        if (errName) {
+          errName.textContent = 'Please provide your name.';
+          errName.classList.add('show');
+        }
+      }
+
+      // Validate Email
+      const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+      if (!emailInput || !emailInput.value.trim() || !emailPattern.test(emailInput.value.trim())) {
+        isValid = false;
+        if (emailInput) emailInput.classList.add('has-error');
+        const errEmail = document.getElementById('error-email');
+        if (errEmail) {
+          errEmail.textContent = 'Please provide a valid email address.';
+          errEmail.classList.add('show');
+        }
+      }
+
+      // Validate Message
+      if (!messageInput || !messageInput.value.trim()) {
+        isValid = false;
+        if (messageInput) messageInput.classList.add('has-error');
+        const errMessage = document.getElementById('error-message');
+        if (errMessage) {
+          errMessage.textContent = 'Please enter your message or project note.';
+          errMessage.classList.add('show');
+        }
+      }
+
+      if (!isValid) return;
+
+      // Success
       if (successMsg) {
-        successMsg.style.display = 'block';
+        successMsg.style.display = 'flex';
         form.reset();
         setTimeout(() => {
           successMsg.style.display = 'none';
-        }, 4000);
+        }, 5000);
       }
     });
   }
