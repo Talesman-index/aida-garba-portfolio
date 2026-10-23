@@ -2070,7 +2070,7 @@ a {
 .contact-row-item {
   display: flex;
   align-items: flex-start;
-  gap: 1.25rem;
+  gap: 0.85rem;
   padding: 1.65rem 0;
   border-bottom: 1px solid var(--border-light);
   background: transparent;
@@ -2078,11 +2078,11 @@ a {
 }
 
 .contact-row-icon-wrap {
-  width: 32px;
-  height: 32px;
+  width: 28px;
+  height: 28px;
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: flex-start;
   flex-shrink: 0;
   margin-top: 0.15rem;
 }
@@ -2196,7 +2196,7 @@ a {
 .contact-location-row {
   display: flex;
   align-items: center;
-  gap: 1.25rem;
+  gap: 0.85rem;
   padding: 1.65rem 0 1.75rem 0;
 }
 
