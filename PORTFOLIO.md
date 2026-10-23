@@ -1,6 +1,6 @@
 # Aïda Garba — AI Product Management & Data Analytics Portfolio
 
-> **Tagline:** Student-athlete turning real problems into practical products and data-driven solutions.
+> **Tagline:** Student-athlete exploring Data, AI & Product — learning, building, and probably overthinking something interesting.
 
 ---
 
