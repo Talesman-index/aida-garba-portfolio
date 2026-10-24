@@ -2271,7 +2271,7 @@ a {
   grid-template-columns: 0.95fr 1.05fr;
   gap: 2rem;
   align-items: stretch;
-  margin-bottom: 3.5rem;
+  margin-bottom: 0;
   position: relative;
 }
 
@@ -2759,7 +2759,7 @@ a {
    MOMENTS & MILESTONES (EXHIBITION STAGE REDESIGN)
    ========================================================================== */
 .gallery-exhibition-stage {
-  margin-top: 2rem;
+  margin-top: clamp(5.5rem, 8vw, 8rem);
   background-color: #FFFFFF;
   background-image: 
     radial-gradient(circle at 50% 12%, rgba(0, 85, 255, 0.08) 0%, rgba(124, 58, 237, 0.04) 40%, transparent 70%),
@@ -2769,40 +2769,49 @@ a {
   border: 1.5px solid rgba(0, 85, 255, 0.22);
   border-radius: 28px;
   box-shadow: 0 4px 0 #0A0F1D, 0 20px 48px rgba(0, 85, 255, 0.06);
-  padding: 3rem 2.5rem 3.5rem;
+  padding: 3.25rem 2.5rem 3.5rem;
   position: relative;
   overflow: hidden;
 }
 
 .gallery-header-cover {
   display: flex;
-  justify-content: space-between;
-  align-items: flex-end;
-  gap: 2rem;
-  margin-bottom: 2.25rem;
-  flex-wrap: wrap;
-  text-align: left;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.85rem;
+  margin-bottom: 1.75rem;
+  text-align: center;
+  width: 100%;
 }
 
 .gallery-header-info {
-  flex: 1 1 540px;
+  width: 100%;
+  max-width: 680px;
+  margin: 0 auto;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .gallery-main-heading {
-  font-size: clamp(2rem, 3.8vw, 3rem);
+  font-size: clamp(2.2rem, 4vw, 3.25rem);
   font-weight: 900;
   color: var(--text-dark);
   letter-spacing: -0.03em;
-  margin: 0.6rem 0 0.65rem 0;
+  margin: 0 0 0.75rem 0;
   line-height: 1.15;
+  text-align: center;
 }
 
 .gallery-subheading {
   font-size: 1.05rem;
   color: #475569;
-  max-width: 650px;
+  max-width: 620px;
   line-height: 1.55;
-  margin: 0;
+  margin: 0 auto;
+  text-align: center;
 }
 
 .gallery-status-pill {
@@ -2841,17 +2850,19 @@ a {
 
 /* Category Filter Toolbar */
 .gallery-filter-toolbar {
-  margin-bottom: 2.25rem;
+  margin-bottom: 2.75rem;
   display: flex;
   align-items: center;
-  justify-content: flex-start;
+  justify-content: center;
   gap: 0.75rem;
-  flex-wrap: wrap;
+  width: 100%;
 }
 
 .gallery-filter-pills {
   display: flex;
   flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
   gap: 0.65rem;
 }
 
@@ -3097,7 +3108,7 @@ a {
 @media (max-width: 1024px) {
   .gallery-exhibition-stage {
     padding: 2.5rem 1.75rem 2.75rem;
-    margin-top: 4rem;
+    margin-top: clamp(4.5rem, 6vw, 5.5rem);
   }
 
   .gallery-bento-grid {
@@ -3112,15 +3123,21 @@ a {
 @media (max-width: 768px) {
   .gallery-exhibition-stage {
     padding: 2rem 1.25rem 2.25rem;
-    margin-top: 3.5rem;
+    margin-top: clamp(3.5rem, 5.5vw, 4.5rem);
     border-radius: 20px;
   }
 
   .gallery-header-cover {
     flex-direction: column;
-    align-items: flex-start;
-    gap: 1rem;
+    align-items: center;
+    gap: 0.75rem;
     margin-bottom: 1.5rem;
+    text-align: center;
+  }
+
+  .gallery-filter-toolbar {
+    justify-content: center;
+    margin-bottom: 2rem;
   }
 
   .gallery-status-pill {
@@ -3152,6 +3169,7 @@ a {
 @media (max-width: 480px) {
   .gallery-exhibition-stage {
     padding: 1.5rem 0.85rem 1.75rem;
+    margin-top: 3rem;
     border-radius: 16px;
   }
 
