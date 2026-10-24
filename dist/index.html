@@ -35,11 +35,14 @@
   <link rel="icon" type="image/svg+xml" href="favicon.svg">
   
   <!-- Master Gitos Luxury Stylesheet -->
-  <script type="module" crossorigin src="/assets/main-B8xGsMGX.js"></script>
-  <link rel="modulepreload" crossorigin href="/assets/i18n-UYasJ7pY.js">
-  <link rel="stylesheet" crossorigin href="/assets/i18n-CUZay3h9.css">
+  <script type="module" crossorigin src="/assets/main-Bbjnw3JT.js"></script>
+  <link rel="modulepreload" crossorigin href="/assets/i18n-Bo_FPICd.js">
+  <link rel="stylesheet" crossorigin href="/assets/i18n-BsSZaLhq.css">
 </head>
 <body>
+
+  <!-- Dynamic Blueprint Scroll Progress Bar -->
+  <div id="scroll-progress-bar" class="scroll-progress-bar" aria-hidden="true"></div>
 
   <!-- Site Navigation -->
   <header class="site-header">
@@ -83,27 +86,62 @@
     </div>
   </header>
 
-  <!-- 1. CLEAN NEUTRAL GITOS HERO SECTION -->
+  <!-- 1. COVER STYLE HERO SECTION (WONDER DRAW & LC STEM AESTHETIC) -->
   <section id="home" class="gitos-hero-section">
     <div class="container">
       
       <div class="gitos-hero-stage-card">
+        <!-- Atmospheric Background Layers (Gradient Mesh + Blueprint Grid + Grain) -->
+        <div class="hero-cover-backdrop" aria-hidden="true"></div>
+        <div class="hero-cover-grid" aria-hidden="true"></div>
+        <div class="hero-cover-grain" aria-hidden="true"></div>
+
+        <!-- Top-Right Circular Star Badge (Direct Cover Signature) -->
+        <div class="cover-star-badge" aria-hidden="true" title="Aïda Garba">
+          <svg viewBox="0 0 40 40" width="36" height="36" fill="currentColor">
+            <circle cx="20" cy="20" r="18" fill="none" stroke="currentColor" stroke-width="2"/>
+            <circle cx="20" cy="20" r="14.5" fill="none" stroke="currentColor" stroke-width="0.75" stroke-dasharray="2 2" opacity="0.6"/>
+            <path d="M20 7 Q20 20 7 20 Q20 20 20 33 Q20 20 33 20 Q20 20 20 7 Z" fill="currentColor"/>
+          </svg>
+        </div>
+
         <div class="gitos-hero-grid">
           
-          <!-- Left: Clean Portrait Container with Neutral Rounded Floating Badges -->
+          <!-- Left: Portrait Stage with 3D Orbital Ring & 4-Point Sparkle Stars -->
           <div class="gitos-hero-portrait-stage">
-            <div class="hero-chip-badge-top" data-i18n="hero.badge_top">
-              <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor" stroke="none" aria-hidden="true" style="display:inline-block; vertical-align:-1px; margin-right:4px;">
-                <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/>
-              </svg>3.9 GPA CIS Scholar
+            
+            <!-- Top Left Floating 4-Point Star (Wonder Draw Blue) -->
+            <div class="cover-star-float star-top-left" aria-hidden="true">
+              <svg viewBox="0 0 32 32" width="32" height="32">
+                <path d="M16 2 Q16 16 2 16 Q16 16 16 30 Q16 16 30 16 Q16 16 16 2 Z" fill="#0055FF"/>
+                <path d="M16 8 Q16 16 8 16 Q16 16 16 24 Q16 16 24 16 Q16 16 16 8 Z" fill="#FFFFFF"/>
+              </svg>
             </div>
 
+            <!-- Bottom Right Floating 4-Point Star (LC STEM Violet) -->
+            <div class="cover-star-float star-bottom-right" aria-hidden="true">
+              <svg viewBox="0 0 28 28" width="28" height="28">
+                <path d="M14 2 Q14 14 2 14 Q14 14 14 26 Q14 14 26 14 Q14 14 14 2 Z" fill="#7C3AED"/>
+              </svg>
+            </div>
+
+            <!-- 3D Cosmic Orbital Ring -->
+            <div class="hero-orbit-ring" aria-hidden="true">
+              <div class="orbit-ellipse">
+                <span class="orbit-bead"></span>
+              </div>
+            </div>
+
+            <!-- Top Scholar Badge -->
+            <div class="hero-chip-badge-top" data-i18n="hero.badge_top">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" stroke="none" aria-hidden="true">
+                <path d="M12 2 Q12 12 2 12 Q12 12 12 22 Q12 12 22 12 Q12 12 12 2 Z"/>
+              </svg> 3.9 GPA CIS Scholar
+            </div>
+
+            <!-- Bottom Athlete Badge with Technical Brackets -->
             <div class="hero-chip-badge-bottom" data-i18n="hero.badge_bottom">
-              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="display:inline-block; vertical-align:-2px; margin-right:5px;">
-                <circle cx="12" cy="12" r="10"/>
-                <path d="M4.93 4.93a10 10 0 0 1 14.14 0"/>
-                <path d="M4.93 19.07a10 10 0 0 0 14.14 0"/>
-              </svg>NCAA D-II Athlete
+              <span class="badge-brackets">[</span> NCAA D-II Athlete <span class="badge-brackets">]</span>
             </div>
 
             <div class="gitos-hero-portrait-container">
@@ -111,18 +149,33 @@
             </div>
           </div>
 
-          <!-- Right: Professional High-Impact Minimalist Narrative -->
+          <!-- Right: Narrative & Extruded Typography -->
           <div class="gitos-hero-content">
             <div class="gitos-hero-subtitle-tag" data-i18n="hero.subtitle_tag">
               <span class="neutral-dot"></span>
               DATA ANALYTICS · AI · PRODUCT DEVELOPMENT
             </div>
 
-            <h1 class="gitos-hero-title" data-i18n="hero.title">Hi, I’m Aïda Garba.</h1>
+            <h1 class="gitos-hero-title">
+              <span data-i18n="hero.greeting">Hi, I’m</span> <span class="hero-title-extruded">Aïda Garba</span>
+              <span class="title-sparkle-star" aria-hidden="true">✦</span>
+            </h1>
 
             <p class="gitos-hero-narrative" data-i18n="hero.narrative">
               I’m a Computer Information Systems student minoring in Data Analytics. I use data and technology to understand problems and build practical solutions, from campus tools to healthcare AI. I’m seeking a Summer 2027 internship in Data & AI.
             </p>
+
+            <!-- Technical Corner-Bracketed Quote Card (Direct Cover Signature) -->
+            <div class="cover-quote-card">
+              <span class="corner-bracket top-left" aria-hidden="true"></span>
+              <span class="corner-bracket top-right" aria-hidden="true"></span>
+              <span class="corner-bracket bottom-left" aria-hidden="true"></span>
+              <span class="corner-bracket bottom-right" aria-hidden="true"></span>
+              <div class="cover-quote-content">
+                <p class="cover-quote-text" data-i18n="hero.quote">“Curiosity today. Innovation tomorrow.”</p>
+                <span class="cover-chevrons" aria-hidden="true">&gt;&gt;&gt;</span>
+              </div>
+            </div>
 
             <div class="gitos-hero-actions">
               <button class="btn-gitos-primary" onclick="scrollToSection('projects')" data-i18n="hero.cta_projects">
@@ -147,74 +200,80 @@
           </div>
 
         </div>
+
       </div>
 
     </div>
   </section>
 
-  <!-- 2. MARQUEE TICKER RIBBONS -->
+  <!-- 2. MARQUEE TICKER RIBBONS (CYBER-TAPE STYLE) -->
   <div class="gitos-marquee-wrapper">
     <div class="gitos-marquee-row">
       <div class="marquee-word">AI Product Management</div>
-      <div class="marquee-word">•</div>
+      <div class="marquee-star" aria-hidden="true">✦</div>
       <div class="marquee-word">Data Analytics</div>
-      <div class="marquee-word">•</div>
-      <div class="marquee-word">SQL & Database Querying</div>
-      <div class="marquee-word">•</div>
+      <div class="marquee-star" aria-hidden="true">✦</div>
+      <div class="marquee-word">SQL &amp; Database Querying</div>
+      <div class="marquee-star" aria-hidden="true">✦</div>
       <div class="marquee-word">Power BI Dashboards</div>
-      <div class="marquee-word">•</div>
+      <div class="marquee-star" aria-hidden="true">✦</div>
       <div class="marquee-word">Prompt Engineering</div>
-      <div class="marquee-word">•</div>
+      <div class="marquee-star" aria-hidden="true">✦</div>
       <div class="marquee-word">Python EDA</div>
-      <div class="marquee-word">•</div>
+      <div class="marquee-star" aria-hidden="true">✦</div>
       <div class="marquee-word">AI Product Management</div>
-      <div class="marquee-word">•</div>
+      <div class="marquee-star" aria-hidden="true">✦</div>
       <div class="marquee-word">Data Analytics</div>
-      <div class="marquee-word">•</div>
-      <div class="marquee-word">SQL & Database Querying</div>
-      <div class="marquee-word">•</div>
+      <div class="marquee-star" aria-hidden="true">✦</div>
+      <div class="marquee-word">SQL &amp; Database Querying</div>
+      <div class="marquee-star" aria-hidden="true">✦</div>
       <div class="marquee-word">Power BI Dashboards</div>
-      <div class="marquee-word">•</div>
+      <div class="marquee-star" aria-hidden="true">✦</div>
       <div class="marquee-word">Prompt Engineering</div>
-      <div class="marquee-word">•</div>
+      <div class="marquee-star" aria-hidden="true">✦</div>
       <div class="marquee-word">Python EDA</div>
-      <div class="marquee-word">•</div>
+      <div class="marquee-star" aria-hidden="true">✦</div>
     </div>
 
     <div class="gitos-marquee-row reverse">
       <div class="marquee-word">MVP Scoping</div>
-      <div class="marquee-word">•</div>
+      <div class="marquee-star" aria-hidden="true">✦</div>
       <div class="marquee-word">User Research</div>
-      <div class="marquee-word">•</div>
+      <div class="marquee-star" aria-hidden="true">✦</div>
       <div class="marquee-word">KPI Development</div>
-      <div class="marquee-word">•</div>
+      <div class="marquee-star" aria-hidden="true">✦</div>
       <div class="marquee-word">Figma Wireframing</div>
-      <div class="marquee-word">•</div>
+      <div class="marquee-star" aria-hidden="true">✦</div>
       <div class="marquee-word">User Flows</div>
-      <div class="marquee-word">•</div>
+      <div class="marquee-star" aria-hidden="true">✦</div>
       <div class="marquee-word">Academic CIS Tutoring</div>
-      <div class="marquee-word">•</div>
+      <div class="marquee-star" aria-hidden="true">✦</div>
       <div class="marquee-word">MVP Scoping</div>
-      <div class="marquee-word">•</div>
+      <div class="marquee-star" aria-hidden="true">✦</div>
       <div class="marquee-word">User Research</div>
-      <div class="marquee-word">•</div>
+      <div class="marquee-star" aria-hidden="true">✦</div>
       <div class="marquee-word">KPI Development</div>
-      <div class="marquee-word">•</div>
+      <div class="marquee-star" aria-hidden="true">✦</div>
       <div class="marquee-word">Figma Wireframing</div>
-      <div class="marquee-word">•</div>
+      <div class="marquee-star" aria-hidden="true">✦</div>
       <div class="marquee-word">User Flows</div>
-      <div class="marquee-word">•</div>
+      <div class="marquee-star" aria-hidden="true">✦</div>
       <div class="marquee-word">Academic CIS Tutoring</div>
-      <div class="marquee-word">•</div>
+      <div class="marquee-star" aria-hidden="true">✦</div>
     </div>
   </div>
 
-  <!-- 3. CLEAN TWO-CARD SKILLS SECTION (DATA ANALYTICS & AI) -->
+  <!-- 3. SKILLS SECTION (WONDER DRAW & LC STEM AESTHETIC) -->
   <section id="skills" class="skills-clean-section">
     <div class="container">
       <div class="skills-clean-header">
-        <span class="section-tag" data-i18n="skills.tag">Core Capabilities</span>
-        <h2 class="skills-clean-title" data-i18n="skills.title">Skills & Tools</h2>
+        <div class="section-tag-cover">
+          <span class="tag-star">✦</span> CORE CAPABILITIES <span class="tag-brackets">[01]</span>
+        </div>
+        <h2 class="skills-clean-title">
+          Skills <span class="title-amp">&amp;</span> <span class="hero-title-extruded">Tools</span>
+          <span class="title-sparkle-star" aria-hidden="true">✦</span>
+        </h2>
         <p class="skills-clean-subtitle" data-i18n="skills.subtitle">
           Core technical toolset across Data Analytics and Artificial Intelligence, focused on solving operational problems and building usable digital products.
         </p>
@@ -222,14 +281,27 @@
 
       <div class="skills-two-cards-grid">
         
-        <!-- CARD 1: DATA ANALYTICS (Blue Accent) -->
+        <!-- CARD 1: DATA ANALYTICS (Wonder Draw Electric Blue Accent) -->
         <div class="skills-clean-card card-data-analytics">
+          <span class="corner-bracket top-left" aria-hidden="true"></span>
+          <span class="corner-bracket top-right" aria-hidden="true"></span>
+          <span class="corner-bracket bottom-left" aria-hidden="true"></span>
+          <span class="corner-bracket bottom-right" aria-hidden="true"></span>
+
+          <div class="card-corner-star-badge" aria-hidden="true">
+            <svg viewBox="0 0 24 24" width="22" height="22" fill="currentColor"><path d="M12 2 Q12 12 2 12 Q12 12 12 22 Q12 12 22 12 Q12 12 12 2 Z"/></svg>
+          </div>
+
           <div class="card-accent-pill pill-blue" data-i18n="skills.pill_data">
             <span class="accent-dot-blue"></span>
             DATA ANALYTICS
           </div>
 
           <div class="card-header-block">
+            <div class="card-meta-stamp">
+              <span class="stamp-bar"></span>
+              <span>SQL · PYTHON · POWER BI · EXCEL</span>
+            </div>
             <h3 class="card-title" data-i18n="skills.data_title">Data Analytics</h3>
             <p class="card-desc" data-i18n="skills.data_desc">
               Data manipulation, querying, pipeline transformation, and business intelligence dashboards.
@@ -282,15 +354,28 @@
           </div>
         </div>
 
-        <!-- CARD 2: AI & PRODUCT TOOLS (Yellow Accent) -->
+        <!-- CARD 2: AI & PRODUCT TOOLS (LC STEM Electric Violet & Mint Accent) -->
         <div class="skills-clean-card card-ai">
-          <div class="card-accent-pill pill-yellow" data-i18n="skills.pill_ai">
-            <span class="accent-dot-yellow"></span>
-            AI & PRODUCT TOOLS
+          <span class="corner-bracket top-left" aria-hidden="true"></span>
+          <span class="corner-bracket top-right" aria-hidden="true"></span>
+          <span class="corner-bracket bottom-left" aria-hidden="true"></span>
+          <span class="corner-bracket bottom-right" aria-hidden="true"></span>
+
+          <div class="card-corner-star-badge" aria-hidden="true">
+            <svg viewBox="0 0 24 24" width="22" height="22" fill="currentColor"><path d="M12 2 Q12 12 2 12 Q12 12 12 22 Q12 12 22 12 Q12 12 12 2 Z"/></svg>
+          </div>
+
+          <div class="card-accent-pill pill-purple" data-i18n="skills.pill_ai">
+            <span class="accent-dot-mint"></span>
+            AI &amp; PRODUCT TOOLS
           </div>
 
           <div class="card-header-block">
-            <h3 class="card-title" data-i18n="skills.ai_title">AI & Product Tools</h3>
+            <div class="card-meta-stamp">
+              <span class="stamp-bar"></span>
+              <span>ANTIGRAVITY · LLMS · PROMPT DESIGN</span>
+            </div>
+            <h3 class="card-title" data-i18n="skills.ai_title">AI &amp; Product Tools</h3>
             <p class="card-desc" data-i18n="skills.ai_desc">
               AI-assisted development, prompt design, reasoning workflows, and iterative product prototyping.
             </p>
@@ -365,18 +450,20 @@
   </section>
   -->
 
-  <!-- 5. CARD-GRID PROJECTS SECTION (Reference Redesign) -->
+  <!-- 5. CARD-GRID PROJECTS SECTION (WONDER DRAW & LC STEM SYSTEM) -->
   <section id="projects" class="projects-grid-section">
     <div class="container">
       
       <!-- Section Header with Title & Filter Bar -->
       <div class="projects-grid-header-row">
         <div class="projects-header-left">
-          <div class="projects-live-badge" data-i18n="projects.live_badge">
-            <span class="live-dot-pulse"></span>
-            LIVE PORTFOLIO
+          <div class="section-tag-cover">
+            <span class="tag-star">✦</span> PORTFOLIO ARCHIVE <span class="tag-brackets">[02]</span>
           </div>
-          <h2 class="projects-section-heading" data-i18n="projects.title">Featured Projects</h2>
+          <h2 class="projects-section-heading">
+            Featured <span class="hero-title-extruded">Projects</span>
+            <span class="title-sparkle-star" aria-hidden="true">✦</span>
+          </h2>
         </div>
         
         <div class="projects-filter-bar">
@@ -392,6 +479,10 @@
         <!-- Project 1 (FEATURED FIRST): Digital Timesheet System -->
         <article class="project-grid-card project-card-wrap featured-card" data-category="ai-product-builder" data-project-id="livingstone-timesheet" data-project-href="projects/livingstone-timesheet.html" role="link" tabindex="0">
           <div class="project-card-image-box">
+            <span class="corner-bracket top-left" aria-hidden="true"></span>
+            <span class="corner-bracket top-right" aria-hidden="true"></span>
+            <span class="corner-bracket bottom-left" aria-hidden="true"></span>
+            <span class="corner-bracket bottom-right" aria-hidden="true"></span>
             <img src="/assets/timesheet-BRy_5l_X.jpg" alt="Livingstone Digital Timesheet System UI" class="project-card-img" loading="lazy">
             <div class="card-badges-overlay">
               <span class="floating-badge badge-ai" data-i18n="projects.badge_ai">
@@ -411,7 +502,7 @@
                 June 2026
               </span>
               <a href="projects/livingstone-timesheet.html" class="btn-view-more" aria-label="View case study for Digital Timesheet System" data-i18n="projects.view_more">
-                View More <span class="arrow-glyph"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="vertical-align: -1px;"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg></span>
+                View More <span class="cover-chevrons-sm" aria-hidden="true">&gt;&gt;&gt;</span>
               </a>
             </div>
           </div>
@@ -420,7 +511,11 @@
         <!-- Project 2: Shalom Recovery AI -->
         <article class="project-grid-card project-card-wrap" data-category="ai-product-builder" data-project-id="shalom-recovery-ai" data-project-href="projects/shalom-recovery-ai.html" role="link" tabindex="0">
           <div class="project-card-image-box">
-            <img src="/assets/shalom-Bgf2QCYY.jpg" alt="Shalom AI — Post-Op Support Powered by AI" class="project-card-img" loading="lazy">
+            <span class="corner-bracket top-left" aria-hidden="true"></span>
+            <span class="corner-bracket top-right" aria-hidden="true"></span>
+            <span class="corner-bracket bottom-left" aria-hidden="true"></span>
+            <span class="corner-bracket bottom-right" aria-hidden="true"></span>
+            <img src="/assets/shalom-Bfa0Fw6G.png" alt="Shalom AI — Post-Op Support Powered by AI" class="project-card-img" loading="lazy">
             <div class="card-badges-overlay">
               <span class="floating-badge badge-ai" data-i18n="projects.badge_ai">
                 <span class="accent-dot-yellow"></span> AI PRODUCT BUILDER
@@ -438,7 +533,7 @@
                 June 2026
               </span>
               <a href="projects/shalom-recovery-ai.html" class="btn-view-more" aria-label="View case study for Shalom Recovery AI" data-i18n="projects.view_more">
-                View More <span class="arrow-glyph"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="vertical-align: -1px;"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg></span>
+                View More <span class="cover-chevrons-sm" aria-hidden="true">&gt;&gt;&gt;</span>
               </a>
             </div>
           </div>
@@ -447,7 +542,11 @@
         <!-- Project 3: STEM Camp Website -->
         <article class="project-grid-card project-card-wrap" data-category="ai-product-builder" data-project-id="stem-camp" data-project-href="projects/stem-camp.html" role="link" tabindex="0">
           <div class="project-card-image-box">
-            <img src="/assets/stem_camp-DaifXq_2.jpg" alt="STEM Camp Website" class="project-card-img" loading="lazy">
+            <span class="corner-bracket top-left" aria-hidden="true"></span>
+            <span class="corner-bracket top-right" aria-hidden="true"></span>
+            <span class="corner-bracket bottom-left" aria-hidden="true"></span>
+            <span class="corner-bracket bottom-right" aria-hidden="true"></span>
+            <img src="/assets/stem_camp-DFwf81oo.png" alt="STEM Camp Website" class="project-card-img" loading="lazy">
             <div class="card-badges-overlay">
               <span class="floating-badge badge-ai" data-i18n="projects.badge_ai">
                 <span class="accent-dot-yellow"></span> AI PRODUCT BUILDER
@@ -465,7 +564,7 @@
                 June 2026
               </span>
               <a href="projects/stem-camp.html" class="btn-view-more" aria-label="View case study for STEM Camp Website" data-i18n="projects.view_more">
-                View More <span class="arrow-glyph"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="vertical-align: -1px;"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg></span>
+                View More <span class="cover-chevrons-sm" aria-hidden="true">&gt;&gt;&gt;</span>
               </a>
             </div>
           </div>
@@ -474,7 +573,11 @@
         <!-- Project 4: Evida Campus Events -->
         <article class="project-grid-card project-card-wrap" data-category="ai-product-builder" data-project-id="evida" data-project-href="projects/evida.html" role="link" tabindex="0">
           <div class="project-card-image-box">
-            <img src="/assets/evida-Dwhn7M7C.png" alt="Evida Campus Events Platform" class="project-card-img" loading="lazy">
+            <span class="corner-bracket top-left" aria-hidden="true"></span>
+            <span class="corner-bracket top-right" aria-hidden="true"></span>
+            <span class="corner-bracket bottom-left" aria-hidden="true"></span>
+            <span class="corner-bracket bottom-right" aria-hidden="true"></span>
+            <img src="/assets/evida-Y2hYgm3T.png" alt="Evida Campus Events Platform" class="project-card-img" loading="lazy">
             <div class="card-badges-overlay">
               <span class="floating-badge badge-ai" data-i18n="projects.badge_ai">
                 <span class="accent-dot-yellow"></span> AI PRODUCT BUILDER
@@ -492,7 +595,7 @@
                 July 2026
               </span>
               <a href="projects/evida.html" class="btn-view-more" aria-label="View case study for Evida Campus Events" data-i18n="projects.view_more">
-                View More <span class="arrow-glyph"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="vertical-align: -1px;"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg></span>
+                View More <span class="cover-chevrons-sm" aria-hidden="true">&gt;&gt;&gt;</span>
               </a>
             </div>
           </div>
@@ -501,7 +604,11 @@
         <!-- Project 5: LC STEM Student Showcase Website -->
         <article class="project-grid-card project-card-wrap" data-category="ai-product-builder" data-project-id="lc-stem" data-project-href="projects/lc-stem.html" role="link" tabindex="0">
           <div class="project-card-image-box">
-            <img src="/assets/lc_stem-D5CyK2vy.jpg" alt="LC STEM Student Showcase Website" class="project-card-img" loading="lazy">
+            <span class="corner-bracket top-left" aria-hidden="true"></span>
+            <span class="corner-bracket top-right" aria-hidden="true"></span>
+            <span class="corner-bracket bottom-left" aria-hidden="true"></span>
+            <span class="corner-bracket bottom-right" aria-hidden="true"></span>
+            <img src="/assets/lc_stem-DrSjYQGS.png" alt="LC STEM Student Showcase Website" class="project-card-img" loading="lazy">
             <div class="card-badges-overlay">
               <span class="floating-badge badge-ai" data-i18n="projects.badge_ai">
                 <span class="accent-dot-yellow"></span> AI PRODUCT BUILDER
@@ -519,7 +626,7 @@
                 August 2026
               </span>
               <a href="projects/lc-stem.html" class="btn-view-more" aria-label="View case study for LC STEM Student Showcase Website" data-i18n="projects.view_more">
-                View More <span class="arrow-glyph"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="vertical-align: -1px;"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg></span>
+                View More <span class="cover-chevrons-sm" aria-hidden="true">&gt;&gt;&gt;</span>
               </a>
             </div>
           </div>
@@ -528,7 +635,11 @@
         <!-- Project 6: Wonder Draw -->
         <article class="project-grid-card project-card-wrap" data-category="ai-product-builder" data-project-id="wonder-draw" data-project-href="projects/wonder-draw.html" role="link" tabindex="0">
           <div class="project-card-image-box">
-            <img src="/assets/wonder_draw-CWkpeknd.jpg" alt="Wonder Draw Personal Learning App" class="project-card-img" loading="lazy">
+            <span class="corner-bracket top-left" aria-hidden="true"></span>
+            <span class="corner-bracket top-right" aria-hidden="true"></span>
+            <span class="corner-bracket bottom-left" aria-hidden="true"></span>
+            <span class="corner-bracket bottom-right" aria-hidden="true"></span>
+            <img src="/assets/wonder_draw-C_pVGtqU.png" alt="Wonder Draw Personal Learning App" class="project-card-img" loading="lazy">
             <div class="card-badges-overlay">
               <span class="floating-badge badge-ai" data-i18n="projects.badge_ai">
                 <span class="accent-dot-yellow"></span> AI PRODUCT BUILDER
@@ -546,7 +657,7 @@
                 October 2026
               </span>
               <a href="projects/wonder-draw.html" class="btn-view-more" aria-label="View case study for Wonder Draw" data-i18n="projects.view_more">
-                View More <span class="arrow-glyph"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="vertical-align: -1px;"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg></span>
+                View More <span class="cover-chevrons-sm" aria-hidden="true">&gt;&gt;&gt;</span>
               </a>
             </div>
           </div>
@@ -555,6 +666,10 @@
         <!-- Project 7: Mastercard Inclusive Growth Challenge -->
         <article class="project-grid-card project-card-wrap" data-category="data-analytics" data-project-id="mastercard-challenge" data-project-href="projects/mastercard-challenge.html" role="link" tabindex="0">
           <div class="project-card-image-box">
+            <span class="corner-bracket top-left" aria-hidden="true"></span>
+            <span class="corner-bracket top-right" aria-hidden="true"></span>
+            <span class="corner-bracket bottom-left" aria-hidden="true"></span>
+            <span class="corner-bracket bottom-right" aria-hidden="true"></span>
             <img src="/assets/mastercard-Bg-wl_-e.jpg" alt="Mastercard Inclusive Growth Challenge Robeson County Strategy" class="project-card-img" loading="lazy">
             <div class="card-badges-overlay badge-overlay-end">
               <span class="floating-badge badge-data" data-i18n="projects.badge_data">
@@ -573,7 +688,7 @@
                 Spring 2026
               </span>
               <a href="projects/mastercard-challenge.html" class="btn-view-more" aria-label="View case study for Mastercard Inclusive Growth Challenge" data-i18n="projects.view_more">
-                View More <span class="arrow-glyph"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="vertical-align: -1px;"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg></span>
+                View More <span class="cover-chevrons-sm" aria-hidden="true">&gt;&gt;&gt;</span>
               </a>
             </div>
           </div>
@@ -582,7 +697,11 @@
         <!-- Project 8: Chinook Data Analysis -->
         <article class="project-grid-card project-card-wrap" data-category="data-analytics" data-project-id="chinook-sql" data-project-href="projects/chinook-sql.html" role="link" tabindex="0">
           <div class="project-card-image-box">
-            <img src="/assets/chinook-CTraF0mT.jpg" alt="Chinook SQL Database Analysis" class="project-card-img" loading="lazy">
+            <span class="corner-bracket top-left" aria-hidden="true"></span>
+            <span class="corner-bracket top-right" aria-hidden="true"></span>
+            <span class="corner-bracket bottom-left" aria-hidden="true"></span>
+            <span class="corner-bracket bottom-right" aria-hidden="true"></span>
+            <img src="/assets/chinook-CQ4O8lff.png" alt="Chinook SQL Database Analysis" class="project-card-img" loading="lazy">
             <div class="card-badges-overlay">
               <span class="floating-badge badge-data" data-i18n="projects.badge_data">
                 <span class="accent-dot-blue"></span> DATA ANALYTICS
@@ -600,7 +719,7 @@
                 July 2026
               </span>
               <a href="projects/chinook-sql.html" class="btn-view-more" aria-label="View case study for Chinook Data Analysis" data-i18n="projects.view_more">
-                View More <span class="arrow-glyph"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="vertical-align: -1px;"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg></span>
+                View More <span class="cover-chevrons-sm" aria-hidden="true">&gt;&gt;&gt;</span>
               </a>
             </div>
           </div>
@@ -611,72 +730,154 @@
     </div>
   </section>
 
-  <!-- 6. PROCESS SECTION -->
+  <!-- 6. PROCESS / METHODOLOGY SECTION (HIGH-CRAFT PIPELINE) -->
   <section id="process" class="gitos-process-section">
-    <div class="container">
-      <div class="process-grid">
+    <div class="process-cover-backdrop" aria-hidden="true"></div>
+    <div class="process-cover-grid" aria-hidden="true"></div>
+
+    <div class="container" style="position: relative; z-index: 2;">
+      
+      <!-- Section Header -->
+      <div class="process-header-center">
+        <div class="section-tag-cover">
+          <span class="tag-star">✦</span> METHODOLOGY &amp; WORKFLOW <span class="tag-brackets">[03]</span>
+        </div>
+        <h2 class="process-main-heading">
+          How data &amp; ideas become <span class="hero-title-extruded">solutions</span>
+          <span class="title-sparkle-star" aria-hidden="true">✦</span>
+        </h2>
+        <p class="process-header-desc" data-i18n="process.subtitle">
+          A disciplined 4-stage engineering loop uniting technical inquiry, human empathy, and iterative prototyping.
+        </p>
+      </div>
+
+      <!-- 4-Stage Horizontal Pipeline Bento Grid -->
+      <div class="process-pipeline-grid">
         
-        <!-- Left Headline & CTA Button -->
-        <div class="process-left-content">
-          <span class="section-tag" data-i18n="process.tag">Process</span>
-          <h2 class="process-main-heading" style="margin-top:0.75rem;" data-i18n="process.heading">
-            Process that helps<br>you to break the<br>competition
-          </h2>
-          <button class="btn-black-pill" onclick="scrollToSection('contact')" data-i18n="process.cta">
-            Book A Free Call
-          </button>
+        <!-- Step 01: Discover -->
+        <div class="process-pipeline-card reveal-on-scroll">
+          <span class="corner-bracket top-left" aria-hidden="true"></span>
+          <span class="corner-bracket top-right" aria-hidden="true"></span>
+          <span class="corner-bracket bottom-left" aria-hidden="true"></span>
+          <span class="corner-bracket bottom-right" aria-hidden="true"></span>
+          <div class="pipeline-card-top">
+            <span class="pipeline-phase-badge">PHASE 01</span>
+            <span class="pipeline-step-num">01</span>
+          </div>
+          <div class="pipeline-icon-circle">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="11" cy="11" r="8"></circle>
+              <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+              <path d="M11 8v6"></path>
+              <path d="M8 11h6"></path>
+            </svg>
+          </div>
+          <h3 class="pipeline-title" data-i18n="process.step1_title">Discover the problem</h3>
+          <p class="pipeline-desc" data-i18n="process.step1_desc">
+            Notice a challenge or learn about it directly from the people experiencing operational friction.
+          </p>
+          <div class="pipeline-deliverable-tag">
+            <span class="deliv-dot"></span> User Needs · Problem Spec
+          </div>
         </div>
 
-        <!-- Right Container Card -->
-        <div class="process-right-container">
-          
-          <!-- Step 01 -->
-          <div class="process-step-item">
-            <div class="step-number-box">01</div>
-            <div class="step-info-box">
-              <h3 class="step-title" data-i18n="process.step1_title">Discover the problem</h3>
-              <p class="step-desc" data-i18n="process.step1_desc">
-                Notice a challenge or learn about it from the people experiencing it.
-              </p>
-            </div>
+        <!-- Step 02: Explore -->
+        <div class="process-pipeline-card reveal-on-scroll">
+          <span class="corner-bracket top-left" aria-hidden="true"></span>
+          <span class="corner-bracket top-right" aria-hidden="true"></span>
+          <span class="corner-bracket bottom-left" aria-hidden="true"></span>
+          <span class="corner-bracket bottom-right" aria-hidden="true"></span>
+          <div class="pipeline-card-top">
+            <span class="pipeline-phase-badge">PHASE 02</span>
+            <span class="pipeline-step-num">02</span>
           </div>
-
-          <!-- Step 02 -->
-          <div class="process-step-item">
-            <div class="step-number-box">02</div>
-            <div class="step-info-box">
-              <h3 class="step-title" data-i18n="process.step2_title">Explore the evidence</h3>
-              <p class="step-desc" data-i18n="process.step2_desc">
-                Ask questions, study the process, and analyze relevant data to find patterns.
-              </p>
-            </div>
+          <div class="pipeline-icon-circle">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+              <ellipse cx="12" cy="5" rx="9" ry="3"></ellipse>
+              <path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"></path>
+              <path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"></path>
+            </svg>
           </div>
-
-          <!-- Step 03 -->
-          <div class="process-step-item">
-            <div class="step-number-box">03</div>
-            <div class="step-info-box">
-              <h3 class="step-title" data-i18n="process.step3_title">Create a solution</h3>
-              <p class="step-desc" data-i18n="process.step3_desc">
-                Turn those findings into an analysis, recommendation, dashboard, or product.
-              </p>
-            </div>
+          <h3 class="pipeline-title" data-i18n="process.step2_title">Explore the evidence</h3>
+          <p class="pipeline-desc" data-i18n="process.step2_desc">
+            Ask targeted questions, audit workflows, and query relational datasets to uncover root patterns.
+          </p>
+          <div class="pipeline-deliverable-tag">
+            <span class="deliv-dot"></span> SQL Queries · Workflow Audits
           </div>
+        </div>
 
-          <!-- Step 04 -->
-          <div class="process-step-item">
-            <div class="step-number-box">04</div>
-            <div class="step-info-box">
-              <h3 class="step-title" data-i18n="process.step4_title">Test &amp; improve</h3>
-              <p class="step-desc" data-i18n="process.step4_desc">
-                Check whether it meets the need, gather feedback, and refine it.
-              </p>
-            </div>
+        <!-- Step 03: Create -->
+        <div class="process-pipeline-card reveal-on-scroll">
+          <span class="corner-bracket top-left" aria-hidden="true"></span>
+          <span class="corner-bracket top-right" aria-hidden="true"></span>
+          <span class="corner-bracket bottom-left" aria-hidden="true"></span>
+          <span class="corner-bracket bottom-right" aria-hidden="true"></span>
+          <div class="pipeline-card-top">
+            <span class="pipeline-phase-badge">PHASE 03</span>
+            <span class="pipeline-step-num">03</span>
           </div>
+          <div class="pipeline-icon-circle">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+              <polyline points="16 18 22 12 16 6"></polyline>
+              <polyline points="8 6 2 12 8 18"></polyline>
+              <line x1="14" y1="4" x2="10" y2="20"></line>
+            </svg>
+          </div>
+          <h3 class="pipeline-title" data-i18n="process.step3_title">Create a solution</h3>
+          <p class="pipeline-desc" data-i18n="process.step3_desc">
+            Turn evidence into working software — web applications, automated pipelines, or AI prototypes.
+          </p>
+          <div class="pipeline-deliverable-tag">
+            <span class="deliv-dot"></span> Functional MVP · Clean UI
+          </div>
+        </div>
 
+        <!-- Step 04: Test & Improve -->
+        <div class="process-pipeline-card reveal-on-scroll">
+          <span class="corner-bracket top-left" aria-hidden="true"></span>
+          <span class="corner-bracket top-right" aria-hidden="true"></span>
+          <span class="corner-bracket bottom-left" aria-hidden="true"></span>
+          <span class="corner-bracket bottom-right" aria-hidden="true"></span>
+          <div class="pipeline-card-top">
+            <span class="pipeline-phase-badge">PHASE 04</span>
+            <span class="pipeline-step-num">04</span>
+          </div>
+          <div class="pipeline-icon-circle">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
+              <polyline points="22 4 12 14.01 9 11.01"></polyline>
+            </svg>
+          </div>
+          <h3 class="pipeline-title" data-i18n="process.step4_title">Test &amp; improve</h3>
+          <p class="pipeline-desc" data-i18n="process.step4_desc">
+            Gather real feedback, test edge cases, and continuously refine ergonomics, speed, and usability.
+          </p>
+          <div class="pipeline-deliverable-tag">
+            <span class="deliv-dot"></span> User Validation · Iteration
+          </div>
         </div>
 
       </div>
+
+      <!-- Bottom Methodology Callout Card -->
+      <div class="process-footer-callout cover-card-frame reveal-on-scroll">
+        <span class="corner-bracket top-left" aria-hidden="true"></span>
+        <span class="corner-bracket top-right" aria-hidden="true"></span>
+        <span class="corner-bracket bottom-left" aria-hidden="true"></span>
+        <span class="corner-bracket bottom-right" aria-hidden="true"></span>
+        <div class="process-callout-inner">
+          <div class="callout-quote-box">
+            <span class="callout-sparkle">✦</span>
+            <p class="callout-text">“Curiosity frames the question. Data structures the proof. Code delivers the impact.”</p>
+            <span class="cover-chevrons" aria-hidden="true">&gt;&gt;&gt;</span>
+          </div>
+          <a href="#projects" class="btn-process-action hero-btn-3d-primary">
+            EXPLORE FEATURED WORK
+          </a>
+        </div>
+      </div>
+
     </div>
   </section>
 
@@ -686,158 +887,304 @@
       
       <!-- Section Header -->
       <div class="gitos-exp-header-wrap">
-        <span class="section-tag" data-i18n="exp.tag">Track Record</span>
-        <h2 class="section-heading" style="margin-top:0.5rem; margin-bottom:0.75rem;" data-i18n="exp.title">Experience & Education</h2>
+        <div class="section-tag-cover">
+          <span class="tag-star">✦</span> TRACK RECORD <span class="tag-brackets">[04]</span>
+        </div>
+        <h2 class="section-heading" style="margin-top:0.5rem; margin-bottom:0.75rem;">
+          Experience <span class="title-amp">&amp;</span> <span class="hero-title-extruded">Education</span>
+          <span class="title-sparkle-star" aria-hidden="true">✦</span>
+        </h2>
         <p class="section-desc" style="text-align:left; max-width:680px;" data-i18n="exp.subtitle">
           Combining 3.9 academic excellence in Computer Information Systems with leadership in tutoring, student mentorship, and NCAA Division II athletics.
         </p>
       </div>
 
-      <!-- Redesigned Experience Flow -->
-      <div class="exp-redesign-container">
+      <!-- Redesigned Experience Bento Architecture (Asymmetrical Stage) -->
+      <div class="exp-cover-bento-grid">
         
-        <!-- 1. EDUCATION (FIRST - FEATURED CARD) -->
-        <div class="exp-section-block">
-          <div class="exp-block-header">
-            <span class="exp-block-label" data-i18n="exp.block_edu">EDUCATION</span>
+        <!-- Left Column: Featured Academic Foundation Stage -->
+        <div class="exp-edu-stage-card cover-card-frame reveal-on-scroll">
+          <span class="corner-bracket top-left" aria-hidden="true"></span>
+          <span class="corner-bracket top-right" aria-hidden="true"></span>
+          <span class="corner-bracket bottom-left" aria-hidden="true"></span>
+          <span class="corner-bracket bottom-right" aria-hidden="true"></span>
+          <div class="card-corner-star-badge" aria-hidden="true">✦</div>
+
+          <div class="stage-tag-row">
+            <span class="exp-badge-stage">ACADEMIC FOUNDATION</span>
+            <span class="exp-stage-year">2023 — 2027</span>
           </div>
 
-          <div class="exp-card exp-education-card">
-            <div class="exp-card-top">
-              <div class="exp-card-main-info">
-                <div class="exp-institution-wrap">
-                  <span class="exp-institution-icon" aria-hidden="true">
-                    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                      <path d="M22 10v6M2 10l10-5 10 5-10 5z"/>
-                      <path d="M6 12v5c3 3 9 3 12 0v-5"/>
-                    </svg>
-                  </span>
-                  <div>
-                    <h3 class="exp-school-title">Livingstone College</h3>
-                    <div class="exp-school-loc" data-i18n="exp.school_loc">Salisbury, North Carolina</div>
-                  </div>
-                </div>
-                <div class="exp-degree-row">
-                  <span class="exp-degree-text" data-i18n="exp.degree">B.S. in Computer Information Systems</span>
-                  <span class="exp-minor-divider">•</span>
-                  <span class="exp-minor-text" data-i18n="exp.minor">Minor in Data Analytics</span>
-                </div>
-              </div>
-
-              <div class="exp-badges-cluster">
-                <span class="exp-pill-badge exp-pill-blue" data-i18n="exp.pill_junior">Junior</span>
-                <span class="exp-pill-badge exp-pill-dark">3.9 GPA</span>
-                <span class="exp-pill-badge exp-pill-yellow" data-i18n="exp.pill_honors">Highest Honors</span>
-              </div>
+          <!-- Giant GPA Metric Callout Box with 3D Shadow -->
+          <div class="exp-gpa-stat-box">
+            <div class="exp-gpa-number">3.9</div>
+            <div class="exp-gpa-label-group">
+              <span class="gpa-pill">CUMULATIVE GPA</span>
+              <span class="gpa-sub">Highest Honors &bull; Presidential Scholar</span>
             </div>
+          </div>
 
-            <p class="exp-card-body-text" data-i18n="exp.edu_desc">
-              Maintaining high academic distinction while mastering relational database systems, exploratory data analytics, machine learning fundamentals, and rapid AI product prototyping. Active member of the Honors Program.
-            </p>
+          <div class="exp-school-header">
+            <div class="exp-institution-icon">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M22 10v6M2 10l10-5 10 5-10 5z"/>
+                <path d="M6 12v5c3 3 9 3 12 0v-5"/>
+              </svg>
+            </div>
+            <div>
+              <h3 class="exp-school-title">Livingstone College</h3>
+              <div class="exp-school-loc" data-i18n="exp.school_loc">Salisbury, North Carolina</div>
+            </div>
+          </div>
+
+          <div class="exp-degree-box">
+            <div class="exp-degree-main" data-i18n="exp.degree">B.S. in Computer Information Systems</div>
+            <div class="exp-degree-sub"><span class="accent-dash">—</span> <span data-i18n="exp.minor">Minor in Data Analytics</span></div>
+          </div>
+
+          <p class="exp-card-body-text" data-i18n="exp.edu_desc">
+            Maintaining high academic distinction while mastering relational database systems, exploratory data analytics, machine learning fundamentals, and rapid AI product prototyping. Active member of the Honors Program.
+          </p>
+
+          <div class="exp-competencies-wrap">
+            <span class="comp-label">CORE COMPETENCIES</span>
+            <div class="comp-tags-row">
+              <span class="comp-tag">Relational SQL</span>
+              <span class="comp-tag">Data Structures</span>
+              <span class="comp-tag">Analytics Pipelines</span>
+              <span class="comp-tag">AI Prototyping</span>
+              <span class="comp-tag">NCAA D-II Athlete</span>
+            </div>
           </div>
         </div>
 
-        <!-- 2. WORK EXPERIENCE (TWO CARDS BELOW EDUCATION) -->
-        <div class="exp-section-block">
-          <div class="exp-block-header">
-            <span class="exp-block-label" data-i18n="exp.block_work">WORK EXPERIENCE</span>
-          </div>
-
-          <div class="exp-work-grid">
+        <!-- Right Column: Applied Mentorship & Leadership Pipeline -->
+        <div class="exp-work-pipeline-col">
+          
+          <!-- Role 01: Academic Tutor -->
+          <div class="exp-work-stage-card cover-card-frame reveal-on-scroll">
+            <span class="corner-bracket top-left" aria-hidden="true"></span>
+            <span class="corner-bracket top-right" aria-hidden="true"></span>
+            <span class="corner-bracket bottom-left" aria-hidden="true"></span>
+            <span class="corner-bracket bottom-right" aria-hidden="true"></span>
             
-            <!-- Work Card 1: Academic Tutor -->
-            <div class="exp-card exp-work-card">
-              <div class="exp-card-top">
-                <div class="exp-card-main-info">
+            <div class="work-card-top-bar">
+              <div class="work-role-group">
+                <span class="work-role-step">01</span>
+                <div>
                   <h3 class="exp-role-title" data-i18n="exp.role1_title">Academic Tutor</h3>
                   <div class="exp-org-name" data-i18n="exp.role1_org">Livingstone College Tutoring Center</div>
                 </div>
-                <span class="exp-pill-badge exp-pill-neutral" data-i18n="exp.role1_pill">Academic Year</span>
               </div>
-              <div class="exp-sub-detail" data-i18n="exp.role1_sub">Computer Information Systems & Mathematics • Salisbury, NC</div>
-              <ul class="exp-bullet-list">
-                <li data-i18n="exp.role1_b1">Conduct 1-on-1 and interactive group tutoring sessions in Computer Information Systems, relational databases, data structures, and college mathematics.</li>
-                <li data-i18n="exp.role1_b2">Deconstruct complex technical and algorithmic concepts into intuitive, step-by-step frameworks that strengthen academic confidence and problem-solving skills.</li>
-              </ul>
+              <span class="work-period-pill" data-i18n="exp.role1_pill">Academic Year</span>
             </div>
 
-            <!-- Work Card 2: Student Assistant Mentor -->
-            <div class="exp-card exp-work-card">
-              <div class="exp-card-top">
-                <div class="exp-card-main-info">
+            <div class="exp-sub-detail" data-i18n="exp.role1_sub">
+              Computer Information Systems &amp; Mathematics • Salisbury, NC
+            </div>
+
+            <ul class="exp-custom-bullet-list">
+              <li>
+                <span class="bullet-star">✦</span>
+                <span data-i18n="exp.role1_b1">Conduct 1-on-1 and interactive group tutoring sessions in Computer Information Systems, relational databases, data structures, and college mathematics.</span>
+              </li>
+              <li>
+                <span class="bullet-star">✦</span>
+                <span data-i18n="exp.role1_b2">Deconstruct complex technical and algorithmic concepts into intuitive, step-by-step frameworks that strengthen academic confidence and problem-solving skills.</span>
+              </li>
+            </ul>
+
+            <div class="work-card-footer-tags">
+              <span class="deliv-dot"></span> <span>CIS &bull; Relational Databases &bull; College Math &bull; Peer Mentoring</span>
+            </div>
+          </div>
+
+          <!-- Role 02: Student Assistant Mentor -->
+          <div class="exp-work-stage-card cover-card-frame reveal-on-scroll">
+            <span class="corner-bracket top-left" aria-hidden="true"></span>
+            <span class="corner-bracket top-right" aria-hidden="true"></span>
+            <span class="corner-bracket bottom-left" aria-hidden="true"></span>
+            <span class="corner-bracket bottom-right" aria-hidden="true"></span>
+
+            <div class="work-card-top-bar">
+              <div class="work-role-group">
+                <span class="work-role-step">02</span>
+                <div>
                   <h3 class="exp-role-title" data-i18n="exp.role2_title">Student Assistant Mentor</h3>
                   <div class="exp-org-name" data-i18n="exp.role2_org">Summer STEM Bridge Program</div>
                 </div>
-                <span class="exp-pill-badge exp-pill-neutral" data-i18n="exp.role2_pill">Summer 2025</span>
               </div>
-              <div class="exp-sub-detail" data-i18n="exp.role2_sub">Livingstone College • Salisbury, NC</div>
-              <ul class="exp-bullet-list">
-                <li data-i18n="exp.role2_b1">Mentored incoming collegiate STEM students through university transition, academic orientation, and daily campus technical routines.</li>
-                <li data-i18n="exp.role2_b2">Facilitated interactive orientation workshops, guided team project collaboration, and assisted faculty with daily program logistics.</li>
-              </ul>
+              <span class="work-period-pill" data-i18n="exp.role2_pill">Summer 2025</span>
             </div>
 
+            <div class="exp-sub-detail" data-i18n="exp.role2_sub">
+              Livingstone College • Salisbury, NC
+            </div>
+
+            <ul class="exp-custom-bullet-list">
+              <li>
+                <span class="bullet-star">✦</span>
+                <span data-i18n="exp.role2_b1">Mentored incoming collegiate STEM students through university transition, academic orientation, and daily campus technical routines.</span>
+              </li>
+              <li>
+                <span class="bullet-star">✦</span>
+                <span data-i18n="exp.role2_b2">Facilitated interactive orientation workshops, guided team project collaboration, and assisted faculty with daily program logistics.</span>
+              </li>
+            </ul>
+
+            <div class="work-card-footer-tags">
+              <span class="deliv-dot"></span> <span>STEM Orientation &bull; Robotics Mentoring &bull; Team Facilitation</span>
+            </div>
           </div>
+
+        </div>
+
+      </div>
+
+        <!-- Architectural Stage Divider between Experience Bento and Visual Archive -->
+        <div class="exp-stage-divider" aria-hidden="true">
+          <span class="divider-line"></span>
+          <span class="divider-badge"><span class="tag-star">✦</span> ARCHIVE TRANSITION // [04.2] THE OTHER HALF <span class="tag-star">✦</span></span>
+          <span class="divider-line"></span>
         </div>
 
         <!-- 3. MOMENTS & MILESTONES (PHOTO GALLERY: "THE OTHER HALF") -->
-        <div class="exp-section-block">
-          <div class="exp-block-header">
-            <span class="exp-block-label" data-i18n="gallery.block_label">MOMENTS & MILESTONES</span>
+        <div class="gallery-exhibition-stage cover-card-frame reveal-on-scroll" id="gallery-archive">
+          <span class="corner-bracket top-left" aria-hidden="true"></span>
+          <span class="corner-bracket top-right" aria-hidden="true"></span>
+          <span class="corner-bracket bottom-left" aria-hidden="true"></span>
+          <span class="corner-bracket bottom-right" aria-hidden="true"></span>
+
+          <!-- Header & Status Pill -->
+          <div class="gallery-header-cover">
+            <div class="gallery-header-info">
+              <div class="section-tag-cover">
+                <span class="tag-star">✦</span> LIFE BEYOND THE SCREEN <span class="tag-brackets">[04.2]</span>
+              </div>
+              <h3 class="gallery-main-heading">
+                The other <span class="hero-title-extruded">half</span>
+                <span class="title-sparkle-star" aria-hidden="true">✦</span>
+              </h3>
+              <p class="gallery-subheading" data-i18n="gallery.subheading">
+                Student-athlete grit, STEM mentorship, and academic honors beyond the screen.
+              </p>
+            </div>
+
+            <div class="gallery-status-pill">
+              <span class="status-pulse-dot"></span>
+              <span class="status-pill-text">12 ARCHIVED MOMENTS</span>
+              <span class="status-pill-sub">CLICK TO EXPAND ↗</span>
+            </div>
           </div>
 
-          <div class="gallery-header-wrap">
-            <h3 class="gallery-heading" data-i18n="gallery.heading">The other half</h3>
-            <p class="gallery-subheading" data-i18n="gallery.subheading">Student-athlete grit, STEM mentorship, and academic honors beyond the screen.</p>
+          <!-- Interactive Category Filter Pills -->
+          <div class="gallery-filter-toolbar">
+            <div class="gallery-filter-pills" role="tablist" aria-label="Photo gallery filters">
+              <button class="gallery-filter-btn active" data-filter="all" role="tab" aria-selected="true">
+                <span class="filter-sparkle">✦</span> All <span class="filter-badge">12</span>
+              </button>
+              <button class="gallery-filter-btn" data-filter="academic" role="tab" aria-selected="false">
+                Academic Honors <span class="filter-badge">4</span>
+              </button>
+              <button class="gallery-filter-btn" data-filter="athletics" role="tab" aria-selected="false">
+                Athletics &amp; Grit <span class="filter-badge">3</span>
+              </button>
+              <button class="gallery-filter-btn" data-filter="stem" role="tab" aria-selected="false">
+                STEM Mentorship <span class="filter-badge">5</span>
+              </button>
+            </div>
           </div>
 
+          <!-- Gapless Masonry Bento Grid -->
           <div class="gallery-bento-grid" role="region" aria-label="Moments and Milestones Photo Gallery">
             
             <!-- Column 1 (Items 01, 05, 09) -->
             <div class="masonry-col" data-col="0">
               <!-- 01: 4.0 GPA Award (Academic Honors) -->
-              <div class="gallery-item" tabindex="0" role="button" aria-label="4.0 GPA Scholar-Athlete Award" aria-expanded="false" data-index="1">
-                <span class="gallery-counter-badge" aria-hidden="true">01</span>
-                <img src="/assets/4_0_gpa_award-CQYYVGtG.jpg" alt="Aïda Garba with 4.0 GPA Outstanding Student-Athlete Gala plaque" class="gallery-img" loading="lazy">
-                <div class="gallery-overlay">
-                  <div class="gallery-overlay-top">
-                    <span class="gallery-tag">Academic Honors</span>
-                    <span class="gallery-index-pill">01</span>
+              <div class="gallery-item" data-category="academic" tabindex="0" role="button" aria-label="4.0 GPA Scholar-Athlete Award" aria-expanded="false" data-index="1">
+                <div class="gallery-card-inner">
+                  <div class="gallery-photo-frame">
+                    <span class="corner-bracket top-left" aria-hidden="true"></span>
+                    <span class="corner-bracket top-right" aria-hidden="true"></span>
+                    <span class="corner-bracket bottom-left" aria-hidden="true"></span>
+                    <span class="corner-bracket bottom-right" aria-hidden="true"></span>
+                    <img src="/assets/4_0_gpa_award-CQYYVGtG.jpg" alt="Aïda Garba with 4.0 GPA Outstanding Student-Athlete Gala plaque" class="gallery-img" loading="lazy">
+                    <div class="gallery-photo-tags">
+                      <span class="gallery-tag">
+                        <span class="accent-dot-yellow"></span> Academic Honors
+                      </span>
+                      <span class="gallery-index-pill">01</span>
+                    </div>
+                    <div class="gallery-expand-hover-pill" aria-hidden="true">
+                      <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="15 3 21 3 21 9"></polyline><polyline points="9 21 3 21 3 15"></polyline><line x1="21" y1="3" x2="14" y2="10"></line><line x1="3" y1="21" x2="10" y2="14"></line></svg>
+                      <span>EXPAND</span>
+                    </div>
                   </div>
-                  <div class="gallery-overlay-bottom">
-                    <h4 class="gallery-item-title">4.0 GPA Scholar-Athlete Award</h4>
+                  <div class="gallery-card-meta">
+                    <div class="gallery-meta-top">
+                      <h4 class="gallery-item-title">4.0 GPA Scholar-Athlete Award</h4>
+                      <span class="gallery-meta-date">2025 Gala</span>
+                    </div>
                     <p class="gallery-item-caption">Honored at the 2025 TyNiece Sutton Gala for maintaining a cumulative 4.0 GPA as an NCAA student-athlete.</p>
                   </div>
                 </div>
               </div>
 
               <!-- 05: Presidential Scholar Merit Award (Academic Distinction) -->
-              <div class="gallery-item" tabindex="0" role="button" aria-label="Presidential Scholar Merit Award" aria-expanded="false" data-index="5">
-                <span class="gallery-counter-badge" aria-hidden="true">05</span>
-                <img src="/assets/presidential_scholar_merit-DvXCMLIV.jpg" alt="Presidential Scholar Merit Award trophy and Academic Excellence medal" class="gallery-img" loading="lazy">
-                <div class="gallery-overlay">
-                  <div class="gallery-overlay-top">
-                    <span class="gallery-tag">Academic Distinction</span>
-                    <span class="gallery-index-pill">05</span>
+              <div class="gallery-item" data-category="academic" tabindex="0" role="button" aria-label="Presidential Scholar Merit Award" aria-expanded="false" data-index="5">
+                <div class="gallery-card-inner">
+                  <div class="gallery-photo-frame">
+                    <span class="corner-bracket top-left" aria-hidden="true"></span>
+                    <span class="corner-bracket top-right" aria-hidden="true"></span>
+                    <span class="corner-bracket bottom-left" aria-hidden="true"></span>
+                    <span class="corner-bracket bottom-right" aria-hidden="true"></span>
+                    <img src="/assets/presidential_scholar_merit-DvXCMLIV.jpg" alt="Presidential Scholar Merit Award trophy and Academic Excellence medal" class="gallery-img" loading="lazy">
+                    <div class="gallery-photo-tags">
+                      <span class="gallery-tag">
+                        <span class="accent-dot-yellow"></span> Academic Distinction
+                      </span>
+                      <span class="gallery-index-pill">05</span>
+                    </div>
+                    <div class="gallery-expand-hover-pill" aria-hidden="true">
+                      <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="15 3 21 3 21 9"></polyline><polyline points="9 21 3 21 3 15"></polyline><line x1="21" y1="3" x2="14" y2="10"></line><line x1="3" y1="21" x2="10" y2="14"></line></svg>
+                      <span>EXPAND</span>
+                    </div>
                   </div>
-                  <div class="gallery-overlay-bottom">
-                    <h4 class="gallery-item-title">Presidential Scholar Merit Award</h4>
+                  <div class="gallery-card-meta">
+                    <div class="gallery-meta-top">
+                      <h4 class="gallery-item-title">Presidential Scholar Merit Award</h4>
+                      <span class="gallery-meta-date">Honors 2026</span>
+                    </div>
                     <p class="gallery-item-caption">Awarded the 2026 Presidential Scholar Trophy and Academic Excellence distinction.</p>
                   </div>
                 </div>
               </div>
 
               <!-- 09: Chi Alpha Sigma Honor Society Induction (Honor Society) -->
-              <div class="gallery-item" tabindex="0" role="button" aria-label="Chi Alpha Sigma Induction" aria-expanded="false" data-index="9">
-                <span class="gallery-counter-badge" aria-hidden="true">09</span>
-                <img src="/assets/honor_society-BMbKVxxk.jpg" alt="Chi Alpha Sigma National College Athlete Honor Society certificate" class="gallery-img" loading="lazy">
-                <div class="gallery-overlay">
-                  <div class="gallery-overlay-top">
-                    <span class="gallery-tag">Honor Society</span>
-                    <span class="gallery-index-pill">09</span>
+              <div class="gallery-item" data-category="academic" tabindex="0" role="button" aria-label="Chi Alpha Sigma Induction" aria-expanded="false" data-index="9">
+                <div class="gallery-card-inner">
+                  <div class="gallery-photo-frame">
+                    <span class="corner-bracket top-left" aria-hidden="true"></span>
+                    <span class="corner-bracket top-right" aria-hidden="true"></span>
+                    <span class="corner-bracket bottom-left" aria-hidden="true"></span>
+                    <span class="corner-bracket bottom-right" aria-hidden="true"></span>
+                    <img src="/assets/honor_society-BMbKVxxk.jpg" alt="Chi Alpha Sigma National College Athlete Honor Society certificate" class="gallery-img" loading="lazy">
+                    <div class="gallery-photo-tags">
+                      <span class="gallery-tag">
+                        <span class="accent-dot-yellow"></span> Honor Society
+                      </span>
+                      <span class="gallery-index-pill">09</span>
+                    </div>
+                    <div class="gallery-expand-hover-pill" aria-hidden="true">
+                      <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="15 3 21 3 21 9"></polyline><polyline points="9 21 3 21 3 15"></polyline><line x1="21" y1="3" x2="14" y2="10"></line><line x1="3" y1="21" x2="10" y2="14"></line></svg>
+                      <span>EXPAND</span>
+                    </div>
                   </div>
-                  <div class="gallery-overlay-bottom">
-                    <h4 class="gallery-item-title">Chi Alpha Sigma Induction</h4>
+                  <div class="gallery-card-meta">
+                    <div class="gallery-meta-top">
+                      <h4 class="gallery-item-title">Chi Alpha Sigma Induction</h4>
+                      <span class="gallery-meta-date">National Society</span>
+                    </div>
                     <p class="gallery-item-caption">Inducted into the National College Athlete Honor Society for high academic and athletic achievements.</p>
                   </div>
                 </div>
@@ -847,48 +1194,90 @@
             <!-- Column 2 (Items 02, 06, 10) -->
             <div class="masonry-col" data-col="1">
               <!-- 02: NCAA Tennis Team & Flag (Athletics & Leadership) -->
-              <div class="gallery-item" tabindex="0" role="button" aria-label="NCAA D-II Varsity Tennis" aria-expanded="false" data-index="2">
-                <span class="gallery-counter-badge" aria-hidden="true">02</span>
-                <img src="/assets/ncaa_tennis_team-7tULVhfI.jpg" alt="Aïda Garba representing Benin with national flag as Livingstone College student-athlete" class="gallery-img" loading="lazy">
-                <div class="gallery-overlay">
-                  <div class="gallery-overlay-top">
-                    <span class="gallery-tag">Athletics & Leadership</span>
-                    <span class="gallery-index-pill">02</span>
+              <div class="gallery-item" data-category="athletics" tabindex="0" role="button" aria-label="NCAA D-II Varsity Tennis" aria-expanded="false" data-index="2">
+                <div class="gallery-card-inner">
+                  <div class="gallery-photo-frame">
+                    <span class="corner-bracket top-left" aria-hidden="true"></span>
+                    <span class="corner-bracket top-right" aria-hidden="true"></span>
+                    <span class="corner-bracket bottom-left" aria-hidden="true"></span>
+                    <span class="corner-bracket bottom-right" aria-hidden="true"></span>
+                    <img src="/assets/ncaa_tennis_team-7tULVhfI.jpg" alt="Aïda Garba representing Benin with national flag as Livingstone College student-athlete" class="gallery-img" loading="lazy">
+                    <div class="gallery-photo-tags">
+                      <span class="gallery-tag">
+                        <span class="accent-dot-blue"></span> Athletics &amp; Grit
+                      </span>
+                      <span class="gallery-index-pill">02</span>
+                    </div>
+                    <div class="gallery-expand-hover-pill" aria-hidden="true">
+                      <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="15 3 21 3 21 9"></polyline><polyline points="9 21 3 21 3 15"></polyline><line x1="21" y1="3" x2="14" y2="10"></line><line x1="3" y1="21" x2="10" y2="14"></line></svg>
+                      <span>EXPAND</span>
+                    </div>
                   </div>
-                  <div class="gallery-overlay-bottom">
-                    <h4 class="gallery-item-title">NCAA D-II Varsity Tennis</h4>
+                  <div class="gallery-card-meta">
+                    <div class="gallery-meta-top">
+                      <h4 class="gallery-item-title">NCAA D-II Varsity Tennis</h4>
+                      <span class="gallery-meta-date">Team Captain</span>
+                    </div>
                     <p class="gallery-item-caption">Representing Livingstone College and Benin on the NCAA Division II women's tennis team.</p>
                   </div>
                 </div>
               </div>
 
               <!-- 06: Adobe Student Ambassador (Student Leadership) -->
-              <div class="gallery-item" tabindex="0" role="button" aria-label="Adobe Student Ambassador" aria-expanded="false" data-index="6">
-                <span class="gallery-counter-badge" aria-hidden="true">06</span>
-                <img src="/assets/student_ambassadors-DK3ina1u.jpg" alt="Livingstone College Adobe Student Ambassador graphic" class="gallery-img" loading="lazy">
-                <div class="gallery-overlay">
-                  <div class="gallery-overlay-top">
-                    <span class="gallery-tag">Student Leadership</span>
-                    <span class="gallery-index-pill">06</span>
+              <div class="gallery-item" data-category="stem" tabindex="0" role="button" aria-label="Adobe Student Ambassador" aria-expanded="false" data-index="6">
+                <div class="gallery-card-inner">
+                  <div class="gallery-photo-frame">
+                    <span class="corner-bracket top-left" aria-hidden="true"></span>
+                    <span class="corner-bracket top-right" aria-hidden="true"></span>
+                    <span class="corner-bracket bottom-left" aria-hidden="true"></span>
+                    <span class="corner-bracket bottom-right" aria-hidden="true"></span>
+                    <img src="/assets/student_ambassadors-DK3ina1u.jpg" alt="Livingstone College Adobe Student Ambassador graphic" class="gallery-img" loading="lazy">
+                    <div class="gallery-photo-tags">
+                      <span class="gallery-tag">
+                        <span class="accent-dot-blue"></span> Leadership &amp; Creative
+                      </span>
+                      <span class="gallery-index-pill">06</span>
+                    </div>
+                    <div class="gallery-expand-hover-pill" aria-hidden="true">
+                      <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="15 3 21 3 21 9"></polyline><polyline points="9 21 3 21 3 15"></polyline><line x1="21" y1="3" x2="14" y2="10"></line><line x1="3" y1="21" x2="10" y2="14"></line></svg>
+                      <span>EXPAND</span>
+                    </div>
                   </div>
-                  <div class="gallery-overlay-bottom">
-                    <h4 class="gallery-item-title">Adobe Student Ambassador</h4>
+                  <div class="gallery-card-meta">
+                    <div class="gallery-meta-top">
+                      <h4 class="gallery-item-title">Adobe Student Ambassador</h4>
+                      <span class="gallery-meta-date">Ambassador</span>
+                    </div>
                     <p class="gallery-item-caption">Selected as official Adobe Student Ambassador representing Livingstone College.</p>
                   </div>
                 </div>
               </div>
 
               <!-- 10: Match Day & Court Recovery (Student-Athlete Life) -->
-              <div class="gallery-item" tabindex="0" role="button" aria-label="Match Day and Court Recovery" aria-expanded="false" data-index="10">
-                <span class="gallery-counter-badge" aria-hidden="true">10</span>
-                <img src="/assets/after_match-Bk7yvBd3.jpg" alt="Aïda Garba relaxing on tennis court after a hard-fought match" class="gallery-img" loading="lazy">
-                <div class="gallery-overlay">
-                  <div class="gallery-overlay-top">
-                    <span class="gallery-tag">Student-Athlete Life</span>
-                    <span class="gallery-index-pill">10</span>
+              <div class="gallery-item" data-category="athletics" tabindex="0" role="button" aria-label="Match Day and Court Recovery" aria-expanded="false" data-index="10">
+                <div class="gallery-card-inner">
+                  <div class="gallery-photo-frame">
+                    <span class="corner-bracket top-left" aria-hidden="true"></span>
+                    <span class="corner-bracket top-right" aria-hidden="true"></span>
+                    <span class="corner-bracket bottom-left" aria-hidden="true"></span>
+                    <span class="corner-bracket bottom-right" aria-hidden="true"></span>
+                    <img src="/assets/after_match-Bk7yvBd3.jpg" alt="Aïda Garba relaxing on tennis court after a hard-fought match" class="gallery-img" loading="lazy">
+                    <div class="gallery-photo-tags">
+                      <span class="gallery-tag">
+                        <span class="accent-dot-blue"></span> Student-Athlete Life
+                      </span>
+                      <span class="gallery-index-pill">10</span>
+                    </div>
+                    <div class="gallery-expand-hover-pill" aria-hidden="true">
+                      <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="15 3 21 3 21 9"></polyline><polyline points="9 21 3 21 3 15"></polyline><line x1="21" y1="3" x2="14" y2="10"></line><line x1="3" y1="21" x2="10" y2="14"></line></svg>
+                      <span>EXPAND</span>
+                    </div>
                   </div>
-                  <div class="gallery-overlay-bottom">
-                    <h4 class="gallery-item-title">Match Day & Court Recovery</h4>
+                  <div class="gallery-card-meta">
+                    <div class="gallery-meta-top">
+                      <h4 class="gallery-item-title">Match Day &amp; Court Recovery</h4>
+                      <span class="gallery-meta-date">Match Day</span>
+                    </div>
                     <p class="gallery-item-caption">Post-match recovery on the tennis courts after a competitive collegiate match.</p>
                   </div>
                 </div>
@@ -898,48 +1287,90 @@
             <!-- Column 3 (Items 03, 07, 11) -->
             <div class="masonry-col" data-col="2">
               <!-- 03: Summer STEM Bridge Program Cohort (STEM Mentorship) -->
-              <div class="gallery-item" tabindex="0" role="button" aria-label="Summer STEM Bridge Program Mentor" aria-expanded="false" data-index="3">
-                <span class="gallery-counter-badge" aria-hidden="true">03</span>
-                <img src="/assets/student_assistant_mentor-CI_mPqIE.jpg" alt="Summer STEM Bridge Program cohort in white lab coats with Aïda Garba mentoring" class="gallery-img" loading="lazy">
-                <div class="gallery-overlay">
-                  <div class="gallery-overlay-top">
-                    <span class="gallery-tag">STEM Mentorship</span>
-                    <span class="gallery-index-pill">03</span>
+              <div class="gallery-item" data-category="stem" tabindex="0" role="button" aria-label="Summer STEM Bridge Program Mentor" aria-expanded="false" data-index="3">
+                <div class="gallery-card-inner">
+                  <div class="gallery-photo-frame">
+                    <span class="corner-bracket top-left" aria-hidden="true"></span>
+                    <span class="corner-bracket top-right" aria-hidden="true"></span>
+                    <span class="corner-bracket bottom-left" aria-hidden="true"></span>
+                    <span class="corner-bracket bottom-right" aria-hidden="true"></span>
+                    <img src="/assets/student_assistant_mentor-CI_mPqIE.jpg" alt="Summer STEM Bridge Program cohort in white lab coats with Aïda Garba mentoring" class="gallery-img" loading="lazy">
+                    <div class="gallery-photo-tags">
+                      <span class="gallery-tag">
+                        <span class="accent-dot-yellow"></span> STEM Mentorship
+                      </span>
+                      <span class="gallery-index-pill">03</span>
+                    </div>
+                    <div class="gallery-expand-hover-pill" aria-hidden="true">
+                      <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="15 3 21 3 21 9"></polyline><polyline points="9 21 3 21 3 15"></polyline><line x1="21" y1="3" x2="14" y2="10"></line><line x1="3" y1="21" x2="10" y2="14"></line></svg>
+                      <span>EXPAND</span>
+                    </div>
                   </div>
-                  <div class="gallery-overlay-bottom">
-                    <h4 class="gallery-item-title">Summer STEM Bridge Program</h4>
+                  <div class="gallery-card-meta">
+                    <div class="gallery-meta-top">
+                      <h4 class="gallery-item-title">Summer STEM Bridge Program</h4>
+                      <span class="gallery-meta-date">Summer 2025</span>
+                    </div>
                     <p class="gallery-item-caption">Mentoring incoming freshmen through academic orientation and STEM coursework at Livingstone College.</p>
                   </div>
                 </div>
               </div>
 
               <!-- 07: Teaching Robotics (STEM Education) -->
-              <div class="gallery-item" tabindex="0" role="button" aria-label="TI-Innovator Robotics Mentor" aria-expanded="false" data-index="7">
-                <span class="gallery-counter-badge" aria-hidden="true">07</span>
-                <img src="/assets/teaching_robotics-hX0kK2gE.jpg" alt="Mentoring students programming TI-Innovator Rover in the LC STEM program" class="gallery-img" loading="lazy">
-                <div class="gallery-overlay">
-                  <div class="gallery-overlay-top">
-                    <span class="gallery-tag">STEM Education</span>
-                    <span class="gallery-index-pill">07</span>
+              <div class="gallery-item" data-category="stem" tabindex="0" role="button" aria-label="TI-Innovator Robotics Mentor" aria-expanded="false" data-index="7">
+                <div class="gallery-card-inner">
+                  <div class="gallery-photo-frame">
+                    <span class="corner-bracket top-left" aria-hidden="true"></span>
+                    <span class="corner-bracket top-right" aria-hidden="true"></span>
+                    <span class="corner-bracket bottom-left" aria-hidden="true"></span>
+                    <span class="corner-bracket bottom-right" aria-hidden="true"></span>
+                    <img src="/assets/teaching_robotics-hX0kK2gE.jpg" alt="Mentoring students programming TI-Innovator Rover in the LC STEM program" class="gallery-img" loading="lazy">
+                    <div class="gallery-photo-tags">
+                      <span class="gallery-tag">
+                        <span class="accent-dot-yellow"></span> STEM Education
+                      </span>
+                      <span class="gallery-index-pill">07</span>
+                    </div>
+                    <div class="gallery-expand-hover-pill" aria-hidden="true">
+                      <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="15 3 21 3 21 9"></polyline><polyline points="9 21 3 21 3 15"></polyline><line x1="21" y1="3" x2="14" y2="10"></line><line x1="3" y1="21" x2="10" y2="14"></line></svg>
+                      <span>EXPAND</span>
+                    </div>
                   </div>
-                  <div class="gallery-overlay-bottom">
-                    <h4 class="gallery-item-title">TI-Innovator Robotics Mentor</h4>
+                  <div class="gallery-card-meta">
+                    <div class="gallery-meta-top">
+                      <h4 class="gallery-item-title">TI-Innovator Robotics Mentor</h4>
+                      <span class="gallery-meta-date">Hands-on Lab</span>
+                    </div>
                     <p class="gallery-item-caption">Guiding students through hands-on robotics and rover programming in the LC STEM program.</p>
                   </div>
                 </div>
               </div>
 
               <!-- 11: STEM White Coat Distinction (STEM Distinction) -->
-              <div class="gallery-item" tabindex="0" role="button" aria-label="STEM White Coat Ceremony" aria-expanded="false" data-index="11">
-                <span class="gallery-counter-badge" aria-hidden="true">11</span>
-                <img src="/assets/white_coat-C1fmMtU2.jpg" alt="Aïda Garba with cohort at Livingstone College STEM White Coat ceremony" class="gallery-img" loading="lazy">
-                <div class="gallery-overlay">
-                  <div class="gallery-overlay-top">
-                    <span class="gallery-tag">STEM Distinction</span>
-                    <span class="gallery-index-pill">11</span>
+              <div class="gallery-item" data-category="stem" tabindex="0" role="button" aria-label="STEM White Coat Ceremony" aria-expanded="false" data-index="11">
+                <div class="gallery-card-inner">
+                  <div class="gallery-photo-frame">
+                    <span class="corner-bracket top-left" aria-hidden="true"></span>
+                    <span class="corner-bracket top-right" aria-hidden="true"></span>
+                    <span class="corner-bracket bottom-left" aria-hidden="true"></span>
+                    <span class="corner-bracket bottom-right" aria-hidden="true"></span>
+                    <img src="/assets/white_coat-C1fmMtU2.jpg" alt="Aïda Garba with cohort at Livingstone College STEM White Coat ceremony" class="gallery-img" loading="lazy">
+                    <div class="gallery-photo-tags">
+                      <span class="gallery-tag">
+                        <span class="accent-dot-yellow"></span> STEM Distinction
+                      </span>
+                      <span class="gallery-index-pill">11</span>
+                    </div>
+                    <div class="gallery-expand-hover-pill" aria-hidden="true">
+                      <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="15 3 21 3 21 9"></polyline><polyline points="9 21 3 21 3 15"></polyline><line x1="21" y1="3" x2="14" y2="10"></line><line x1="3" y1="21" x2="10" y2="14"></line></svg>
+                      <span>EXPAND</span>
+                    </div>
                   </div>
-                  <div class="gallery-overlay-bottom">
-                    <h4 class="gallery-item-title">STEM White Coat Ceremony</h4>
+                  <div class="gallery-card-meta">
+                    <div class="gallery-meta-top">
+                      <h4 class="gallery-item-title">STEM White Coat Ceremony</h4>
+                      <span class="gallery-meta-date">White Coat</span>
+                    </div>
                     <p class="gallery-item-caption">Awarded the White Coat in STEM recognizing academic excellence and scientific leadership.</p>
                   </div>
                 </div>
@@ -949,48 +1380,90 @@
             <!-- Column 4 (Items 04, 08, 12) -->
             <div class="masonry-col" data-col="3">
               <!-- 04: CIS & STEM Study Group (Peer Collaboration) -->
-              <div class="gallery-item" tabindex="0" role="button" aria-label="CIS & STEM Study Group" aria-expanded="false" data-index="4">
-                <span class="gallery-counter-badge" aria-hidden="true">04</span>
-                <img src="/assets/collaborative_study_group-BqA5b_La.jpg" alt="Aïda Garba collaborating with fellow Computer Information Systems students" class="gallery-img" loading="lazy">
-                <div class="gallery-overlay">
-                  <div class="gallery-overlay-top">
-                    <span class="gallery-tag">Peer Collaboration</span>
-                    <span class="gallery-index-pill">04</span>
+              <div class="gallery-item" data-category="stem" tabindex="0" role="button" aria-label="CIS & STEM Study Group" aria-expanded="false" data-index="4">
+                <div class="gallery-card-inner">
+                  <div class="gallery-photo-frame">
+                    <span class="corner-bracket top-left" aria-hidden="true"></span>
+                    <span class="corner-bracket top-right" aria-hidden="true"></span>
+                    <span class="corner-bracket bottom-left" aria-hidden="true"></span>
+                    <span class="corner-bracket bottom-right" aria-hidden="true"></span>
+                    <img src="/assets/collaborative_study_group-BqA5b_La.jpg" alt="Aïda Garba collaborating with fellow Computer Information Systems students" class="gallery-img" loading="lazy">
+                    <div class="gallery-photo-tags">
+                      <span class="gallery-tag">
+                        <span class="accent-dot-yellow"></span> Peer Mentoring
+                      </span>
+                      <span class="gallery-index-pill">04</span>
+                    </div>
+                    <div class="gallery-expand-hover-pill" aria-hidden="true">
+                      <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="15 3 21 3 21 9"></polyline><polyline points="9 21 3 21 3 15"></polyline><line x1="21" y1="3" x2="14" y2="10"></line><line x1="3" y1="21" x2="10" y2="14"></line></svg>
+                      <span>EXPAND</span>
+                    </div>
                   </div>
-                  <div class="gallery-overlay-bottom">
-                    <h4 class="gallery-item-title">CIS & STEM Study Group</h4>
+                  <div class="gallery-card-meta">
+                    <div class="gallery-meta-top">
+                      <h4 class="gallery-item-title">CIS &amp; STEM Study Group</h4>
+                      <span class="gallery-meta-date">CIS Mentoring</span>
+                    </div>
                     <p class="gallery-item-caption">Leading collaborative technical problem-solving and peer coding review sessions.</p>
                   </div>
                 </div>
               </div>
 
               <!-- 08: Tennis MVP & Academic Player (Athletic Excellence) -->
-              <div class="gallery-item" tabindex="0" role="button" aria-label="Team MVP and Academic Player" aria-expanded="false" data-index="8">
-                <span class="gallery-counter-badge" aria-hidden="true">08</span>
-                <img src="/assets/tennis_awards-CG3KBq8g.jpg" alt="Livingstone College Tennis Team MVP and Academic Award plaques" class="gallery-img" loading="lazy">
-                <div class="gallery-overlay">
-                  <div class="gallery-overlay-top">
-                    <span class="gallery-tag">Athletic Excellence</span>
-                    <span class="gallery-index-pill">08</span>
+              <div class="gallery-item" data-category="athletics" tabindex="0" role="button" aria-label="Team MVP and Academic Player" aria-expanded="false" data-index="8">
+                <div class="gallery-card-inner">
+                  <div class="gallery-photo-frame">
+                    <span class="corner-bracket top-left" aria-hidden="true"></span>
+                    <span class="corner-bracket top-right" aria-hidden="true"></span>
+                    <span class="corner-bracket bottom-left" aria-hidden="true"></span>
+                    <span class="corner-bracket bottom-right" aria-hidden="true"></span>
+                    <img src="/assets/tennis_awards-CG3KBq8g.jpg" alt="Livingstone College Tennis Team MVP and Academic Award plaques" class="gallery-img" loading="lazy">
+                    <div class="gallery-photo-tags">
+                      <span class="gallery-tag">
+                        <span class="accent-dot-blue"></span> Athletic Excellence
+                      </span>
+                      <span class="gallery-index-pill">08</span>
+                    </div>
+                    <div class="gallery-expand-hover-pill" aria-hidden="true">
+                      <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="15 3 21 3 21 9"></polyline><polyline points="9 21 3 21 3 15"></polyline><line x1="21" y1="3" x2="14" y2="10"></line><line x1="3" y1="21" x2="10" y2="14"></line></svg>
+                      <span>EXPAND</span>
+                    </div>
                   </div>
-                  <div class="gallery-overlay-bottom">
-                    <h4 class="gallery-item-title">Team MVP & Academic Player</h4>
+                  <div class="gallery-card-meta">
+                    <div class="gallery-meta-top">
+                      <h4 class="gallery-item-title">Team MVP &amp; Academic Player</h4>
+                      <span class="gallery-meta-date">MVP 2025</span>
+                    </div>
                     <p class="gallery-item-caption">Livingstone College Women's Tennis Team MVP and Academic Player of the Year.</p>
                   </div>
                 </div>
               </div>
 
               <!-- 12: ITA All-American / Scholar-Athlete (National Recognition) -->
-              <div class="gallery-item" tabindex="0" role="button" aria-label="ITA Scholar-Athlete Honor" aria-expanded="false" data-index="12">
-                <span class="gallery-counter-badge" aria-hidden="true">12</span>
-                <img src="/assets/ita_all_american-ywMAIWic.jpg" alt="Aïda Garba holding ITA national scholar-athlete award" class="gallery-img" loading="lazy">
-                <div class="gallery-overlay">
-                  <div class="gallery-overlay-top">
-                    <span class="gallery-tag">National Recognition</span>
-                    <span class="gallery-index-pill">12</span>
+              <div class="gallery-item" data-category="academic" tabindex="0" role="button" aria-label="ITA Scholar-Athlete Honor" aria-expanded="false" data-index="12">
+                <div class="gallery-card-inner">
+                  <div class="gallery-photo-frame">
+                    <span class="corner-bracket top-left" aria-hidden="true"></span>
+                    <span class="corner-bracket top-right" aria-hidden="true"></span>
+                    <span class="corner-bracket bottom-left" aria-hidden="true"></span>
+                    <span class="corner-bracket bottom-right" aria-hidden="true"></span>
+                    <img src="/assets/ita_all_american-ywMAIWic.jpg" alt="Aïda Garba holding ITA national scholar-athlete award" class="gallery-img" loading="lazy">
+                    <div class="gallery-photo-tags">
+                      <span class="gallery-tag">
+                        <span class="accent-dot-yellow"></span> National Recognition
+                      </span>
+                      <span class="gallery-index-pill">12</span>
+                    </div>
+                    <div class="gallery-expand-hover-pill" aria-hidden="true">
+                      <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="15 3 21 3 21 9"></polyline><polyline points="9 21 3 21 3 15"></polyline><line x1="21" y1="3" x2="14" y2="10"></line><line x1="3" y1="21" x2="10" y2="14"></line></svg>
+                      <span>EXPAND</span>
+                    </div>
                   </div>
-                  <div class="gallery-overlay-bottom">
-                    <h4 class="gallery-item-title">ITA Scholar-Athlete Honor</h4>
+                  <div class="gallery-card-meta">
+                    <div class="gallery-meta-top">
+                      <h4 class="gallery-item-title">ITA Scholar-Athlete Honor</h4>
+                      <span class="gallery-meta-date">ITA National</span>
+                    </div>
                     <p class="gallery-item-caption">Intercollegiate Tennis Association national scholastic honor for outstanding student-athletes.</p>
                   </div>
                 </div>
@@ -1005,95 +1478,124 @@
     </div>
   </section>
 
-  <!-- 8. CONTACT SECTION (REDESIGNED) -->
+  <!-- 8. CONTACT SECTION (COVER DESIGN REDESIGN) -->
   <section id="contact" class="section contact-redesign-section" style="border-bottom: none;">
-    <div class="container">
+    <div class="contact-cover-backdrop" aria-hidden="true"></div>
+    <div class="contact-cover-grid" aria-hidden="true"></div>
+
+    <div class="container" style="position: relative; z-index: 2;">
+      
+      <!-- Section Header -->
+      <div class="contact-header-center">
+        <div class="section-tag-cover">
+          <span class="tag-star">✦</span> INQUIRY &amp; TRANSMISSION <span class="tag-brackets">[05]</span>
+        </div>
+        <h2 class="contact-main-heading">
+          Let’s build something <span class="hero-title-extruded">impactful</span>
+          <span class="title-sparkle-star" aria-hidden="true">✦</span>
+        </h2>
+        <p class="contact-header-desc" data-i18n="contact.sub_heading">
+          Whether you're looking for a Summer 2027 Data &amp; AI intern, a campus collaborator, or just want to discuss ideas, my inbox is open.
+        </p>
+      </div>
+
       <div class="contact-redesign-grid">
 
-        <!-- Left Column: Contact Information -->
+        <!-- Left Column: Direct Communication Cards Bento -->
         <div class="contact-info-col reveal-on-scroll">
-          <div class="contact-headings-wrap">
-            <h2 class="contact-main-heading" data-i18n="contact.main_heading">You scrolled this far.</h2>
-            <h3 class="contact-sub-heading" data-i18n="contact.sub_heading">Might as well say hi.</h3>
-          </div>
+          
+          <!-- Email Card -->
+          <div class="contact-bento-card cover-card-frame">
+            <span class="corner-bracket top-left" aria-hidden="true"></span>
+            <span class="corner-bracket top-right" aria-hidden="true"></span>
+            <span class="corner-bracket bottom-left" aria-hidden="true"></span>
+            <span class="corner-bracket bottom-right" aria-hidden="true"></span>
 
-          <!-- Email Row -->
-          <div class="contact-row-item">
-            <div class="contact-row-icon-wrap" aria-hidden="true">
-              <svg width="26" height="26" viewBox="0 0 24 24" fill="#2563EB">
-                <title>Gmail</title>
-                <path d="M24 5.457v13.909c0 .904-.732 1.636-1.636 1.636h-3.819V11.73L12 16.64l-6.545-4.91v9.273H1.636A1.636 1.636 0 0 1 0 19.366V5.457c0-2.023 2.309-3.178 3.927-1.964L5.455 4.64 12 9.548l6.545-4.91 1.528-1.145C21.69 2.28 24 3.434 24 5.457z"/>
-              </svg>
+            <div class="contact-card-header">
+              <div class="contact-icon-box">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                  <rect x="2" y="4" width="20" height="16" rx="2"></rect>
+                  <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"></path>
+                </svg>
+              </div>
+              <span class="contact-badge-pill">PRIMARY INBOX</span>
             </div>
-            <div class="contact-row-text">
-              <span class="contact-row-title" data-i18n="contact.email_title">Email me</span>
-              <a href="mailto:garbaim27@gmail.com" class="contact-row-value">garbaim27@gmail.com</a>
-              <span class="contact-row-caption" data-i18n="contact.email_caption">A real inbox. Revolutionary.</span>
-            </div>
-            <div class="contact-row-actions">
-              <button type="button" class="contact-copy-btn" id="copy-email-btn" aria-label="Copy email address to clipboard" data-tooltip="Copy email">
-                <svg class="copy-icon-svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+
+            <span class="contact-card-title" data-i18n="contact.email_title">Direct Email</span>
+            <a href="mailto:garbaim27@gmail.com" class="contact-card-value">garbaim27@gmail.com</a>
+            <span class="contact-card-caption" data-i18n="contact.email_caption">A real inbox. Checked daily.</span>
+
+            <div class="contact-card-actions">
+              <button type="button" class="contact-copy-btn hero-btn-3d-secondary" id="copy-email-btn" aria-label="Copy email address to clipboard">
+                <svg class="copy-icon-svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                   <rect x="9" y="9" width="13" height="13" rx="2" ry="2"/>
                   <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/>
                 </svg>
+                <span>Copy Email</span>
                 <span class="copy-feedback-badge" id="copy-email-badge">Copied!</span>
               </button>
-              <a href="mailto:garbaim27@gmail.com" class="contact-arrow-link" aria-label="Send email to garbaim27@gmail.com" title="Send email">
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                  <line x1="7" y1="17" x2="17" y2="7"/>
-                  <polyline points="7 7 17 7 17 17"/>
-                </svg>
+              <a href="mailto:garbaim27@gmail.com" class="contact-send-link hero-btn-3d-primary" aria-label="Send email">
+                Write Email ↗
               </a>
             </div>
           </div>
 
-          <!-- LinkedIn Row -->
-          <div class="contact-row-item">
-            <div class="contact-row-icon-wrap" aria-hidden="true">
-              <svg width="26" height="26" viewBox="0 0 24 24" fill="#2563EB">
-                <path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.28 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.75M6.88 8.56a1.68 1.68 0 0 0 1.68-1.68c0-.93-.75-1.69-1.68-1.69a1.69 1.69 0 0 0-1.69 1.69c0 .93.76 1.68 1.69 1.68m1.39 9.94v-8.37H5.5v8.37h2.77z"/>
-              </svg>
-            </div>
-            <div class="contact-row-text">
-              <span class="contact-row-title" data-i18n="contact.linkedin_title">Let's connect on LinkedIn</span>
-              <span class="contact-row-caption" data-i18n="contact.linkedin_caption">Professional me lives here.</span>
-            </div>
-            <div class="contact-row-actions">
-              <a href="https://linkedin.com/in/aidagarba" target="_blank" rel="noopener noreferrer" class="contact-arrow-link" aria-label="Open LinkedIn profile" title="View LinkedIn profile">
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                  <line x1="7" y1="17" x2="17" y2="7"/>
-                  <polyline points="7 7 17 7 17 17"/>
+          <!-- LinkedIn & Availability Card -->
+          <div class="contact-bento-card cover-card-frame">
+            <span class="corner-bracket top-left" aria-hidden="true"></span>
+            <span class="corner-bracket top-right" aria-hidden="true"></span>
+            <span class="corner-bracket bottom-left" aria-hidden="true"></span>
+            <span class="corner-bracket bottom-right" aria-hidden="true"></span>
+
+            <div class="contact-card-header">
+              <div class="contact-icon-box">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor">
+                  <path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.28 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.75M6.88 8.56a1.68 1.68 0 0 0 1.68-1.68c0-.93-.75-1.69-1.68-1.69a1.69 1.69 0 0 0-1.69 1.69c0 .93.76 1.68 1.69 1.68m1.39 9.94v-8.37H5.5v8.37h2.77z"/>
                 </svg>
+              </div>
+              <span class="contact-badge-pill">PROFESSIONAL NETWORK</span>
+            </div>
+
+            <span class="contact-card-title" data-i18n="contact.linkedin_title">LinkedIn Profile</span>
+            <span class="contact-card-caption" data-i18n="contact.linkedin_caption">Connect, endorse, or view recommendations.</span>
+
+            <div class="contact-card-actions">
+              <a href="https://linkedin.com/in/aidagarba" target="_blank" rel="noopener noreferrer" class="contact-send-link hero-btn-3d-secondary">
+                Connect on LinkedIn ↗
               </a>
             </div>
           </div>
 
-          <!-- Location Row -->
-          <div class="contact-location-row">
-            <div class="contact-row-icon-wrap" aria-hidden="true">
-              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#2563EB" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <!-- Location & Resume Row -->
+          <div class="contact-meta-status-card">
+            <div class="status-location-row">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#0055FF" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
                 <path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/>
                 <circle cx="12" cy="10" r="3"/>
               </svg>
+              <span class="status-text" data-i18n="contact.location">Salisbury, NC · Open to Relocation &amp; Remote</span>
             </div>
-            <span class="contact-location-text" data-i18n="contact.location">Salisbury, NC · Usually near a laptop.</span>
-          </div>
-
-          <!-- View Resume Button -->
-          <div class="contact-resume-wrap">
-            <a href="Aida_Garba_Resume.pdf" target="_blank" rel="noopener noreferrer" class="btn-contact-resume" data-i18n="contact.resume_btn">
-              View Resume
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                <line x1="7" y1="17" x2="17" y2="7"/>
-                <polyline points="7 7 17 7 17 17"/>
-              </svg>
+            <a href="Aida_Garba_Resume.pdf" target="_blank" rel="noopener noreferrer" class="btn-resume-tactile" data-i18n="contact.resume_btn">
+              Download Official Resume (PDF) ↗
             </a>
           </div>
+
         </div>
 
-        <!-- Right Column: Form Panel -->
+        <!-- Right Column: Form Panel Framed in Cover Style -->
         <div class="contact-form-col reveal-on-scroll">
-          <div class="contact-form-panel">
+          <div class="contact-form-panel cover-card-frame">
+            <span class="corner-bracket top-left" aria-hidden="true"></span>
+            <span class="corner-bracket top-right" aria-hidden="true"></span>
+            <span class="corner-bracket bottom-left" aria-hidden="true"></span>
+            <span class="corner-bracket bottom-right" aria-hidden="true"></span>
+            <div class="card-corner-star-badge" aria-hidden="true">✦</div>
+
+            <div class="form-terminal-top">
+              <span class="terminal-status-dot"></span>
+              <span class="terminal-status-text">TRANSMISSION TERMINAL // DIRECT</span>
+            </div>
+
             <h3 class="contact-form-heading" data-i18n="contact.form_heading">Skip the networking small talk.</h3>
             <p class="contact-form-subtitle" data-i18n="contact.form_subtitle">Tell me what you have in mind.</p>
 
@@ -1105,27 +1607,27 @@
             <form id="contact-form" class="contact-redesign-form" novalidate>
               <div class="contact-field-group">
                 <label class="contact-field-label" for="contact-name" data-i18n="contact.name_label">Name</label>
-                <input type="text" id="contact-name" name="name" required placeholder="Your name. Not your LinkedIn headline." data-i18n-placeholder="contact.name_placeholder" class="contact-field-input" autocomplete="name">
+                <input type="text" id="contact-name" name="name" required placeholder="Your name or organization" data-i18n-placeholder="contact.name_placeholder" class="contact-field-input" autocomplete="name">
                 <span class="contact-field-error" id="error-name" aria-live="polite"></span>
               </div>
 
               <div class="contact-field-group">
                 <label class="contact-field-label" for="contact-email" data-i18n="contact.email_label">Email</label>
-                <input type="email" id="contact-email" name="email" required placeholder="Somewhere I can actually reply." data-i18n-placeholder="contact.email_placeholder" class="contact-field-input" autocomplete="email">
+                <input type="email" id="contact-email" name="email" required placeholder="name@company.com" data-i18n-placeholder="contact.email_placeholder" class="contact-field-input" autocomplete="email">
                 <span class="contact-field-error" id="error-email" aria-live="polite"></span>
               </div>
 
               <div class="contact-field-group">
                 <label class="contact-field-label" for="contact-message" data-i18n="contact.message_label">Message</label>
-                <textarea id="contact-message" name="message" rows="4" required placeholder="The idea, the opportunity, the wildly specific question..." data-i18n-placeholder="contact.message_placeholder" class="contact-field-textarea"></textarea>
+                <textarea id="contact-message" name="message" rows="4" required placeholder="The project, opportunity, or collaboration idea..." data-i18n-placeholder="contact.message_placeholder" class="contact-field-textarea"></textarea>
                 <span class="contact-field-error" id="error-message" aria-live="polite"></span>
               </div>
 
-              <button type="submit" class="contact-submit-btn" id="contact-submit-button" data-i18n="contact.submit_btn">
-                LET'S MAKE THIS AN EMAIL
+              <button type="submit" class="contact-submit-btn hero-btn-3d-primary" id="contact-submit-button" data-i18n="contact.submit_btn">
+                SEND MESSAGE ✦
               </button>
 
-              <p class="contact-form-footnote" data-i18n="contact.footnote">No carrier pigeons required.</p>
+              <p class="contact-form-footnote" data-i18n="contact.footnote">Delivered directly to Aïda Garba's inbox.</p>
             </form>
           </div>
         </div>
@@ -1220,6 +1722,64 @@
 
     </div>
   </footer>
+
+  <!-- Interactive Photo Gallery Lightbox Modal -->
+  <div id="gallery-lightbox-modal" class="gallery-lightbox-modal" role="dialog" aria-modal="true" aria-hidden="true" aria-label="Photo Lightbox">
+    <div class="lightbox-backdrop" id="lightbox-backdrop" tabindex="-1"></div>
+    <div class="lightbox-container">
+      <div class="lightbox-header">
+        <div class="lightbox-meta">
+          <span class="lightbox-index-badge" id="lightbox-counter">01 / 12</span>
+          <span class="lightbox-category-pill" id="lightbox-category">Academic Honors</span>
+        </div>
+        <button class="lightbox-close-btn" id="lightbox-close-btn" aria-label="Close Lightbox">
+          <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="18" y1="6" x2="6" y2="18"></line>
+            <line x1="6" y1="6" x2="18" y2="18"></line>
+          </svg>
+        </button>
+      </div>
+      <div class="lightbox-stage">
+        <button class="lightbox-nav-btn prev-btn" id="lightbox-prev-btn" aria-label="Previous photo">
+          <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+            <polyline points="15 18 9 12 15 6"></polyline>
+          </svg>
+        </button>
+        <div class="lightbox-image-wrapper">
+          <img src="" alt="" id="lightbox-img" class="lightbox-image">
+        </div>
+        <button class="lightbox-nav-btn next-btn" id="lightbox-next-btn" aria-label="Next photo">
+          <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+            <polyline points="9 18 15 12 9 6"></polyline>
+          </svg>
+        </button>
+      </div>
+      <div class="lightbox-footer">
+        <h4 class="lightbox-title" id="lightbox-title">Title</h4>
+        <p class="lightbox-caption" id="lightbox-caption">Caption</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Floating Blueprint Scroll HUD & Back to Top Widget -->
+  <aside id="scroll-hud-widget" class="scroll-hud-widget" aria-label="Scroll Progress and Navigation">
+    <button id="btn-scroll-top" class="btn-scroll-top" aria-label="Scroll to top of page" title="Back to top">
+      <svg class="hud-progress-ring" width="48" height="48" viewBox="0 0 48 48" aria-hidden="true">
+        <circle class="hud-ring-track" cx="24" cy="24" r="20" fill="none" stroke-width="2.5"/>
+        <circle id="hud-ring-fill" class="hud-ring-fill" cx="24" cy="24" r="20" fill="none" stroke="#0055FF" stroke-width="2.5" stroke-dasharray="125.66" stroke-dashoffset="125.66" stroke-linecap="round"/>
+      </svg>
+      <div class="hud-center-content">
+        <svg class="hud-arrow-icon" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <line x1="12" y1="19" x2="12" y2="5"></line>
+          <polyline points="5 12 12 5 19 12"></polyline>
+        </svg>
+      </div>
+      <div class="hud-hover-pill">
+        <span id="hud-section-label" class="hud-section-label">[00] TOP</span>
+        <span id="hud-percent-label" class="hud-percent-label">0%</span>
+      </div>
+    </button>
+  </aside>
 
   <!-- JavaScript Controller -->
 </body>

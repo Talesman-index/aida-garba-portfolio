@@ -19,6 +19,7 @@ document.addEventListener('DOMContentLoaded', () => {
   init3DHeroTilt();
   initPhotoGallery();
   initProcessScrollLightUp();
+  initScrollProgressAndHUD();
 });
 
 /* Helper: Smooth scroll to target ID with clearance for sticky header */
@@ -421,7 +422,13 @@ function initPhotoGallery() {
     return idxA - idxB;
   });
 
-  let currentCols = gridContainer.querySelectorAll('.masonry-col').length || getDesiredColumns();
+  let currentCols = 0;
+  let activeCategory = 'all';
+
+  function getVisibleItems() {
+    if (activeCategory === 'all') return items;
+    return items.filter((item) => item.getAttribute('data-category') === activeCategory);
+  }
 
   // Determine optimal column count based on viewport width
   function getDesiredColumns() {
@@ -434,8 +441,8 @@ function initPhotoGallery() {
 
   // Distribute items into columns round-robin to maintain reading order and eliminate gaps
   function layoutMasonry() {
-    const desiredCols = getDesiredColumns();
-    if (desiredCols === currentCols) return;
+    const visibleItems = getVisibleItems();
+    const desiredCols = Math.min(getDesiredColumns(), Math.max(1, visibleItems.length));
     currentCols = desiredCols;
 
     // Create column containers
@@ -447,8 +454,8 @@ function initPhotoGallery() {
       cols.push(colDiv);
     }
 
-    // Distribute items round-robin
-    items.forEach((item, idx) => {
+    // Distribute visible items round-robin
+    visibleItems.forEach((item, idx) => {
       const targetCol = idx % desiredCols;
       cols[targetCol].appendChild(item);
     });
@@ -470,81 +477,177 @@ function initPhotoGallery() {
     }, 150);
   });
 
-  // Helper to toggle active state
-  function toggleItemActive(item, forceState) {
-    const isCurrentlyActive = item.classList.contains('touch-active');
-    const newState = forceState !== undefined ? forceState : !isCurrentlyActive;
-
-    // Close all other items first
-    items.forEach((other) => {
-      if (other !== item && other.classList.contains('touch-active')) {
-        other.classList.remove('touch-active');
-        other.setAttribute('aria-expanded', 'false');
-      }
-    });
-
-    if (newState) {
-      item.classList.add('touch-active');
-      item.setAttribute('aria-expanded', 'true');
-    } else {
-      item.classList.remove('touch-active');
-      item.setAttribute('aria-expanded', 'false');
-    }
-  }
-
-  // Interactive controls: Tap/Click, Focus, Keyboard & Outside Click
-  items.forEach((item, index) => {
-    // Click / Tap handling
-    item.addEventListener('click', () => {
-      toggleItemActive(item);
-    });
-
-    // Keyboard support: Enter, Space, Escape, and Arrow Navigation
-    item.addEventListener('keydown', (e) => {
-      if (e.key === 'Enter' || e.key === ' ') {
-        e.preventDefault();
-        toggleItemActive(item);
-      } else if (e.key === 'Escape') {
-        e.preventDefault();
-        toggleItemActive(item, false);
-      } else if (e.key === 'ArrowRight') {
-        e.preventDefault();
-        const nextIdx = (index + 1) % items.length;
-        items[nextIdx].focus();
-      } else if (e.key === 'ArrowLeft') {
-        e.preventDefault();
-        const prevIdx = (index - 1 + items.length) % items.length;
-        items[prevIdx].focus();
-      } else if (e.key === 'ArrowDown') {
-        e.preventDefault();
-        const cols = currentCols || 4;
-        const downIdx = (index + cols) % items.length;
-        items[downIdx].focus();
-      } else if (e.key === 'ArrowUp') {
-        e.preventDefault();
-        const cols = currentCols || 4;
-        const upIdx = (index - cols + items.length) % items.length;
-        items[upIdx].focus();
-      }
+  // Filter toolbar button handling
+  const filterBtns = document.querySelectorAll('.gallery-filter-btn');
+  filterBtns.forEach((btn) => {
+    btn.addEventListener('click', () => {
+      filterBtns.forEach((b) => {
+        b.classList.remove('active');
+        b.setAttribute('aria-selected', 'false');
+      });
+      btn.classList.add('active');
+      btn.setAttribute('aria-selected', 'true');
+      activeCategory = btn.getAttribute('data-filter') || 'all';
+      layoutMasonry();
     });
   });
 
-  // Tap/Click outside closes any active photo card
-  document.addEventListener('click', (e) => {
-    if (!e.target.closest('.gallery-item')) {
-      items.forEach((item) => {
-        if (item.classList.contains('touch-active')) {
-          item.classList.remove('touch-active');
-          item.setAttribute('aria-expanded', 'false');
-        }
-      });
+  // Interactive Photo Gallery Lightbox Elements
+  const modal = document.getElementById('gallery-lightbox-modal');
+  const backdrop = document.getElementById('lightbox-backdrop');
+  const closeBtn = document.getElementById('lightbox-close-btn');
+  const prevBtn = document.getElementById('lightbox-prev-btn');
+  const nextBtn = document.getElementById('lightbox-next-btn');
+  const modalImg = document.getElementById('lightbox-img');
+  const modalCounter = document.getElementById('lightbox-counter');
+  const modalCategory = document.getElementById('lightbox-category');
+  const modalTitle = document.getElementById('lightbox-title');
+  const modalCaption = document.getElementById('lightbox-caption');
+
+  let currentActiveIndex = 0;
+  let lastFocusedElement = null;
+
+  function showPhotoAt(idx) {
+    const activeList = getVisibleItems();
+    if (!activeList.length) return;
+    if (idx < 0) idx = activeList.length - 1;
+    if (idx >= activeList.length) idx = 0;
+    currentActiveIndex = idx;
+
+    const item = activeList[idx];
+    if (!item) return;
+    const img = item.querySelector('.gallery-img');
+    const title = item.querySelector('.gallery-item-title');
+    const caption = item.querySelector('.gallery-item-caption');
+    const tag = item.querySelector('.gallery-tag');
+
+    if (!img) return;
+
+    if (modalImg) {
+      modalImg.classList.add('is-switching');
+      setTimeout(() => {
+        modalImg.src = img.getAttribute('src') || '';
+        modalImg.alt = img.getAttribute('alt') || '';
+        modalImg.classList.remove('is-switching');
+      }, 80);
     }
+
+    if (modalCounter) {
+      const currentNum = (idx + 1).toString().padStart(2, '0');
+      const totalNum = activeList.length.toString().padStart(2, '0');
+      modalCounter.textContent = `${currentNum} / ${totalNum}`;
+    }
+
+    if (modalCategory && tag) {
+      modalCategory.textContent = tag.textContent.trim();
+    }
+
+    if (modalTitle && title) {
+      modalTitle.textContent = title.textContent.trim();
+    }
+
+    if (modalCaption && caption) {
+      modalCaption.textContent = caption.textContent.trim();
+    }
+  }
+
+  function openLightbox(targetItem) {
+    if (!modal) return;
+    lastFocusedElement = document.activeElement;
+    const activeList = getVisibleItems();
+    const targetIdx = Math.max(0, activeList.indexOf(targetItem));
+    showPhotoAt(targetIdx);
+    modal.classList.add('is-open');
+    modal.setAttribute('aria-hidden', 'false');
+    document.body.style.overflow = 'hidden';
+    if (closeBtn) closeBtn.focus();
+  }
+
+  function closeLightbox() {
+    if (!modal || !modal.classList.contains('is-open')) return;
+    modal.classList.remove('is-open');
+    modal.setAttribute('aria-hidden', 'true');
+    document.body.style.overflow = '';
+    if (lastFocusedElement && typeof lastFocusedElement.focus === 'function') {
+      lastFocusedElement.focus();
+    }
+  }
+
+  // Lightbox event listeners
+  if (closeBtn) closeBtn.addEventListener('click', closeLightbox);
+  if (backdrop) backdrop.addEventListener('click', closeLightbox);
+  if (prevBtn) prevBtn.addEventListener('click', () => showPhotoAt(currentActiveIndex - 1));
+  if (nextBtn) nextBtn.addEventListener('click', () => showPhotoAt(currentActiveIndex + 1));
+
+  document.addEventListener('keydown', (e) => {
+    if (!modal || !modal.classList.contains('is-open')) return;
+    if (e.key === 'Escape') {
+      e.preventDefault();
+      closeLightbox();
+    } else if (e.key === 'ArrowLeft') {
+      e.preventDefault();
+      showPhotoAt(currentActiveIndex - 1);
+    } else if (e.key === 'ArrowRight') {
+      e.preventDefault();
+      showPhotoAt(currentActiveIndex + 1);
+    }
+  });
+
+  // Interactive controls: Tap/Click to open in Lightbox, Keyboard & Focus
+  items.forEach((item) => {
+    // Click opens full-size photo in Lightbox
+    item.addEventListener('click', (e) => {
+      e.preventDefault();
+      openLightbox(item);
+    });
+
+    // Keyboard support: Enter / Space opens Lightbox
+    item.addEventListener('keydown', (e) => {
+      if (e.key === 'Enter' || e.key === ' ') {
+        e.preventDefault();
+        openLightbox(item);
+      } else if (e.key === 'ArrowRight') {
+        e.preventDefault();
+        const activeList = getVisibleItems();
+        const curIdx = activeList.indexOf(item);
+        if (curIdx >= 0) {
+          const nextIdx = (curIdx + 1) % activeList.length;
+          activeList[nextIdx].focus();
+        }
+      } else if (e.key === 'ArrowLeft') {
+        e.preventDefault();
+        const activeList = getVisibleItems();
+        const curIdx = activeList.indexOf(item);
+        if (curIdx >= 0) {
+          const prevIdx = (curIdx - 1 + activeList.length) % activeList.length;
+          activeList[prevIdx].focus();
+        }
+      } else if (e.key === 'ArrowDown') {
+        e.preventDefault();
+        const activeList = getVisibleItems();
+        const curIdx = activeList.indexOf(item);
+        if (curIdx >= 0) {
+          const cols = currentCols || 4;
+          const downIdx = (curIdx + cols) % activeList.length;
+          activeList[downIdx].focus();
+        }
+      } else if (e.key === 'ArrowUp') {
+        e.preventDefault();
+        const activeList = getVisibleItems();
+        const curIdx = activeList.indexOf(item);
+        if (curIdx >= 0) {
+          const cols = currentCols || 4;
+          const upIdx = (curIdx - cols + activeList.length) % activeList.length;
+          activeList[upIdx].focus();
+        }
+      }
+    });
   });
 }
 
 /* 8b. Subtle Light-Up Animation for Process Steps on Scroll */
 function initProcessScrollLightUp() {
-  const steps = document.querySelectorAll('.process-step-item');
+  const steps = document.querySelectorAll('.process-pipeline-card, .process-step-item');
   const processSection = document.getElementById('process');
   if (!steps.length || !processSection) return;
 
@@ -592,6 +695,102 @@ function initProcessScrollLightUp() {
 
   window.addEventListener('resize', updateProcessSteps);
   updateProcessSteps();
+}
+
+/* 8c. Dynamic Blueprint Scroll Progress Meter & Floating Quick HUD */
+function initScrollProgressAndHUD() {
+  const progressBar = document.getElementById('scroll-progress-bar');
+  const hudWidget = document.getElementById('scroll-hud-widget');
+  const hudRingFill = document.getElementById('hud-ring-fill');
+  const hudSectionLabel = document.getElementById('hud-section-label');
+  const hudPercentLabel = document.getElementById('hud-percent-label');
+  const btnScrollTop = document.getElementById('btn-scroll-top');
+
+  const circumference = 2 * Math.PI * 20; // ~125.66px
+  const sections = [
+    { id: 'home', label: '[00] TOP' },
+    { id: 'skills', label: '[01] SKILLS' },
+    { id: 'projects', label: '[02] PROJECTS' },
+    { id: 'process', label: '[03] PROCESS' },
+    { id: 'experience', label: '[04] RECORD' },
+    { id: 'gallery-archive', label: '[04.2] ARCHIVE' },
+    { id: 'contact', label: '[05] CONTACT' }
+  ];
+
+  let ticking = false;
+
+  function onScroll() {
+    const scrollY = window.pageYOffset || document.documentElement.scrollTop;
+    const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+    const progress = docHeight > 0 ? Math.min(1, Math.max(0, scrollY / docHeight)) : 0;
+    const percent = Math.round(progress * 100);
+
+    // Update top progress bar
+    if (progressBar) {
+      progressBar.style.width = `${percent}%`;
+    }
+
+    // Update floating HUD visibility (show after 250px)
+    if (hudWidget) {
+      if (scrollY > 250) {
+        hudWidget.classList.add('is-visible');
+      } else {
+        hudWidget.classList.remove('is-visible');
+      }
+    }
+
+    // Update circular ring stroke
+    if (hudRingFill) {
+      const offset = circumference - progress * circumference;
+      hudRingFill.style.strokeDashoffset = offset;
+    }
+
+    // Update percentage text
+    if (hudPercentLabel) {
+      hudPercentLabel.textContent = `${percent}%`;
+    }
+
+    // Determine current section for HUD label
+    if (hudSectionLabel) {
+      let currentSection = sections[0].label;
+      const scrollMiddle = scrollY + window.innerHeight * 0.38;
+      for (let i = 0; i < sections.length; i++) {
+        const secEl = document.getElementById(sections[i].id);
+        if (secEl) {
+          const top = secEl.offsetTop;
+          if (scrollMiddle >= top) {
+            currentSection = sections[i].label;
+          }
+        }
+      }
+      hudSectionLabel.textContent = currentSection;
+    }
+
+    // Parallax Star Rotation (subtle celestial blueprint effect)
+    const angle = (scrollY * 0.12) % 360;
+    document.documentElement.style.setProperty('--scroll-rotation', `${angle}deg`);
+
+    ticking = false;
+  }
+
+  window.addEventListener('scroll', () => {
+    if (!ticking) {
+      window.requestAnimationFrame(onScroll);
+      ticking = true;
+    }
+  }, { passive: true });
+
+  if (btnScrollTop) {
+    btnScrollTop.addEventListener('click', (e) => {
+      e.preventDefault();
+      window.scrollTo({
+        top: 0,
+        behavior: 'smooth'
+      });
+    });
+  }
+
+  onScroll();
 }
 
 /* 9. Contact Form Handler & Copy Button */
