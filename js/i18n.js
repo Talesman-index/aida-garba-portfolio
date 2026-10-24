@@ -151,7 +151,7 @@ export const translations = {
     // Footer & Banner
     'footer.cta_heading': 'Let’s Build Something Good.',
     'footer.cta_sub': 'Have an opportunity, an idea, or just want to connect? I’d love to hear from you.',
-    'footer.cta_btn': 'DON’T BE A STRANGER →',
+    'footer.cta_btn': 'DON’T BE A STRANGER',
     'footer.brand_desc': 'Student-athlete exploring Data, AI & Product — learning, building, and probably overthinking something interesting.',
     'footer.col_nav': 'Navigation',
     'footer.col_contact': 'Direct Contact',
@@ -162,7 +162,7 @@ export const translations = {
     'cs.nav_experience': 'Experience',
     'cs.nav_contact': 'Contact',
     'cs.nav_resume': 'Resume',
-    'cs.live_project': 'Visit Live Project ↗',
+    'cs.live_project': 'Visit Live Project',
     'cs.back_projects': 'Back to Projects',
     'cs.tab_overview': 'Overview',
     'cs.tab_problem': 'Problem',
@@ -170,7 +170,7 @@ export const translations = {
     'cs.tab_process': 'Process',
     'cs.tab_solution': 'Solution',
     'cs.tab_results': 'Results & Learnings',
-    'cs.back_all': '← Back to All Projects'
+    'cs.back_all': 'Back to All Projects'
   },
 
   fr: {
@@ -320,7 +320,7 @@ export const translations = {
     // Footer & Banner
     'footer.cta_heading': 'Construisons Quelque Chose de Grand.',
     'footer.cta_sub': 'Vous avez une opportunité, une idée ou simplement envie d\'échanger ? J\'aimerais beaucoup vous lire.',
-    'footer.cta_btn': 'FAISONS CONNAISSANCE →',
+    'footer.cta_btn': 'FAISONS CONNAISSANCE',
     'footer.brand_desc': 'Athlète-étudiante explorant la Data, l\'IA et le Produit — apprendre, construire et réfléchir avec passion.',
     'footer.col_nav': 'Navigation',
     'footer.col_contact': 'Contact Direct',
@@ -331,7 +331,7 @@ export const translations = {
     'cs.nav_experience': 'Expérience',
     'cs.nav_contact': 'Contact',
     'cs.nav_resume': 'CV',
-    'cs.live_project': 'Voir le projet en ligne ↗',
+    'cs.live_project': 'Voir le projet en ligne',
     'cs.back_projects': 'Retour aux projets',
     'cs.tab_overview': 'Aperçu',
     'cs.tab_problem': 'Problème',
@@ -339,7 +339,7 @@ export const translations = {
     'cs.tab_process': 'Méthodologie',
     'cs.tab_solution': 'Solution',
     'cs.tab_results': 'Résultats & Enseignements',
-    'cs.back_all': '← Retour à tous les projets'
+    'cs.back_all': 'Retour à tous les projets'
   }
 };
 
@@ -378,8 +378,8 @@ export function setLanguage(lang) {
     const translation = translations[lang]?.[key];
     if (translation) {
       // Check if element has nested SVG or child elements to preserve
-      const preserveIcon = el.querySelector('svg');
-      if (preserveIcon && el.childNodes.length > 1) {
+      const preserveChild = el.querySelector('svg, span');
+      if (preserveChild && el.childNodes.length > 1) {
         // Find text node and update it
         let updated = false;
         el.childNodes.forEach((node) => {
