@@ -18,7 +18,6 @@ document.addEventListener('DOMContentLoaded', () => {
   initMagneticButtons();
   init3DHeroTilt();
   initPhotoGallery();
-  initProcessScrollLightUp();
   initScrollProgressAndHUD();
 });
 
@@ -643,58 +642,6 @@ function initPhotoGallery() {
       }
     });
   });
-}
-
-/* 8b. Subtle Light-Up Animation for Process Steps on Scroll */
-function initProcessScrollLightUp() {
-  const steps = document.querySelectorAll('.process-pipeline-card, .process-step-item');
-  const processSection = document.getElementById('process');
-  if (!steps.length || !processSection) return;
-
-  let ticking = false;
-
-  function updateProcessSteps() {
-    const windowHeight = window.innerHeight;
-    // Focal line: ~45% down the viewport (where users' eyes naturally focus while scrolling)
-    const focalY = windowHeight * 0.45;
-
-    let closestStep = null;
-    let closestDistance = Infinity;
-
-    steps.forEach((step) => {
-      const rect = step.getBoundingClientRect();
-      const stepCenter = rect.top + rect.height / 2;
-      const dist = Math.abs(stepCenter - focalY);
-
-      // Only activate when step is within the active reading viewport zone
-      if (rect.bottom > 80 && rect.top < windowHeight - 80) {
-        if (dist < closestDistance) {
-          closestDistance = dist;
-          closestStep = step;
-        }
-      }
-    });
-
-    steps.forEach((step) => {
-      if (step === closestStep) {
-        step.classList.add('is-lit');
-      } else {
-        step.classList.remove('is-lit');
-      }
-    });
-
-    ticking = false;
-  }
-
-  window.addEventListener('scroll', () => {
-    if (!ticking) {
-      window.requestAnimationFrame(updateProcessSteps);
-      ticking = true;
-    }
-  }, { passive: true });
-
-  window.addEventListener('resize', updateProcessSteps);
-  updateProcessSteps();
 }
 
 /* 8c. Dynamic Blueprint Scroll Progress Meter & Floating Quick HUD */
