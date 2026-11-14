@@ -1,0 +1,6 @@
+# robots.txt for Aïda Garba Portfolio
+User-agent: *
+Allow: /
+
+# Sitemap
+Sitemap: https://aida-garba-portfolio.vercel.app/sitemap.xml

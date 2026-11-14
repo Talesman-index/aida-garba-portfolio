@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:xhtml="http://www.w3.org/1999/xhtml">
+  <!-- Homepage -->
+  <url>
+    <loc>https://aida-garba-portfolio.vercel.app/</loc>
+    <lastmod>2026-11-14</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://aida-garba-portfolio.vercel.app/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://aida-garba-portfolio.vercel.app/"/>
+  </url>
+
+  <!-- Project: Livingstone Digital Timesheet -->
+  <url>
+    <loc>https://aida-garba-portfolio.vercel.app/projects/livingstone-timesheet.html</loc>
+    <lastmod>2026-11-14</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.85</priority>
+  </url>
+
+  <!-- Project: Shalom Recovery AI -->
+  <url>
+    <loc>https://aida-garba-portfolio.vercel.app/projects/shalom-recovery-ai.html</loc>
+    <lastmod>2026-11-14</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.85</priority>
+  </url>
+
+  <!-- Project: Evida Campus Platform -->
+  <url>
+    <loc>https://aida-garba-portfolio.vercel.app/projects/evida.html</loc>
+    <lastmod>2026-11-14</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.85</priority>
+  </url>
+
+  <!-- Project: Mastercard Inclusive Growth Challenge -->
+  <url>
+    <loc>https://aida-garba-portfolio.vercel.app/projects/mastercard-challenge.html</loc>
+    <lastmod>2026-11-14</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.85</priority>
+  </url>
+
+  <!-- Project: Chinook SQL Analysis -->
+  <url>
+    <loc>https://aida-garba-portfolio.vercel.app/projects/chinook-sql.html</loc>
+    <lastmod>2026-11-14</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.80</priority>
+  </url>
+
+  <!-- Project: Summer STEM Camp -->
+  <url>
+    <loc>https://aida-garba-portfolio.vercel.app/projects/stem-camp.html</loc>
+    <lastmod>2026-11-14</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.80</priority>
+  </url>
+
+  <!-- Project: LC STEM Showcase -->
+  <url>
+    <loc>https://aida-garba-portfolio.vercel.app/projects/lc-stem.html</loc>
+    <lastmod>2026-11-14</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.80</priority>
+  </url>
+
+  <!-- Project: Wonder Draw -->
+  <url>
+    <loc>https://aida-garba-portfolio.vercel.app/projects/wonder-draw.html</loc>
+    <lastmod>2026-11-14</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.75</priority>
+  </url>
+</urlset>
