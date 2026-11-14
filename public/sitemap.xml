@@ -3,17 +3,17 @@
         xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <!-- Homepage -->
   <url>
-    <loc>https://aida-garba-portfolio.vercel.app/</loc>
+    <loc>https://www.aidagarba.com/</loc>
     <lastmod>2026-11-14</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
-    <xhtml:link rel="alternate" hreflang="en" href="https://aida-garba-portfolio.vercel.app/"/>
-    <xhtml:link rel="alternate" hreflang="fr" href="https://aida-garba-portfolio.vercel.app/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.aidagarba.com/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.aidagarba.com/"/>
   </url>
 
   <!-- Project: Livingstone Digital Timesheet -->
   <url>
-    <loc>https://aida-garba-portfolio.vercel.app/projects/livingstone-timesheet.html</loc>
+    <loc>https://www.aidagarba.com/projects/livingstone-timesheet.html</loc>
     <lastmod>2026-11-14</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.85</priority>
@@ -21,7 +21,7 @@
 
   <!-- Project: Shalom Recovery AI -->
   <url>
-    <loc>https://aida-garba-portfolio.vercel.app/projects/shalom-recovery-ai.html</loc>
+    <loc>https://www.aidagarba.com/projects/shalom-recovery-ai.html</loc>
     <lastmod>2026-11-14</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.85</priority>
@@ -29,7 +29,7 @@
 
   <!-- Project: Evida Campus Platform -->
   <url>
-    <loc>https://aida-garba-portfolio.vercel.app/projects/evida.html</loc>
+    <loc>https://www.aidagarba.com/projects/evida.html</loc>
     <lastmod>2026-11-14</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.85</priority>
@@ -37,7 +37,7 @@
 
   <!-- Project: Mastercard Inclusive Growth Challenge -->
   <url>
-    <loc>https://aida-garba-portfolio.vercel.app/projects/mastercard-challenge.html</loc>
+    <loc>https://www.aidagarba.com/projects/mastercard-challenge.html</loc>
     <lastmod>2026-11-14</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.85</priority>
@@ -45,7 +45,7 @@
 
   <!-- Project: Chinook SQL Analysis -->
   <url>
-    <loc>https://aida-garba-portfolio.vercel.app/projects/chinook-sql.html</loc>
+    <loc>https://www.aidagarba.com/projects/chinook-sql.html</loc>
     <lastmod>2026-11-14</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.80</priority>
@@ -53,7 +53,7 @@
 
   <!-- Project: Summer STEM Camp -->
   <url>
-    <loc>https://aida-garba-portfolio.vercel.app/projects/stem-camp.html</loc>
+    <loc>https://www.aidagarba.com/projects/stem-camp.html</loc>
     <lastmod>2026-11-14</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.80</priority>
@@ -61,7 +61,7 @@
 
   <!-- Project: LC STEM Showcase -->
   <url>
-    <loc>https://aida-garba-portfolio.vercel.app/projects/lc-stem.html</loc>
+    <loc>https://www.aidagarba.com/projects/lc-stem.html</loc>
     <lastmod>2026-11-14</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.80</priority>
@@ -69,7 +69,7 @@
 
   <!-- Project: Wonder Draw -->
   <url>
-    <loc>https://aida-garba-portfolio.vercel.app/projects/wonder-draw.html</loc>
+    <loc>https://www.aidagarba.com/projects/wonder-draw.html</loc>
     <lastmod>2026-11-14</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.75</priority>
